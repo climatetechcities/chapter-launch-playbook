@@ -1,0 +1,64 @@
+/* Editorial tokens from `theme.mjs scaffold editorial --redesign restyle`, with the theme's colour roles
+   filled from Climate Tech Cities' own palette (DESIGN-climate-tech-cities.md). Only the colours are CTC's;
+   type, rules, radius and motion are Editorial's. */
+:root {
+  color-scheme: light;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-body: 1.125rem; --text-label: 0.9375rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-hero: clamp(3rem, 5.6vw + 0.5rem, 6rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-title-l: clamp(1.5rem, 1vw + 1rem, 2.125rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1280px; --gutter: 5vw; --gap-columns: 40px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+
+  /* ---- Editorial roles, CTC colours ---- */
+  --color-paper: #fefefd;          /* CTC paper */
+  --color-paper-2: #f5f4e9;        /* CTC cream: wells, footer, callouts */
+  --color-paper-3: #e4e4dc;
+  --color-ink: #25331a;            /* CTC olive ink: heads, body, the ink band, the primary button */
+  --color-ink-2: #25331a;
+  --color-muted: #55554e;          /* CTC slate; also every field edge (3:1 on paper) */
+  --color-rule: #e4e4dc;           /* hairlines */
+  --color-rule-2: #9b9b94;         /* CTC stone: under table heads */
+  --color-accent: #afd98f;         /* CTC meadow, the one printer's green; olive text on it is 8.4:1 */
+  --color-accent-ink: #25331a;
+  --color-focus: #25331a;
+  --color-lavender: #e2bdff;       /* CTC accent: only on the ink band and prompt blocks */
+  --color-coral: #ef653a;          /* Claude's work, and nothing else */
+  --color-coral-deep: #c24d1c;     /* coral under paper text */
+  --color-water: #cfe3ec;
+  --color-leaf: #d1ecbc;
+
+  /* derived, still CTC */
+  --color-on-ink: var(--color-paper);
+  --color-on-ink-muted: color-mix(in oklab, var(--color-paper) 74%, var(--color-ink));
+  --color-rule-on-ink: color-mix(in oklab, var(--color-paper) 22%, var(--color-ink));
+  --color-focus-on-ink: var(--color-lavender);
+  --color-scrim: color-mix(in oklab, var(--color-ink) 62%, transparent);
+  --color-coral-wash: color-mix(in oklab, var(--color-coral) 8%, var(--color-paper));
+  --color-coral-tint: color-mix(in oklab, var(--color-coral) 14%, var(--color-paper));
+  --color-coral-line: color-mix(in oklab, var(--color-coral) 45%, var(--color-paper));
+  --color-fade: var(--color-ink);  /* the mask colour on a table that scrolls sideways */
+
+  /* app colours, kept at their values: file-type badges and the spreadsheet viewer */
+  --color-app-excel: #1d6f42;
+  --color-app-word: #2b579a;
+  --color-viewer-desk: #e8e8e3;
+  --color-viewer-tabs: #f3f3f0;
+  --color-viewer-sheet: var(--color-paper);  /* was #fff, tinted to CTC paper */
+
+  --font-display: "Bricolage Grotesque", ui-sans-serif, sans-serif;
+  --font-body: "Source Serif 4", ui-serif, Georgia, serif;
+  --font-mono: "Geist Mono", ui-monospace, Menlo, Consolas, monospace;  /* prompts and filenames only */
+  --fvs-display: "wdth" 75, "opsz" 96;
+  --fvs-label: "wdth" 100, "opsz" 12;
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-heavy: 4px; --shadow-card: none;
+  --tracking-display: -0.012em; --display-weight: 800;
+
+  --top-h: 64px;
+  --side-w: 236px;
+}
