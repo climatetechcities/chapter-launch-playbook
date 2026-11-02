@@ -1,16 +1,16 @@
 ---
-version: 16.0.0
+version: 16.1.0
 name: CTC-Playbook-design
 description: The Chapter Launch Playbook's design system. Structure, type, shape and components follow Clay (DESIGN-clay.md); every colour is climatetechcities.com's own (DESIGN-climate-tech-cities.md). Warm paper canvas, filled olive primary buttons, Inter set at weight 500 with negative tracking for display, a 12/16/24px corner scale, and six saturated CTC colours cycled as feature cards. Flat, no shadows, warm cream footer.
 
 colors:
   # Clay role: CTC colour (CTC token name)
   primary: "#25331a"            # olive ink, CTC's "black"
-  primary-active: "#000000"     # CTC safeDarkAccent
+  primary-active: "#233b10"     # CTC's shape-block green, a step deeper than the ink
   on-primary: "#fefefd"         # paper
-  ink: "#000000"                # headlines, as on CTC's white-bold sections
+  ink: "#25331a"                # headlines in CTC olive, as on CTC's cream sections
   body: "#25331a"               # running text in olive
-  muted: "#55554e"              # slate: sub-heads, captions, uppercase labels
+  muted: "#55554e"              # slate: sub-heads, captions, labels
   muted-soft: "#9b9b94"         # stone: decorative numerals only, fails AA as text
   hairline: "#e4e4dc"
   canvas: "#fefefd"             # paper, CTC's "white"
@@ -41,7 +41,7 @@ typography:
   body-md:     { fontFamily: Inter, fontSize: 16px, fontWeight: 400, lineHeight: 1.55, letterSpacing: 0 }
   body-sm:     { fontFamily: Inter, fontSize: 14px, fontWeight: 400, lineHeight: 1.55, letterSpacing: 0 }
   caption:     { fontFamily: Inter, fontSize: 13px, fontWeight: 500, lineHeight: 1.4,  letterSpacing: 0 }       # badges
-  caption-uppercase: { fontFamily: Inter, fontSize: 12px, fontWeight: 600, lineHeight: 1.4, letterSpacing: 1.5px }  # eyebrows, sidebar groups, table heads
+  label:       { fontFamily: Inter, fontSize: 13px to 14px, fontWeight: 500 to 600, lineHeight: 1.4, letterSpacing: 0, case: sentence }  # page labels, sidebar groups, table heads
   button:      { fontFamily: Inter, fontSize: 14px, fontWeight: 600, lineHeight: 1,    letterSpacing: 0 }
   nav-link:    { fontFamily: Inter, fontSize: 14px, fontWeight: 500, lineHeight: 1.4,  letterSpacing: 0 }
   mono:        { fontFamily: Geist Mono, fontSize: 13.5px, fontWeight: 400 }                                   # prompts, filenames
@@ -79,8 +79,8 @@ CTC's palette was extracted from the site's own stylesheets on 2026-09-26 and is
 | Clay role | Clay hex | CTC colour used | Why |
 |---|---|---|---|
 | primary (buttons) | `#0a0a0a` | olive `#25331a` | CTC's declared "black" |
-| primary-active | `#1f1f1f` | true black `#000000` | CTC's safeDarkAccent |
-| ink (headlines) | `#0a0a0a` | `#000000` | CTC's white-bold sections set headings in pure black |
+| primary-active | `#1f1f1f` | `#233b10` | CTC's shape-block green |
+| ink (headlines) | `#0a0a0a` | olive `#25331a` | CTC's cream sections set headings in olive (no pure black, per Hallmark) |
 | body | `#3a3a3a` | olive `#25331a` | CTC sets prose in its ink |
 | muted | `#6a6a6a` | slate `#55554e` | CTC's secondary text |
 | canvas | `#fffaf0` | paper `#fefefd` | CTC's warm white; long reading pages |
@@ -96,7 +96,7 @@ Contrast, checked: black on coral 6.6:1 (so coral cards take black text, never w
 
 ## Typography
 
-Inter throughout. Clay's display face, Plain Black, is licensed to Clay; its own documentation names Inter at weight 500 with negative tracking as the substitute, and that is what is used. Display sizes are always weight 500, never bolder, with Clay's negative letter-spacing. Titles are 600, body 400, letter-spacing 0. Uppercase is used only for 12px captions at 1.5px tracking. Geist Mono stays for prompts and filenames.
+Inter throughout. Clay's display face, Plain Black, is licensed to Clay; its own documentation names Inter at weight 500 with negative tracking as the substitute, and that is what is used. Display sizes are always weight 500, never bolder, with Clay's negative letter-spacing. Titles are 600, body 400, letter-spacing 0. Labels (page labels, sidebar groups, table heads) are a step smaller in sentence case with no letter-spacing; nothing is set in tracked capitals. A page label that is not a step sits under its title. Geist Mono stays for prompts and filenames.
 
 The previous skin's Catamaran and Gantari files are still in `assets/fonts/` but no longer loaded.
 
@@ -122,6 +122,10 @@ Corners: 12px buttons, inputs and nav items; 16px content cards, prompt blocks, 
 - Don't put white text on coral; use black.
 - Don't add shadows, or a seventh card colour.
 - Don't use a dark footer.
+
+## Hallmark polish (16.1.0)
+
+On 2026-11-02 the site was checked with Hallmark (github.com/nutlope/hallmark) and polished: the system and layouts stayed, and only what its checker flags changed. Headings went from pure black to olive; uppercase tracked labels became sentence case; every colour, including the spreadsheet colour keys, goes through a token; content is visible before the script runs; sideways overflow is clipped rather than hidden; pressed and disabled states exist; the home sample-issue card lost its emoji. Still open by choice: Inter as the display face (this system's face) and the emoji in the Weekly cycle sample issue (what the newsletter writes). The restyle and full-redesign samples it was compared with are on the `hallmark-samples` branch.
 
 ## Known gaps
 

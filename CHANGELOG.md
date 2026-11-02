@@ -2,6 +2,18 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 16.1.0
+
+A Hallmark polish (github.com/nutlope/hallmark): the Clay + CTC look and every layout stay; only what Hallmark's checker flags changed. Chosen over a restyle and a full redesign, which stay on the `hallmark-samples` branch.
+
+- Headings are CTC olive instead of pure black; the button's pressed colour is CTC's deeper green.
+- Labels that were 12px uppercase with wide letter-spacing (page labels, sidebar groups, the city field, table heads, file badges, the weekly loop's roles) are sentence case with no letter-spacing.
+- "Reference" and "Optional, in your own time" sit under the Partners, Help and Downloads titles instead of above them.
+- Content is visible before the page script runs, and without it.
+- Every colour goes through a token, including the spreadsheet colour keys (now classes, same fills) and the file viewer's Excel colours.
+- Sideways overflow is clipped rather than hidden, grid columns cannot be pushed wider by their content, and buttons have pressed and disabled states.
+- The home page's sample-issue card drops the emoji before its four events. The full sample issue on the Weekly cycle page keeps them, since the newsletter writes them.
+
 ## 16.0.0
 
 New skin: Clay's design system, in Climate Tech Cities' colours. Content, pages and links are unchanged.

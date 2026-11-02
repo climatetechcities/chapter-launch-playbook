@@ -71,7 +71,8 @@ paper text); lavender is the accent on dark surfaces.
 Type is Inter (Clay's documented substitute for its licensed Plain Black),
 from Google Fonts like Geist Mono, which stays for prompts and filenames.
 Display 500, titles 600, body 400 at 16px, letter-spacing 0 except the
-display sizes and the 12px uppercase captions. No middle dots and no em
+display sizes. Headings are olive, and labels are sentence case with no
+letter-spacing (a Hallmark polish, 16.1.0). No middle dots and no em
 dashes anywhere.
 
 ## Standing rules
