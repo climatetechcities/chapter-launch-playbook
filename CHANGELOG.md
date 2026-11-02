@@ -2,6 +2,19 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 16.0.0
+
+New skin: Clay's design system, in Climate Tech Cities' colours. Content, pages and links are unchanged.
+
+- **Colour.** Every colour is still CTC's own. Clay's roles are filled from CTC's palette (olive for Clay's near-black and its deep featured teal, cream for its card cream, coral, lavender, meadow and water for its five saturated card colours). The mapping and contrast checks are in `DESIGN.md`.
+- **Type.** Inter replaces Catamaran and Gantari. Display sizes are weight 500 with Clay's negative tracking (72px home headline, 40px page titles, 32px section heads); body is 16px at 400 with no letter-spacing; labels are 12px uppercase at 1.5px.
+- **Shape.** Clay's corner scale: 12px buttons, inputs and nav items, 16px cards, callouts and prompt blocks, 24px feature cards and the viewer. No shadows.
+- **Buttons.** Primary is filled olive, 44px tall (was a 2px outline). Secondary is a paper button with a hairline outline. On the dark card, a paper button.
+- **Home.** Paper hero on a 7/5 grid with the sample issue on a lavender card; the overview and five steps are six saturated feature cards (coral, olive, lavender, meadow, water, cream); Partners is an uncoloured card below them; the weekly loop is an olive card inside the margin rather than a full-width band.
+- **Docs pages.** The current page in the sidebar and the top nav is a cream tab instead of an underline; callouts are cream cards without the left rule; the plan table sits in a rounded hairline frame.
+- **Kept.** Coral for Claude and olive for you in badges, swatches and the sample issue; the spreadsheet colour keys; Geist Mono for prompts.
+- New files: `DESIGN.md` (the merged system) and `DESIGN-clay.md` (Clay's source system).
+
 ## 15.0.3
 
 Every spreadsheet sample whose colours mean something now has a key under it, one colour per line, with the plugin's own fills and meanings:

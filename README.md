@@ -52,34 +52,27 @@ retired `/apply/` address land on the Two-week overview.
 
 ## Design
 
-The visual language of climatetechcities.com, extracted element by element
-from that site's own stylesheets into `DESIGN-climate-tech-cities.md` and
-applied to the playbook's docs layout. Content on paper `#fefefd`, cream
-`#f5f4e9` for bands, callouts, the city field and the footer. Headings pure
-black, as in CTC's white-bold sections; prose in the olive ink `#25331a`.
-Coral `#ef653a` marks Claude's work and the install screenshot annotations,
-darkened to `#c24d1c` under paper text; lavender `#e2bdff` for the copy
-buttons on the dark prompt bands.
+Two sources, one rule each, written up in `DESIGN.md`. The structure is
+Clay's (`DESIGN-clay.md`): filled primary buttons 44px tall with 12px
+corners, display type at weight 500 with negative tracking, a 12/16/24px
+corner scale, saturated single-colour feature cards cycled down the page,
+flat depth with no shadows, a warm cream footer. Every colour is
+climatetechcities.com's own (`DESIGN-climate-tech-cities.md`, extracted from
+that site's stylesheets on 2026-09-26): each Clay colour role is filled with
+the CTC colour that plays the same part, and no Clay hex is used.
 
-Type is Catamaran, self-hosted from `assets/fonts/` under the SIL Open Font
-License, standing in for Halyard Display, which is licensed to the CTC domain.
-It was chosen by measuring 60 Google fonts against Halyard on CTC's own page;
-its vertical metrics are overridden to Halyard's so text sits the same way.
-Its figures are old-style, so the digits 0-9 come from Gantari (also OFL,
-subset to ten glyphs), whose lining digits are the closest to Halyard's.
-Weights: prose 400, page titles 500, section heads 600, step titles, card
-titles and labels 700. Letter-spacing `.03em` on prose, `.04em` on ledes,
-`.015em` on headings. No middle dots and no em dashes anywhere.
+Paper `#fefefd` canvas, cream `#f5f4e9` for callouts, the city field, the
+active nav item and the footer. Headings pure black, prose olive `#25331a`,
+primary buttons olive. The overview and five steps are six feature cards in
+coral, olive, lavender, meadow, water and cream; the weekly loop is an olive
+featured card. Coral still marks Claude's work (darkened to `#c24d1c` under
+paper text); lavender is the accent on dark surfaces.
 
-Corners come from a scale rather than CTC's literal square, which read
-harsh: circles for markers (CTC's own icon vocabulary), 12px for cards and
-blocks, 8px for buttons and inputs, 4px for badges, and CTC's 1px pill for
-the secondary Preview buttons. Primary buttons are a 2px outline that fills
-on hover. The sidebar, city field included, is identical on every page so it
-never shifts. The only shadow is the one the site owner's chapter grid uses on its
-cards, `0 1px 4px rgba(37,51,26,.06)`. The current step is bold and
-underlined, as CTC marks its active nav item. The help accordion uses CTC's
-dividers with a left chevron. Geist Mono is kept for prompts and filenames.
+Type is Inter (Clay's documented substitute for its licensed Plain Black),
+from Google Fonts like Geist Mono, which stays for prompts and filenames.
+Display 500, titles 600, body 400 at 16px, letter-spacing 0 except the
+display sizes and the 12px uppercase captions. No middle dots and no em
+dashes anywhere.
 
 ## Standing rules
 
@@ -112,8 +105,9 @@ dividers with a left chevron. Geist Mono is kept for prompts and filenames.
   framework, no build step: the shell (top bar, sidebar, footer, viewer) is
   written into each file, so a change to the navigation is a change to all
   ten
-- `DESIGN-climate-tech-cities.md`, the design system the skin follows,
-  extracted from climatetechcities.com on 2026-09-26
+- `DESIGN.md`, the design system the skin follows: Clay's structure with
+  CTC's colours. `DESIGN-clay.md` and `DESIGN-climate-tech-cities.md`
+  (extracted from climatetechcities.com on 2026-09-26) are its two sources
 - `assets/site.css`, `assets/site.js`, shared by every page. Each page sets
   `window.ROOT` (`""` at the root, `"../"` one level down) before loading the
   script so asset paths resolve

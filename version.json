@@ -1,6 +1,6 @@
 {
-  "version": "15.0.3",
-  "date": "2026-10-01",
+  "version": "16.0.0",
+  "date": "2026-11-02",
   "toolkit": {
     "packages": {
       "ctc-chapter-setup": "1.6.0",
