@@ -1,5 +1,5 @@
 ---
-version: 16.2.0
+version: 16.3.0
 name: CTC-Playbook-design
 description: The Chapter Launch Playbook's design system. Structure, type, shape and components follow Clay (DESIGN-clay.md); every colour is climatetechcities.com's own (DESIGN-climate-tech-cities.md). Warm paper canvas, filled olive primary buttons, Inter set at weight 500 with negative tracking for display, a 12/16/24px corner scale, and six saturated CTC colours cycled as feature cards. Flat, no shadows, warm cream footer.
 
@@ -122,6 +122,10 @@ Corners: 12px buttons, inputs and nav items; 16px content cards, prompt blocks, 
 - Don't put white text on coral; use black.
 - Don't add shadows, or a seventh card colour.
 - Don't use a dark footer.
+
+## Step numbers (16.3.0)
+
+Steps are numbered plainly: 1 to 5 in the sidebar, the home tiles and the Previous and Next boxes, and "Step 2 of 5" on each page. No leading zeros.
 
 ## Hallmark polish (16.1.0)
 

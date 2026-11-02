@@ -1,6 +1,6 @@
 # CTC Chapter Launch Playbook, companion site
 
-Live: **https://joshuakeum9-cell.github.io/chapter-launch-playbook/**
+Live: **https://climatetechcities.github.io/chapter-launch-playbook/**
 
 This is the only live site. It replaces two earlier repositories,
 `ctc-chapter-launch-workflow` and `ctc-chapter-launch-workflow-v2`, both
@@ -30,18 +30,18 @@ no backend, no account connection, and stores nothing.
 Ten static pages. The six steps are numbered in the order a lead works
 through them and carry a previous and next pair. Partners and the two
 reference pages are not numbered: the newsletter does not depend on the
-partner map. The former step 01, Is this you?, was recruitment framing and
+partner map. The former step 1, Is this you?, was recruitment framing and
 was cut in v13; its definition of done lives on the Two-week overview page.
 
 | Page | Path | Holds |
 |---|---|---|
 | Home | `/` | The numbered map, the counts, one statement |
 | Overview | `/two-weeks/` | The plan table and what done looks like |
-| 01 Logo | `/logo/` | The ChatGPT prompt, the five reference files, the sign-off |
-| 02 Install | `/install/` | The three packages, the extension, the verify prompt |
-| 03 Set up | `/set-up/` | The eight questions, the two documents |
-| 04 Newsletter | `/newsletter/` | Source list (`#sources`), opportunities queue (`#opportunities`) |
-| 05 Weekly cycle | `/weekly-cycle/` | Collect, cut, write, send (`#collect` `#cut` `#write` `#sample` `#send`) |
+| 1 Logo | `/logo/` | The ChatGPT prompt, the five reference files, the sign-off |
+| 2 Install | `/install/` | The three packages, the extension, the verify prompt |
+| 3 Set up | `/set-up/` | The eight questions, the two documents |
+| 4 Newsletter | `/newsletter/` | Source list (`#sources`), opportunities queue (`#opportunities`) |
+| 5 Weekly cycle | `/weekly-cycle/` | Collect, cut, write, send (`#collect` `#cut` `#write` `#sample` `#send`) |
 | Partners | `/partners/` | City resources, partner map, outreach. Optional |
 | Help | `/help/` | Troubleshooting |
 | Downloads | `/downloads/` | Packages and the nine samples |

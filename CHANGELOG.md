@@ -2,6 +2,10 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 16.3.0
+
+Step numbers lose their leading zeros everywhere: the sidebar, the home tiles and the Previous and Next boxes read 1 to 5, the page labels read "Step 2 of 5, once", the overview reads "before step 1", and Downloads points to "2 Install". The site's own links (README, the Chapter Plan sample, the ctc-chapter-setup plugin) point at https://climatetechcities.github.io/chapter-launch-playbook/.
+
 ## 16.2.2
 
 The city logos and icons on the Logo page show with square corners, as the brand files are drawn, instead of being rounded to 12px by the page.
