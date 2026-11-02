@@ -480,7 +480,7 @@ figure.shot figcaption { font-size: 14px; line-height: 1.5; color: var(--muted);
 figure.shot figcaption b { color: var(--ink); font-weight: 700; }
 .steps a.go { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 figure.logo { margin: 0; }
-figure.logo img { border-radius: var(--r-md); width: 100%; height: auto; display: block; }
+figure.logo img { border-radius: 0; width: 100%; height: auto; display: block; }
 figure.logo figcaption { font-size: 14px; font-weight: 500; color: var(--muted); margin-top: 8px; }
 
 /* ---------- footer: Clay's warm footer, never dark ---------- */

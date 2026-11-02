@@ -2,6 +2,10 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 16.2.2
+
+The city logos and icons on the Logo page show with square corners, as the brand files are drawn, instead of being rounded to 12px by the page.
+
 ## 16.2.1
 
 Fixes the Steps button showing on desktop. It is the phone menu and belongs only under 900px wide, but 16.2.0's icon rule overrode its hidden state, so it appeared beside Downloads on every step page. It is hidden on desktop again; on phones it still opens the menu.
