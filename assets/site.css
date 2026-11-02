@@ -574,7 +574,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 }
 
 /* ---------- Regen Icons on controls ---------- */
-.copy-btn, .menu-btn { display: inline-flex; align-items: center; gap: 6px; }
+/* the Steps button keeps its own display rule: hidden on desktop, shown under 900px */
+.copy-btn { display: inline-flex; align-items: center; gap: 6px; }
 .copy-btn::before, .menu-btn::before, .acts .btn[data-file]::before, .acts a.btn[download]::before, #viewer-dl::before {
   content: ""; width: 16px; height: 16px; flex: 0 0 auto; background: currentColor;
   -webkit-mask: var(--ico) center / contain no-repeat; mask: var(--ico) center / contain no-repeat;

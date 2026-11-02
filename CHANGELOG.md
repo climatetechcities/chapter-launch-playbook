@@ -2,6 +2,10 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 16.2.1
+
+Fixes the Steps button showing on desktop. It is the phone menu and belongs only under 900px wide, but 16.2.0's icon rule overrode its hidden state, so it appeared beside Downloads on every step page. It is hidden on desktop again; on phones it still opens the menu.
+
 ## 16.2.0
 
 Iconography from Regen Icons (github.com/kazdenc/regen-icons, MIT), one outline set on a 24px grid in place of the hand-drawn marks and text glyphs.
