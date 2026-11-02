@@ -5,112 +5,133 @@
 <base href="../../../" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>[full] Install - CTC Chapter Launch Playbook</title>
+<meta name="description" content="What you install: three packages and a browser extension. A paid Claude account. No code." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="hallmark-samples/full/site.css" />
-<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
-<body>
+<body class="docs-page">
 <header class="top">
-  <div class="top-inner">
+  <div class="container top-inner">
     <a class="brand" href="hallmark-samples/full/">Climate Tech Cities <span class="thin">Chapter Launch Playbook</span></a>
-    <nav class="top-links">
+    <nav class="top-links" aria-label="Site">
       <button class="menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="side">Steps</button>
       <a href="downloads/">Downloads</a>
       <a href="help/">Help</a>
     </nav>
   </div>
 </header>
-<div class="shell">
+<div class="container shell">
   <aside class="side" id="side">
     <div class="cityfield">
       <label for="city">Your city</label>
       <input type="text" id="city" placeholder="Boston" autocomplete="off" />
       <p>Fills every prompt on the site. Carried in the link, never saved.</p>
     </div>
-    <p class="group">Start here</p>
-    <a href="two-weeks/"><span class="n"></span>Two-week overview</a>
-    <p class="group">Steps</p>
-    <a href="logo/"><span class="n">01</span>Logo</a>
-    <a class="here" href="hallmark-samples/full/install/"><span class="n">02</span>Install</a>
-    <a href="set-up/"><span class="n">03</span>Set up</a>
-    <a href="newsletter/"><span class="n">04</span>Newsletter</a>
-    <a href="weekly-cycle/"><span class="n">05</span>Weekly cycle</a>
-    <p class="group">Optional</p>
-    <a href="partners/"><span class="n"></span>Partners</a>
-    <p class="group">Reference</p>
-    <a href="help/"><span class="n"></span>Help</a>
-    <a href="downloads/"><span class="n"></span>Downloads</a>
+    <nav class="side-nav" aria-label="Guide">
+      <p class="group">Start here</p>
+      <a href="two-weeks/"><span class="n"></span>Two-week overview</a>
+      <p class="group">Steps</p>
+      <a href="logo/"><span class="n">01</span>Logo</a>
+      <a class="here" href="hallmark-samples/full/install/" aria-current="page"><span class="n">02</span>Install</a>
+      <a href="set-up/"><span class="n">03</span>Set up</a>
+      <a href="newsletter/"><span class="n">04</span>Newsletter</a>
+      <a href="weekly-cycle/"><span class="n">05</span>Weekly cycle</a>
+      <p class="group">Optional</p>
+      <a href="partners/"><span class="n"></span>Partners</a>
+      <p class="group">Reference</p>
+      <a href="help/"><span class="n"></span>Help</a>
+      <a href="downloads/"><span class="n"></span>Downloads</a>
+    </nav>
   </aside>
-  <main class="main">
-    <div class="body">
-    <p class="eyebrow"><span class="progress" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span><b>Step 02 of 05</b>, once</p>
-    <h1>What you install</h1>
-    <p class="lede">Three packages and a browser extension. A paid Claude account. No code.</p>
+  <main class="main" id="main">
+    <!-- Step header: the step number set as a folio at graphic scale beside the head, no eyebrow -->
+    <header class="step-head">
+      <h1>What you install</h1>
+      <p class="folio"><span class="visually-hidden">Step </span><b class="big">02</b><span class="of">of 05, once</span><span class="progress" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></p>
+      <p class="lede">Three packages and a browser extension. A paid Claude account. No code.</p>
+    </header>
 
-    <div class="card reveal" style="margin-top:24px;">
-      <div class="dl"><a class="name" href="downloads/ctc-chapter-setup-v1.6.0.zip" download>ctc-chapter-setup</a><span class="what">Eight questions in one message, then your settings file and plan.</span><span class="tag">Plugin, 1 skill</span></div>
-      <div class="dl"><a class="name" href="downloads/ctc-newsletter-v2.5.1.zip" download>ctc-newsletter</a><span class="what">Finds sources, collects events and reader submissions, builds the issue.</span><span class="tag">Plugin, 5 skills</span></div>
-      <div class="dl"><a class="name" href="downloads/ctc-partner-map-v2.2.0.zip" download>ctc-partner-map</a><span class="what">Researches your city, says who to approach, drafts the emails. Optional.</span><span class="tag">Plugin, 3 skills</span></div>
-      <div class="dl"><span class="name">Claude for Chrome</span><span class="what">Luma, Eventbrite and the submission form need a real browser.</span><span class="tag">Extension</span></div>
-    </div>
-    <div class="note"><strong>All three are plugins: a zip you upload once that brings its skills with it.</strong> Claude for Chrome is required for the weekly harvest. Download all three zips first; the steps below upload them.</div>
+    <!-- What you install, as a ruled spec table -->
+    <section class="kit reveal" aria-label="What you install">
+      <table class="spec">
+        <tbody>
+          <tr><th scope="row"><a class="name" href="downloads/ctc-chapter-setup-v1.6.0.zip" download>ctc-chapter-setup</a></th><td class="what">Eight questions in one message, then your settings file and plan.</td><td class="tag">Plugin, 1 skill</td></tr>
+          <tr><th scope="row"><a class="name" href="downloads/ctc-newsletter-v2.5.1.zip" download>ctc-newsletter</a></th><td class="what">Finds sources, collects events and reader submissions, builds the issue.</td><td class="tag">Plugin, 5 skills</td></tr>
+          <tr><th scope="row"><a class="name" href="downloads/ctc-partner-map-v2.2.0.zip" download>ctc-partner-map</a></th><td class="what">Researches your city, says who to approach, drafts the emails. Optional.</td><td class="tag">Plugin, 3 skills</td></tr>
+          <tr><th scope="row"><span class="name">Claude for Chrome</span></th><td class="what">Luma, Eventbrite and the submission form need a real browser.</td><td class="tag">Extension</td></tr>
+        </tbody>
+      </table>
+      <div class="note"><strong>All three are plugins: a zip you upload once that brings its skills with it.</strong> Claude for Chrome is required for the weekly harvest. Download all three zips first; the steps below upload them.</div>
+    </section>
 
-    <ol class="steps" style="margin-top:36px;">
+    <!-- The five install steps: a vertical run, text left, the screen right -->
+    <ol class="steps">
       <li>
-        <h2 class="sub">Turn on code execution</h2>
-        <p class="desc dim">Open <a class="go" href="https://claude.ai/settings/capabilities" target="_blank" rel="noopener">claude.ai/settings/capabilities</a>. Make sure <strong>Cloud code execution and file creation</strong> is on. Skills need it.</p>
+        <div class="step-text">
+          <h2 class="sub">Turn on code execution</h2>
+          <p class="desc">Open <a class="go" href="https://claude.ai/settings/capabilities" target="_blank" rel="noopener">claude.ai/settings/capabilities</a>. Make sure <strong>Cloud code execution and file creation</strong> is on. Skills need it.</p>
+        </div>
         <figure class="shot">
-          <img src="downloads/guide/code-exec.png" alt="" loading="lazy" />
+          <img src="downloads/guide/code-exec.png" alt="" width="835" height="654" fetchpriority="high" />
           <figcaption>Settings, then Capabilities. <b>1</b> The switch that has to be on. It usually already is.</figcaption>
         </figure>
       </li>
       <li>
-        <h2 class="sub">Upload the three plugins</h2>
-        <p class="desc dim">Open <a class="go" href="https://claude.ai/customize/plugins" target="_blank" rel="noopener">claude.ai/customize/plugins</a>. <strong>Add</strong>, then <strong>Upload plugin</strong>. Once each for ctc-chapter-setup, ctc-newsletter and ctc-partner-map.</p>
+        <div class="step-text">
+          <h2 class="sub">Upload the three plugins</h2>
+          <p class="desc">Open <a class="go" href="https://claude.ai/customize/plugins" target="_blank" rel="noopener">claude.ai/customize/plugins</a>. <strong>Add</strong>, then <strong>Upload plugin</strong>. Once each for ctc-chapter-setup, ctc-newsletter and ctc-partner-map.</p>
+        </div>
         <figure class="shot">
-          <img src="downloads/guide/plugins-add.png" alt="" loading="lazy" />
+          <img src="downloads/guide/plugins-add.png" alt="" width="658" height="400" loading="lazy" />
           <figcaption>Customize, then Plugins. <b>1</b> Add. <b>2</b> Upload plugin. Do it three times.</figcaption>
         </figure>
       </li>
       <li>
-        <h2 class="sub">Install Claude for Chrome</h2>
-        <p class="desc dim">Open <a class="go" href="https://claude.ai/chrome" target="_blank" rel="noopener">claude.ai/chrome</a>, then <strong>Add to Chrome</strong>. Sign in with the same account.</p>
+        <div class="step-text">
+          <h2 class="sub">Install Claude for Chrome</h2>
+          <p class="desc">Open <a class="go" href="https://claude.ai/chrome" target="_blank" rel="noopener">claude.ai/chrome</a>, then <strong>Add to Chrome</strong>. Sign in with the same account.</p>
+        </div>
         <figure class="shot">
-          <img src="downloads/guide/chrome.png" alt="" loading="lazy" />
+          <img src="downloads/guide/chrome.png" alt="" width="900" height="470" loading="lazy" />
           <figcaption>The one button. The weekly harvest reads Luma and Eventbrite through this.</figcaption>
         </figure>
       </li>
       <li>
-        <h2 class="sub">Create a project</h2>
-        <p class="desc dim">Open <a class="go" href="https://claude.ai/projects" target="_blank" rel="noopener">claude.ai/projects</a>, then <strong>New project</strong>. Name it Climate Tech [your city]. Everything from here on happens inside it.</p>
+        <div class="step-text">
+          <h2 class="sub">Create a project</h2>
+          <p class="desc">Open <a class="go" href="https://claude.ai/projects" target="_blank" rel="noopener">claude.ai/projects</a>, then <strong>New project</strong>. Name it Climate Tech [your city]. Everything from here on happens inside it.</p>
+        </div>
         <figure class="shot">
-          <img src="downloads/guide/project-new.png" alt="" loading="lazy" />
+          <img src="downloads/guide/project-new.png" alt="" width="524" height="344" loading="lazy" />
           <figcaption><b>1</b> The name. <b>2</b> Create. The second box can stay empty.</figcaption>
         </figure>
       </li>
-      <li>
-        <h2 class="sub">Check it worked</h2>
-        <div class="prompt-card reveal">
-          <div class="head"><span class="label">Verify install</span><button class="copy-btn" onclick="copyPrompt('p-verify', this)">Copy</button></div>
-          <pre class="prompt" id="p-verify">Which Climate Tech Cities skills do you have available?</pre>
+      <li class="check">
+        <div class="step-text">
+          <h2 class="sub">Check it worked</h2>
         </div>
-        <div class="note">Claude should name ctc-chapter-setup and the skills in the other two plugins. If not: check step 1, upload again, and start a fresh conversation. Skills do not appear mid-conversation.</div>
+        <div class="step-obj">
+          <div class="prompt-card reveal">
+            <div class="head"><span class="label">Verify install</span><button class="copy-btn" type="button" onclick="copyPrompt('p-verify', this)">Copy</button></div>
+            <pre class="prompt" id="p-verify">Which Climate Tech Cities skills do you have available?</pre>
+          </div>
+          <div class="note">Claude should name ctc-chapter-setup and the skills in the other two plugins. If not: check step 1, upload again, and start a fresh conversation. Skills do not appear mid-conversation.</div>
+        </div>
       </li>
     </ol>
     <nav class="pager" aria-label="Previous and next step">
       <a class="prev" href="logo/"><span class="k">Previous</span><span class="t"><span class="n">01</span>Logo</span></a>
       <a class="next" href="set-up/"><span class="k">Next</span><span class="t"><span class="n">03</span>Set up</span></a>
     </nav>
-    </div>
   </main>
 </div>
 
 <footer class="footer">
-  <div class="footer-inner">
-    <span>Chapter Launch Playbook for Climate Tech Cities. No accounts, no cookies, nothing saved.</span>
-    <span class="l"><a href="downloads/">Downloads</a><a href="help/">Help</a></span>
+  <div class="container footer-inner">
+    <p class="colophon">Chapter Launch Playbook for Climate Tech Cities. No accounts, no cookies, nothing saved.</p>
+    <nav class="l" aria-label="Footer"><a href="downloads/">Downloads</a><a href="help/">Help</a></nav>
   </div>
 </footer>
 
@@ -129,7 +150,7 @@
     <div class="modal-body" id="viewer-body" tabindex="0"></div>
     <div class="sheet-tabs" id="viewer-tabs" role="group" aria-label="Sheets" hidden></div>
     <div class="modal-foot">
-      <a class="btn" id="viewer-dl" href="#" download>Download the file</a>
+      <a class="btn btn--primary" id="viewer-dl" href="#" download>Download the file</a>
       <p class="note-sm" id="viewer-note"></p>
     </div>
   </div>
