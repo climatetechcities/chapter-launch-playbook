@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Playbook Full Redesign Sample</title>
+<meta name="description" content="Start a Climate Tech Chapter in Your City: two weeks of setup, then about one sitting a week." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* Hallmark · shape: Index-First (home), Narrative Workflow (install) · genre: editorial · theme: Editorial (dealt 1/3, seed step-by-step-field-guide-volunteers-d744) · redesign: full · job: start the guide
+ * hero: Counter (/), Banner (/install/) · nav: edge-aligned bar on the heavy rule · footer: colophon block · imagery: the product's own screenshots and the sample issue, no photographs · signature: the Portland sample issue set as a printed page under Claude's coral masthead
+ * axes: light/display-condensed/chromatic-green · posture: restrained · contrast: pass · fold: pass · draw: 595bda (took nav, footer and Counter hero; swapped Letter for Index-First and kept the one ink band with its figures, because the band and the counts are the page's own content) · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V4 · weakest: P, a playbook front page argues little; the contents table and the coral/olive attribution carry the argument (Claude does the lists, you write the words) */
+/* Hallmark · answered F4 · the lavender Copy button on the ink prompt block is the CTC prompt control, not a second page primary; the page primary stays the ink block */
+/* Hallmark · answered F15 · the hero pair keeps its own 96px two-track gap and the docs rail its 96px gutter, per layout.md 6; every content grid uses the 32px column gap */
+/* Hallmark · locked system set aside by request · the repo's DESIGN.md (Clay structure, CTC colours) is replaced by Editorial for this full-depth sample; only the CTC colours are kept, mapped to Editorial's roles in tokens.css */
+/* Hallmark · reworded the sample issue lines on / · dropped the leading emoji glyphs (lightning, beers, recycling, herb) before the four event names · 30a names an emoji as an icon */
+/* Hallmark · reworded "Step 02 of 05, once" on /install/ to a folio: "02" set large beside the head, then "of 05, once" (the word Step kept for screen readers) · 54 names the eyebrow */
+/* Hallmark · dropped the six Clay tile glyphs (aria-hidden SVG icons) on /, the hidden .arr arrow spans after link text, and the .reveal hide-at-rest · they carried no words; 3, 63 and 62 name them */
+/* Hallmark · moved "Everything except the logo runs in your own Claude account." from the hero to the standfirst of the contents · 58 holds the hero to the head, one sentence and the action */
+/* Hallmark tokens: Editorial (dealt 1/3), every colour filled from the Climate Tech Cities palette. */
+:root {
+  color-scheme: light;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-body: 1.125rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(3rem, 5.4vw + 1rem, 6rem);
+  --text-section: clamp(2.25rem, 2.6vw + 1rem, 3.75rem); --text-title: clamp(1.375rem, 0.9vw + 0.875rem, 1.875rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --top-h: 68px; --side-w: 272px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+
+  /* CTC palette in Editorial's roles */
+  --color-paper: #fefefd;      /* CTC paper */
+  --color-paper-2: #f5f4e9;    /* CTC cream: wells, footer, callouts */
+  --color-paper-3: #e4e4dc;
+  --color-ink: #25331a;        /* CTC olive ink */
+  --color-ink-2: #25331a;
+  --color-muted: #55554e;      /* CTC slate; also the field edge (stone is 2.8:1, under 3:1) */
+  --color-rule: #e4e4dc;
+  --color-rule-2: #9b9b94;     /* CTC stone */
+  --color-accent: #afd98f;     /* CTC meadow, the one printer's green */
+  --color-accent-ink: #25331a;
+  --color-focus: #25331a;
+  --color-lavender: #e2bdff;   /* ink band and prompt blocks only */
+  --color-coral: #ef653a;      /* Claude's work only */
+  --color-coral-deep: #c24d1c; /* Claude's work, under paper text */
+  --color-water: #cfe3ec;
+  --color-leaf: #d1ecbc;
+  --color-on-ink-muted: color-mix(in srgb, var(--color-paper) 74%, var(--color-ink));
+  --color-rule-on-ink: color-mix(in srgb, var(--color-paper) 22%, var(--color-ink));
+  --color-error: #c24d1c;
+  /* app colours inside the file viewer, kept as found */
+  --color-xlsx: #1d6f42;
+  --color-docx: #2b579a;
+  --color-sheet-bar: #f3f3f0;
+  --color-viewer: #e8e8e3;
+  --color-scrim: color-mix(in srgb, var(--color-ink) 60%, transparent);
+
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Source Serif 4", ui-serif, Georgia, serif;
+  --font-mono: "Geist Mono", ui-monospace, Menlo, Consolas, monospace;
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-heavy: 4px; --shadow-card: none;
+  --tracking-display: -0.012em; --display-weight: 800;
+}
+
+/* Hallmark base: what the Floor already decided. */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font-family: var(--font-body); font-size: var(--text-body); line-height: 1.55; font-optical-sizing: auto; font-variant-numeric: oldstyle-nums; -webkit-font-smoothing: antialiased; caret-color: var(--color-ink); }
+::selection { background: color-mix(in oklab, var(--color-accent) 45%, transparent); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; text-decoration-color: var(--color-rule-2); }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: var(--display-weight); font-variation-settings: "wdth" 75, "opsz" 96; font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1; color: var(--color-ink); font-variant-numeric: lining-nums tabular-nums; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+h1 { max-width: 20ch; font-size: var(--text-display); line-height: 0.92; } h2 { max-width: 30ch; font-size: var(--text-section); } h3 { max-width: 40ch; font-size: var(--text-title); }
+.lead { font-size: var(--text-lead); line-height: 1.4; max-width: 52ch; color: var(--color-ink); }
+p { margin: 0; text-wrap: pretty; }
+p:not([class]) { max-width: 65ch; }
+img, video { max-width: 100%; height: auto; display: block; }
+svg { display: block; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; color: inherit; }
+ol, ul { margin: 0; padding: 0; list-style: none; }
+figure { margin: 0; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+.num, .figure, td.num { font-variant-numeric: lining-nums tabular-nums; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+
+
+/* ---------- chrome: an edge-aligned bar resting on the heavy ink rule ---------- */
+.top { position: sticky; top: 0; z-index: var(--z-sticky-nav); background: var(--color-paper); border-bottom: var(--rule-heavy) solid var(--color-ink); }
+.top-inner { height: var(--top-h); display: flex; align-items: center; gap: var(--space-lg); }
+.brand { display: inline-flex; align-items: baseline; gap: var(--space-sm); min-width: 0; font: 800 1.625rem/1 var(--font-display); font-variation-settings: "wdth" 75, "opsz" 48; letter-spacing: var(--tracking-display); color: var(--color-ink); text-decoration: none; white-space: nowrap; }
+.brand .thin { font: 500 var(--text-sm)/1 var(--font-display); font-variation-settings: "opsz" 12; letter-spacing: 0; color: var(--color-muted); }
+.top-links { margin-left: auto; display: flex; align-items: center; gap: var(--space-lg); }
+.top-links a, .menu-btn { font: 500 var(--text-sm)/1 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-ink); }
+.top-links a { text-decoration: underline; text-decoration-color: var(--color-rule-2); text-underline-offset: 0.3em; padding-block: var(--space-xs); transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.top-links a:hover { text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; }
+.menu-btn { display: none; }
+
+/* ---------- controls ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 var(--space-lg); border: var(--rule-hair) solid var(--color-ink); border-radius: 0; background: transparent; color: var(--color-ink); font: 500 var(--text-md)/1 var(--font-display); font-variation-settings: "opsz" 12; white-space: nowrap; text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn--primary { background: var(--color-ink); color: var(--color-paper); }
+.btn--primary:hover { background: color-mix(in srgb, var(--color-ink) 86%, var(--color-paper)); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; transform: none; }
+.btn--on-ink { border-color: var(--color-paper); color: var(--color-paper); }
+.btn--on-ink:hover { background: var(--color-lavender); border-color: var(--color-lavender); color: var(--color-ink); }
+.btn--on-ink:focus-visible { outline-color: var(--color-lavender); }
+
+/* ---------- home hero: Counter. The head and its action left, the sample issue right ---------- */
+.hero { padding-block: var(--space-2xl) var(--space-3xl); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--space-3xl); align-items: center; min-height: calc(100dvh - var(--top-h) - var(--space-2xl) - var(--space-3xl)); }
+.hero h1 { max-width: 11ch; font-size: clamp(3rem, 6vw + 1rem, 6.75rem); }
+.hero .lead { margin-top: var(--space-lg); font-size: var(--text-2xl); line-height: 1.2; max-width: 24ch; }
+.hero-ctas { margin-top: var(--space-xl); display: flex; gap: var(--space-sm); flex-wrap: wrap; }
+
+/* the signature: the issue as a printed page, Claude's coral on the masthead */
+.issue-fig { min-width: 0; }
+.issue { display: flex; flex-direction: column; width: 100%; padding: 0; border: var(--rule-hair) solid var(--color-rule-2); border-radius: 0; background: var(--color-paper); color: var(--color-ink); text-align: left; cursor: pointer; transition: transform var(--dur-short) var(--ease-out); }
+.issue:hover { transform: translateY(-2px); }
+.issue:active { transform: translateY(0); }
+.issue:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
+.issue-mast { display: block; padding: var(--space-xl) var(--space-lg) var(--space-lg); background: var(--color-coral-deep); color: var(--color-paper); font: 800 var(--text-display-s)/0.92 var(--font-display); font-variation-settings: "wdth" 75, "opsz" 96; letter-spacing: var(--tracking-display); font-variant-numeric: lining-nums; text-wrap: balance; }
+.issue-mast .nw { white-space: nowrap; }
+.issue-days { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); padding: var(--space-xs) var(--space-lg) 0; }
+.issue-days .day, .issue-days .evs { padding-block: var(--space-md) var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
+.issue-days .day:first-child, .issue-days .day:first-child + .evs { border-top: 0; }
+.issue-days .day { padding-right: var(--space-md); padding-top: calc(var(--space-md) + var(--space-3xs)); font: 500 var(--text-sm)/1.4 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-muted); font-variant-numeric: lining-nums; }
+.issue-days .evs { display: flex; flex-direction: column; gap: var(--space-xs); }
+.issue-days .ev { font: 400 var(--text-body)/1.35 var(--font-body); color: var(--color-ink); }
+.issue-go { display: block; margin: var(--space-xs) var(--space-lg) var(--space-lg); padding-top: var(--space-md); border-top: var(--rule-heavy) solid var(--color-ink); font: 500 var(--text-md)/1 var(--font-display); font-variation-settings: "opsz" 12; text-decoration: underline; text-decoration-color: var(--color-coral); text-underline-offset: 0.3em; }
+.issue-fig figcaption { margin-top: var(--space-sm); font: 500 var(--text-sm)/1.4 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-muted); }
+
+/* ---------- home contents: the guide as a magazine contents page ---------- */
+.contents { padding-block: var(--space-2xl) var(--section-gap); }
+.contents-head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--gap-columns); align-items: end; padding-top: var(--space-lg); padding-bottom: var(--space-xl); border-top: var(--rule-heavy) solid var(--color-ink); }
+.contents-head h2 { font-size: var(--text-display-s); max-width: 14ch; }
+.standfirst { font: 400 var(--text-xl)/1.3 var(--font-body); color: var(--color-ink); max-width: 30ch; }
+.toc { counter-reset: none; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.toc li { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.toc a, .optional { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) minmax(0, 1fr); gap: var(--gap-columns); align-items: baseline; padding-block: var(--space-lg); color: var(--color-ink); text-decoration: none; }
+.toc .t, .optional .t { font: 800 var(--text-3xl)/1 var(--font-display); font-variation-settings: "wdth" 75, "opsz" 96; letter-spacing: var(--tracking-display); text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: transparent; text-underline-offset: 0.12em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.toc .d, .optional .d { font: 400 var(--text-lead)/1.4 var(--font-body); color: var(--color-ink-2); max-width: 40ch; }
+.toc .n { justify-self: end; font: 800 var(--text-3xl)/1 var(--font-display); font-variation-settings: "wdth" 75, "opsz" 96; font-variant-numeric: lining-nums tabular-nums; color: var(--color-ink); }
+.toc a:hover .t, .optional:hover .t { text-decoration-color: var(--color-accent); text-decoration-thickness: 3px; }
+.toc a:focus-visible, .optional:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
+.toc-lead a { padding-block: var(--space-xl); }
+.toc-lead .t { font-size: var(--text-section); line-height: 0.95; }
+.optional { margin-top: var(--space-2xl); padding: var(--space-xl) var(--space-lg); background: var(--color-paper-2); border-top: var(--rule-hair) solid var(--color-rule-2); }
+
+.optional .k { justify-self: end; font: 500 var(--text-sm)/1.4 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-muted); }
+
+/* ---------- the one ink band: the week, then the figures reversed out ---------- */
+.band { padding-block: var(--section-gap-s); background: var(--color-ink); color: var(--color-paper); }
+.band h2 { color: var(--color-paper); max-width: 16ch; font-size: var(--text-display-s); }
+.band :focus-visible { outline-color: var(--color-lavender); }
+.loop { counter-reset: loop; margin-top: var(--space-2xl); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: var(--rule-heavy) solid var(--color-paper); }
+.loop li { counter-increment: loop; display: flex; flex-direction: column; gap: var(--space-sm); padding: var(--space-lg) var(--space-lg) 0; border-left: var(--rule-hair) solid var(--color-rule-on-ink); }
+.loop li:first-child { padding-left: 0; border-left: 0; }
+.loop li::before { content: counter(loop); font: 800 var(--text-display-s)/1 var(--font-display); font-variation-settings: "wdth" 75, "opsz" 96; font-variant-numeric: lining-nums tabular-nums; color: var(--color-lavender); }
+.loop b { font: 800 var(--text-title)/1.05 var(--font-display); font-variation-settings: "wdth" 75, "opsz" 96; letter-spacing: var(--tracking-display); color: var(--color-paper); }
+.loop .d { font: 400 var(--text-md)/1.45 var(--font-body); color: var(--color-on-ink-muted); }
+.role { align-self: flex-start; padding: var(--space-2xs) var(--space-xs); font: 500 var(--text-sm)/1.2 var(--font-display); font-variation-settings: "opsz" 12; border: var(--rule-hair) solid var(--color-paper); color: var(--color-paper); }
+.role.claude { background: var(--color-coral-deep); border-color: var(--color-coral-deep); }
+.role.both { border-left: var(--rule-heavy) solid var(--color-coral); }
+.band-foot { margin-top: var(--space-3xl); display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-xl); flex-wrap: wrap; border-top: var(--rule-hair) solid var(--color-rule-on-ink); padding-top: var(--space-xl); }
+.counts { display: grid; grid-template-columns: repeat(3, auto); }
+.counts span { display: flex; flex-direction: column; gap: var(--space-xs); padding-inline: var(--space-xl); border-left: var(--rule-hair) solid var(--color-rule-on-ink); font: 500 var(--text-sm)/1.3 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-on-ink-muted); max-width: 24ch; }
+.counts span:first-child { padding-left: 0; border-left: 0; }
+.counts b { font: 800 var(--text-display)/0.9 var(--font-display); font-variation-settings: "wdth" 75, "opsz" 96; font-variant-numeric: lining-nums tabular-nums; color: var(--color-paper); }
+
+/* ---------- footer: a colophon block on the cream well ---------- */
+.footer { padding-block: var(--space-2xl) var(--space-3xl); background: var(--color-paper-2); border-top: var(--rule-hair) solid var(--color-rule-2); }
+.footer-inner { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--gap-columns); align-items: start; }
+.colophon { font: 400 var(--text-lead)/1.45 var(--font-body); color: var(--color-ink); max-width: 44ch; }
+.footer .l { display: flex; gap: var(--space-lg); justify-self: end; }
+.footer .l a { font: 500 var(--text-md)/1 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-rule-2); text-underline-offset: 0.3em; padding-block: var(--space-xs); transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.footer .l a:hover { text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; }
+
+/* ---------- the file viewer (ids and classes read by assets/site.js) ---------- */
+html:has(body.locked) { overflow: clip; }
+.backdrop { position: fixed; inset: 0; z-index: var(--z-modal); padding: var(--space-lg); background: var(--color-scrim); display: none; align-items: center; justify-content: center; }
+.backdrop.open { display: flex; }
+.modal { width: 100%; max-width: 1180px; height: 88dvh; display: flex; flex-direction: column; overflow: clip; background: var(--color-paper); border-top: var(--rule-heavy) solid var(--color-ink); }
+.modal-head { display: flex; align-items: flex-start; gap: var(--space-md); padding: var(--space-md) var(--space-md) var(--space-md) var(--space-lg); border-bottom: var(--rule-hair) solid var(--color-rule); flex: 0 0 auto; }
+.modal-head .t { flex: 1 1 auto; min-width: 0; }
+.modal-head .name { font: 500 var(--text-sm)/1.3 var(--font-mono); color: var(--color-ink); overflow-wrap: anywhere; }
+.modal-head p { margin-top: var(--space-2xs); font: 400 var(--text-md)/1.4 var(--font-body); color: var(--color-muted); }
+.modal-close, .zoom button { min-width: 44px; height: 44px; padding: 0 var(--space-sm); border: var(--rule-hair) solid var(--color-rule-2); border-radius: 0; background: var(--color-paper); color: var(--color-ink); font: 500 var(--text-sm)/1 var(--font-display); font-variation-settings: "opsz" 12; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out); }
+.modal-close { flex: 0 0 auto; border-color: var(--color-ink); }
+.modal-close:hover, .zoom button:hover { background: var(--color-paper-2); }
+.modal-close:active, .zoom button:active { background: var(--color-paper-3); }
+.modal-close:focus-visible, .zoom button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.zoom { display: flex; align-items: center; flex: 0 0 auto; }
+.zoom button + button { border-left: 0; }
+#zoom-level { min-width: 64px; font-variant-numeric: lining-nums tabular-nums; }
+.modal-body { flex: 1 1 auto; overflow: auto; overscroll-behavior: contain; background: var(--color-viewer); position: relative; }
+.modal-body.kind-xlsx { background: var(--color-paper); }
+.modal-body:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+.preview-wait { padding: var(--space-lg); font-size: var(--text-md); color: var(--color-muted); }
+.sheet-tabs { display: flex; gap: var(--space-3xs); padding: 0 var(--space-sm); background: var(--color-sheet-bar); border-top: var(--rule-hair) solid var(--color-rule); flex: 0 0 auto; overflow-x: auto; }
+.sheet-tabs button { min-height: 40px; padding: 0 var(--space-md); border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--color-muted); font: 500 var(--text-sm)/1 var(--font-display); font-variation-settings: "opsz" 12; white-space: nowrap; cursor: pointer; }
+.sheet-tabs button[aria-pressed="true"] { color: var(--color-xlsx); border-bottom-color: var(--color-xlsx); background: var(--color-paper); }
+.sheet-tabs button:hover { color: var(--color-ink); }
+.sheet-tabs button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+.modal-foot { display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; padding: var(--space-md) var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); flex: 0 0 auto; background: var(--color-paper-2); }
+.modal-foot .note-sm { flex: 1 1 12em; font: 400 var(--text-md)/1.45 var(--font-body); color: var(--color-muted); }
+
+/* ---------- docs shell: a contents rail beside the step ---------- */
+.shell { display: grid; grid-template-columns: var(--side-w) minmax(0, 1fr); gap: var(--space-3xl); align-items: start; }
+.side { position: sticky; top: calc(var(--top-h) + var(--rule-heavy)); max-height: calc(100dvh - var(--top-h) - var(--rule-heavy)); overflow-y: auto; padding-block: var(--space-xl) var(--space-2xl); scrollbar-width: thin; }
+.cityfield { padding: var(--space-md); background: var(--color-paper-2); border-top: var(--rule-hair) solid var(--color-rule-2); }
+.cityfield label { display: block; font: 500 var(--text-sm)/1.3 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-ink); }
+.cityfield input { display: block; width: 100%; min-height: 52px; margin-top: var(--space-xs); padding: 0 var(--space-md); border: var(--rule-hair) solid var(--color-muted); border-radius: 0; background: var(--color-paper); color: var(--color-ink); font: 400 var(--text-body)/1 var(--font-body); outline: 2px solid transparent; outline-offset: -3px; }
+.cityfield input::placeholder { color: var(--color-muted); }
+.cityfield input:hover { border-color: var(--color-ink); }
+.cityfield input:focus-visible { outline-color: var(--color-focus); border-color: var(--color-ink); }
+.cityfield input:disabled { opacity: 0.55; cursor: not-allowed; }
+.cityfield p { margin-top: var(--space-xs); font: 400 var(--text-sm)/1.45 var(--font-body); color: var(--color-muted); }
+.side-nav .group { margin: var(--space-xl) 0 var(--space-2xs); padding-bottom: var(--space-xs); border-bottom: var(--rule-hair) solid var(--color-rule-2); font: 500 var(--text-sm)/1.3 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-muted); }
+.side-nav a { display: flex; align-items: baseline; gap: var(--space-sm); padding-block: var(--space-xs); border-bottom: var(--rule-hair) solid var(--color-rule); font: 500 var(--text-md)/1.3 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-ink); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 0.3em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.side-nav a:hover { text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; }
+.side-nav a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.side-nav .n { flex: 0 0 auto; min-width: 2.25em; padding: var(--space-3xs) var(--space-2xs); font: 800 var(--text-md)/1 var(--font-display); font-variation-settings: "wdth" 75, "opsz" 24; font-variant-numeric: lining-nums tabular-nums; text-align: center; color: var(--color-muted); }
+.side-nav a.here { color: var(--color-ink); }
+.side-nav a.here .n { background: var(--color-accent); color: var(--color-accent-ink); }
+
+.main { min-width: 0; padding-block: var(--space-2xl) var(--section-gap-s); }
+.step-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--gap-columns); row-gap: var(--space-lg); align-items: end; }
+.step-head h1 { grid-column: 1; grid-row: 1; max-width: 12ch; }
+.step-head .lede { grid-column: 1; grid-row: 2; font: 400 var(--text-2xl)/1.25 var(--font-body); color: var(--color-ink); max-width: 30ch; }
+.folio { grid-column: 2; grid-row: 1 / span 2; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: var(--space-xs); padding-left: var(--space-lg); border-left: var(--rule-hair) solid var(--color-rule); }
+.folio .big { font: 800 clamp(6rem, 10vw, 10rem)/0.8 var(--font-display); font-variation-settings: "wdth" 75, "opsz" 96; font-variant-numeric: lining-nums tabular-nums; letter-spacing: var(--tracking-display); color: var(--color-ink); }
+.folio .of { font: 500 var(--text-md)/1.3 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-muted); }
+.folio .progress { display: flex; gap: var(--space-2xs); }
+.folio .progress i { display: block; width: var(--space-lg); height: var(--rule-heavy); background: var(--color-rule); }
+.folio .progress i.on { background: var(--color-ink); }
+
+/* the kit as a ruled spec table */
+.kit { margin-top: var(--space-3xl); }
+.spec { width: 100%; border-collapse: collapse; border-top: var(--rule-heavy) solid var(--color-ink); }
+.spec th, .spec td { padding: var(--space-lg) var(--space-lg) var(--space-lg) 0; border-bottom: var(--rule-hair) solid var(--color-rule); text-align: left; vertical-align: baseline; }
+.spec th { width: 34%; font-weight: 400; }
+.spec .name { font: 800 var(--text-title)/1.1 var(--font-display); font-variation-settings: "wdth" 75, "opsz" 96; letter-spacing: var(--tracking-display); color: var(--color-ink); overflow-wrap: break-word; }
+.spec a.name { text-decoration: underline; text-decoration-color: var(--color-rule-2); text-underline-offset: 0.18em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.spec a.name:hover { text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; }
+.spec .what { font: 400 var(--text-body)/1.45 var(--font-body); color: var(--color-ink-2); }
+.spec .tag { padding-right: 0; text-align: right; white-space: nowrap; font: 500 var(--text-sm)/1.3 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-muted); }
+.note { margin-top: var(--space-lg); padding: var(--space-lg); background: var(--color-paper-2); border-top: var(--rule-hair) solid var(--color-rule-2); font: 400 var(--text-md)/1.55 var(--font-body); color: var(--color-ink-2); max-width: 75ch; }
+.note strong { font-weight: 600; color: var(--color-ink); }
+
+/* the five steps: a numbered vertical run, the words left and the screen right */
+.steps { counter-reset: step; margin-top: var(--space-3xl); border-top: var(--rule-heavy) solid var(--color-ink); }
+.steps > li { counter-increment: step; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--gap-columns); padding-block: var(--space-xl) var(--space-2xl); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.step-text::before { content: counter(step); display: block; margin-bottom: var(--space-md); font: 800 var(--text-display-s)/0.85 var(--font-display); font-variation-settings: "wdth" 75, "opsz" 96; font-variant-numeric: lining-nums tabular-nums; color: var(--color-ink); }
+.steps h2.sub { font-size: var(--text-3xl); line-height: 1; max-width: 14ch; }
+.desc { margin-top: var(--space-md); font: 400 var(--text-body)/1.55 var(--font-body); color: var(--color-ink-2); max-width: 44ch; }
+.desc strong { font-weight: 600; color: var(--color-ink); }
+.desc a, .note a { text-decoration-color: var(--color-rule-2); transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.desc a:hover, .note a:hover { text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; }
+.shot { min-width: 0; }
+.shot img { width: 100%; outline: var(--rule-hair) solid var(--color-rule-2); outline-offset: -1px; background: var(--color-paper); }
+.shot figcaption { margin-top: var(--space-sm); font: 500 var(--text-sm)/1.45 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-muted); max-width: 60ch; }
+.shot figcaption b { display: inline-block; min-width: 1.6em; margin-right: var(--space-2xs); padding: 0 var(--space-2xs); background: var(--color-ink); color: var(--color-paper); font-weight: 500; text-align: center; font-variant-numeric: lining-nums; }
+.step-obj { min-width: 0; }
+.step-obj .note { margin-top: var(--space-md); }
+
+/* the prompt block: ink, lavender for its controls */
+.prompt-card { background: var(--color-ink); color: var(--color-paper); }
+.prompt-card .head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm); padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule-on-ink); }
+.prompt-card .label { font: 500 var(--text-sm)/1.3 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-lavender); }
+.copy-btn { min-height: 44px; padding: 0 var(--space-md); border: var(--rule-hair) solid var(--color-lavender); border-radius: 0; background: var(--color-lavender); color: var(--color-ink); font: 500 var(--text-sm)/1 var(--font-display); font-variation-settings: "opsz" 12; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out); }
+.copy-btn:hover { background: var(--color-paper); border-color: var(--color-paper); }
+.copy-btn:active { transform: translateY(1px); }
+.copy-btn:focus-visible { outline: 2px solid var(--color-lavender); outline-offset: 2px; }
+.copy-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+pre.prompt { margin: 0; padding: var(--space-lg) var(--space-md); font: 400 var(--text-md)/1.6 var(--font-mono); color: var(--color-paper); white-space: pre-wrap; overflow-wrap: break-word; }
+pre.prompt .slash { color: var(--color-lavender); }
+
+/* prev and next as two halves of a contents spread */
+.pager { margin-top: var(--space-3xl); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: var(--rule-heavy) solid var(--color-ink); }
+.pager a { display: flex; flex-direction: column; gap: var(--space-sm); padding: var(--space-lg) var(--space-lg) var(--space-lg) 0; color: var(--color-ink); text-decoration: none; }
+.pager .next { align-items: flex-end; text-align: right; padding: var(--space-lg) 0 var(--space-lg) var(--space-lg); border-left: var(--rule-hair) solid var(--color-rule); }
+.pager .k { font: 500 var(--text-sm)/1.3 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-muted); }
+.pager .t { display: flex; align-items: baseline; gap: var(--space-sm); font: 800 var(--text-section)/1 var(--font-display); font-variation-settings: "wdth" 75, "opsz" 96; letter-spacing: var(--tracking-display); text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: transparent; text-underline-offset: 0.12em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.pager .n { font-variant-numeric: lining-nums tabular-nums; color: var(--color-muted); }
+.pager a:hover .t { text-decoration-color: var(--color-accent); text-decoration-thickness: 3px; }
+.pager a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+/* ---------- under 60rem: everything stacks in reading order ---------- */
+@media (max-width: 60rem) {
+  .brand { flex-direction: column; align-items: flex-start; gap: var(--space-2xs); font-size: var(--text-xl); }
+  .menu-btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-md); border: var(--rule-hair) solid var(--color-ink); border-radius: 0; background: var(--color-paper); cursor: pointer; }
+  .menu-btn[aria-expanded="true"] { background: var(--color-paper-2); text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; text-underline-offset: 0.3em; }
+  .menu-btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+  .shell { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .side { display: none; position: static; max-height: none; padding-block: var(--space-lg); border-bottom: var(--rule-heavy) solid var(--color-ink); }
+  .side.open { display: block; }
+  .main { padding-block: var(--space-xl) var(--section-gap-s); }
+  .steps > li { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); }
+  .spec, .spec tbody, .spec tr, .spec th, .spec td { display: block; width: auto; }
+  .spec tr { padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
+  .spec th, .spec td { padding: 0; border: 0; text-align: left; }
+  .spec td { margin-top: var(--space-xs); }
+  .spec .tag { text-align: left; }
+  .hero { padding-block: var(--space-xl) var(--space-2xl); }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); min-height: 0; }
+  .contents-head { grid-template-columns: minmax(0, 1fr); gap: var(--space-md); }
+  .toc a, .optional { grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-xs) var(--space-md); }
+  .toc .t, .optional .t { grid-column: 1; grid-row: 1; }
+  .toc .n, .optional .k { grid-column: 2; grid-row: 1; }
+  .toc .d, .optional .d { grid-column: 1 / -1; }
+  .loop { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-xl); }
+  .loop li:nth-child(3) { padding-left: 0; border-left: 0; }
+  .footer-inner { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); }
+  .footer .l { justify-self: start; }
+}
+@media (max-width: 40rem) {
+  .top-links { gap: var(--space-sm); }
+  .brand { font-size: var(--text-lg); }
+  .brand .thin { font-size: var(--text-xs); }
+  .docs-page .top-links a { display: none; }
+  .step-head { grid-template-columns: minmax(0, 1fr); }
+  .step-head h1, .step-head .lede, .folio { grid-column: 1; grid-row: auto; }
+  .folio { grid-row: 1; flex-direction: row; align-items: flex-end; flex-wrap: wrap; gap: var(--space-sm); padding-left: 0; border-left: 0; }
+  .folio .big { font-size: 4.5rem; }
+  .pager { grid-template-columns: minmax(0, 1fr); }
+  .pager .next { align-items: flex-start; text-align: left; padding: var(--space-lg) 0; border-left: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+  .pager .t { font-size: var(--text-3xl); }
+  .backdrop { padding: 0; align-items: stretch; }
+  .modal { max-width: none; height: 100dvh; }
+  .zoom #zoom-fit { display: none; }
+  .issue-mast { padding: var(--space-lg) var(--space-md) var(--space-md); }
+  .issue-days { grid-template-columns: minmax(0, 1fr); padding-inline: var(--space-md); }
+  .issue-days .day { padding-block: var(--space-md) 0; }
+  .issue-days .evs { border-top: 0; padding-top: var(--space-xs); }
+  .issue-go { margin-inline: var(--space-md); }
+  .loop { grid-template-columns: minmax(0, 1fr); }
+  .loop li { padding-left: 0; border-left: 0; padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule-on-ink); }
+  .loop li:first-child { border-top: 0; }
+  .counts { grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }
+  .counts span { padding-inline: var(--space-md); }
+}
+
+</style>
+<header class="top">
+  <div class="container top-inner">
+    <a class="brand" href="3-full-home.html">Climate Tech Cities <span class="thin">Chapter Launch Playbook</span></a>
+    <nav class="top-links" aria-label="Site">
+      <a href="https://joshuakeum9-cell.github.io/chapter-launch-playbook/downloads/" target="_blank" rel="noopener">Downloads</a>
+      <a href="https://joshuakeum9-cell.github.io/chapter-launch-playbook/help/" target="_blank" rel="noopener">Help</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- Hero, Counter posture: the promise and its one action on the left, the issue you will send on the right -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1>Start a Climate Tech Chapter in Your City.</h1>
+      <p class="lead">Two weeks of setup, then about one sitting a week.</p>
+      <div class="hero-ctas">
+        <a class="btn btn--primary" href="https://joshuakeum9-cell.github.io/chapter-launch-playbook/two-weeks/" target="_blank" rel="noopener">Start with the overview</a>
+      </div>
+    </div>
+    <figure class="issue-fig">
+      <button class="issue" type="button" data-file="issue-html" aria-label="Open the sample issue, Portland Climate Tech, Aug 11 to Aug 18">
+        <span class="issue-mast">Portland Climate Tech: <span class="nw">Aug 11 - Aug 18</span></span>
+        <span class="issue-days">
+          <span class="day">Wednesday, Aug 12</span>
+          <span class="evs"><span class="ev">Grid Interconnection 101</span><span class="ev">Mass Timber Happy Hour</span></span>
+          <span class="day">Thursday, Aug 13</span>
+          <span class="evs"><span class="ev">Repair Cafe: Small Appliances</span></span>
+          <span class="day">Saturday, Aug 15</span>
+          <span class="evs"><span class="ev">Willamette Riverkeeper Work Party</span></span>
+        </span>
+        <span class="issue-go">Open the full issue</span>
+      </button>
+      <figcaption>Sample issue from a fictional chapter</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Contents: the overview and the five steps as a magazine contents page under the heavy rule -->
+<section class="contents" aria-labelledby="contents-h">
+  <div class="container">
+    <div class="contents-head">
+      <h2 id="contents-h">An overview, then five steps.</h2>
+      <p class="standfirst">Everything except the logo runs in your own Claude account.</p>
+    </div>
+    <ol class="toc">
+      <li class="toc-lead"><a href="https://joshuakeum9-cell.github.io/chapter-launch-playbook/two-weeks/" target="_blank" rel="noopener"><span class="t">Two-week overview</span><span class="d">What happens when, and what done looks like</span><span class="n"></span></a></li>
+      <li><a href="https://joshuakeum9-cell.github.io/chapter-launch-playbook/logo/" target="_blank" rel="noopener"><span class="t">Logo</span><span class="d">In ChatGPT, signed off by the founders</span><span class="n">01</span></a></li>
+      <li><a href="3-full-install.html"><span class="t">Install</span><span class="d">Three packages, one extension</span><span class="n">02</span></a></li>
+      <li><a href="https://joshuakeum9-cell.github.io/chapter-launch-playbook/set-up/" target="_blank" rel="noopener"><span class="t">Set up</span><span class="d">Eight questions, two documents</span><span class="n">03</span></a></li>
+      <li><a href="https://joshuakeum9-cell.github.io/chapter-launch-playbook/newsletter/" target="_blank" rel="noopener"><span class="t">Newsletter</span><span class="d">The two files your issues draw from</span><span class="n">04</span></a></li>
+      <li><a href="https://joshuakeum9-cell.github.io/chapter-launch-playbook/weekly-cycle/" target="_blank" rel="noopener"><span class="t">Weekly cycle</span><span class="d">Collect, cut, write, send</span><span class="n">05</span></a></li>
+    </ol>
+    <a class="optional" href="https://joshuakeum9-cell.github.io/chapter-launch-playbook/partners/" target="_blank" rel="noopener"><span class="t">Partners</span><span class="d">Venues, speakers and an audience, in your own time. Not needed to send the newsletter.</span><span class="k">Optional</span></a>
+  </div>
+</section>
+
+<!-- The one ink band: the weekly loop with who does what, then the kit's counts reversed out -->
+<section class="band" aria-labelledby="band-h">
+  <div class="container">
+    <h2 id="band-h">Claude does the lists. You write the words.</h2>
+    <ol class="loop">
+      <li><span class="role claude">Claude</span><b>Collect</b><span class="d">Every source, one spreadsheet</span></li>
+      <li><span class="role you">You</span><b>Cut</b><span class="d">Delete rows, flag picks</span></li>
+      <li><span class="role both">Both</span><b>Assemble and write</b><span class="d">Claude lays out, you fill the gaps</span></li>
+      <li><span class="role you">You</span><b>Send</b><span class="d">Check, paste into Substack, send</span></li>
+    </ol>
+    <div class="band-foot">
+      <div class="counts">
+        <span><b>3</b> packages</span>
+        <span><b>9</b> skills</span>
+        <span><b>9</b> sample files, each one readable here</span>
+      </div>
+      <a class="btn btn--on-ink" href="https://joshuakeum9-cell.github.io/chapter-launch-playbook/weekly-cycle/" target="_blank" rel="noopener">How the week runs</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p class="colophon">Chapter Launch Playbook for Climate Tech Cities. No accounts, no cookies, nothing saved.</p>
+    <nav class="l" aria-label="Footer"><a href="https://joshuakeum9-cell.github.io/chapter-launch-playbook/downloads/" target="_blank" rel="noopener">Downloads</a><a href="https://joshuakeum9-cell.github.io/chapter-launch-playbook/help/" target="_blank" rel="noopener">Help</a></nav>
+  </div>
+</footer>
+
+<div class="backdrop" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-name" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <span class="t"><p class="name" id="viewer-name"></p><p id="viewer-sub"></p></span>
+      <div class="zoom" role="group" aria-label="Zoom">
+        <button type="button" id="zoom-out" aria-label="Zoom out">&minus;</button>
+        <button type="button" id="zoom-level" aria-label="Reset zoom to 100 percent">100%</button>
+        <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+        <button type="button" id="zoom-fit">Fit width</button>
+      </div>
+      <button class="modal-close" type="button" id="viewer-close" aria-label="Close the preview">&#10005;</button>
+    </div>
+    <div class="modal-body" id="viewer-body" tabindex="0"></div>
+    <div class="sheet-tabs" id="viewer-tabs" role="group" aria-label="Sheets" hidden></div>
+    <div class="modal-foot">
+      <a class="btn btn--primary" id="viewer-dl" href="#" download>Download the file</a>
+      <p class="note-sm" id="viewer-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>window.ROOT = "";</script>
+<script>(function(){var P={"previews/issue-html.html": "<style>:host { all: initial; } .mail-wrap { background:#fff; min-width: max-content; }\n\n:root { --base: 17px; }\n.mail { margin: 0; padding: 40px 20px; background: #fff; }\n.post { max-width: 620px; margin: 0 auto; color: #1a1a1a;\n  font-family: Spectral, Georgia, Cambria, serif; font-size: var(--base); line-height: 1.6; }\n.post h1, .post h2, .post h3, .post h4 {\n  font-family: \"SF Pro Display\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\n  font-weight: 700; line-height: 1.16; }\n.post h1 { font-size: 2.2em; margin: 0 0 .3em; letter-spacing: -.02em; }\n.post .subtitle { font-size: 1.25em; color: #5f5f5f; margin: 0 0 1.6em;\n  font-family: \"SF Pro Display\", -apple-system, Helvetica, Arial, sans-serif; font-weight: 400; }\n.post h2 { font-size: 1.625em; margin: 1em 0 .625em; }\n.post h3 { font-size: 1.375em; margin: 1em 0 .625em; }\n.post h4 { font-size: 1.125em; margin: 1em 0 .625em; }\n.post p { margin: 0 0 20px; }\n.post ul { margin: 0 0 17px; padding: 0; list-style: disc; }\n.post li { margin: 8px 0 0 32px; }\n.post blockquote { margin: 20px 0; padding-left: 16px; border-left: 4px solid #e0e0e0; color: #333; }\n.post a { color: #1a1a1a; text-decoration: underline; text-underline-offset: 2px; }\n.post hr { border: 0; border-top: 1px solid #e6e6e6; margin: 32px 0; }\n.post .draft { background: #fff6d9; border-left: 4px solid #e0b000; padding: 8px 12px;\n  font-family: -apple-system, Helvetica, Arial, sans-serif; font-size: 13px; color: #6b5200; margin: 0 0 12px; }\n<\/style><div class=\"mail-wrap\"><div class=\"mail\"><div class=\"post\">\n<h1>Portland Climate Tech: Aug 11 - Aug 18<\/h1>\n<p class=\"subtitle\">Grid interconnection, a repair cafe, a river cleanup, mass timber, heat pump office hours, and more upcoming events<\/p>\n<p>Hi all,<\/p>\n<p class=\"draft\">[REWRITE IN YOUR OWN WORDS, then delete this line]<\/p>\n<p>August is quiet here and this issue is shorter than most. Half the city seems to be at the coast, and the calendars agree. What is on is worth going to, and one of the picks gets you outside.<\/p>\n<p>We're still looking for a second person to help pull this together each week. If you go to these things anyway, reply and say hello. Here are our picks for the week:<\/p>\n<p class=\"draft\">[REWRITE IN YOUR OWN WORDS, then delete this line]<\/p>\n<ul>\n<li><strong>Wednesday<\/strong> get into the weeds on interconnection queues at <a href=\"https://luma.com/example-grid-101\">\u26a1 Grid Interconnection 101<\/a> or talk buildings over a beer at <a href=\"https://www.eventbrite.com/e/example-mass-timber\">\ud83c\udf7b Mass Timber Happy Hour<\/a><\/li>\n<li><strong>Thursday<\/strong> fix a toaster instead of sitting through a panel at the <a href=\"https://example.org/repair-cafe-august\">\u267b\ufe0f Repair Cafe: Small Appliances<\/a><\/li>\n<li><strong>Saturday<\/strong> pull invasive ivy out of the riverbank at the <a href=\"https://example.org/riverkeeper-work-party\">\ud83c\udf3f Willamette Riverkeeper Work Party<\/a>, which is the easiest way into this community if you're new<\/li>\n<li><strong>Next Tuesday<\/strong> bring your questions to <a href=\"https://luma.com/example-heat-pump-office-hours\">\ud83c\udfe0 Heat Pump Office Hours<\/a> at the county energy office<\/li>\n<\/ul>\n<p class=\"draft\">[REWRITE IN YOUR OWN WORDS, then delete this line]<\/p>\n<p>If you're running something in September, <strong>reply to this email and we'll list it.<\/strong> We'd rather hear about it early than find it the day before.<\/p>\n<p style=\"margin-bottom:4px\">Til next week!<\/p>\n<p style=\"margin-bottom:4px\">Dana, and the Climate Tech Cities team<\/p>\n<hr>\n<h2>\ud83c\udf0e Climate Tech Cities and Streetlife Ventures Startup and Talent Platforms<\/h2>\n<p>Climate Tech Cities and Streetlife Ventures are launching new platforms to support climate founders, funders, and career transitioners! There is no shortage of great companies raising money for their groundbreaking ideas, great investors looking to support with capital, and great talent living the mantra that every job is a climate job. We can't wait to hear from you!<\/p><ul>\n<li><a href=\"https://gccht82e8mz.typeform.com/to/fLp65vtz?typeform-source=www.climatetechcities.com\">Climate startups looking to raise<\/a><\/li>\n<li><a href=\"https://gccht82e8mz.typeform.com/to/Rk2roZac?typeform-source=www.climatetechcities.com\">Climate talent looking to transition<\/a><\/li>\n<\/ul>\n<hr>\n<h3>Opportunities:<\/h3>\n<h3><a href=\"https://example.org/oregon-best-grant\">\ud83c\udf31 Oregon BEST Early Commercialization Grant<\/a><\/h3>\n<blockquote>Non-dilutive grants for hardware startups moving from prototype to pilot, open to companies with a physical presence in Oregon. Applicants are matched with a university lab for testing. Two rounds a year. <strong>Applications due September 15.<\/strong><\/blockquote>\n<hr>\n<h2>This Week's Events<\/h2>\n<h4>Wednesday, Aug 12<\/h4><ul>\n<li><a href=\"https://luma.com/example-grid-101\">\u26a1 Grid Interconnection 101<\/a><\/li>\n<li><a href=\"https://www.eventbrite.com/e/example-mass-timber\">\ud83c\udf7b Mass Timber Happy Hour<\/a><\/li>\n<li><a href=\"https://example.edu/energy-seminar-load-forecasting\">\ud83e\udd16 AI for Load Forecasting: PSU Energy Seminar<\/a><\/li>\n<\/ul>\n<h4>Thursday, Aug 13<\/h4><ul>\n<li><a href=\"https://example.org/repair-cafe-august\">\u267b\ufe0f Repair Cafe: Small Appliances<\/a><\/li>\n<li><a href=\"https://luma.com/example-cascadia-data\">\ud83d\udcca Cascadia Climate Data Meetup<\/a><\/li>\n<\/ul>\n<h4>Saturday, Aug 15<\/h4><ul>\n<li><a href=\"https://example.org/riverkeeper-work-party\">\ud83c\udf3f Willamette Riverkeeper Work Party<\/a><\/li>\n<li><a href=\"https://example.org/climate-futures-print\">\ud83c\udfa8 Climate Futures Print Studio<\/a><\/li>\n<\/ul>\n<h4>Sunday, Aug 16<\/h4><ul>\n<li><a href=\"https://example.org/eastside-greenway-ride\">\ud83d\udeb2 Eastside Greenway Ride<\/a><\/li>\n<li><a href=\"https://example.org/farm-walk-august\">\ud83c\udf3e Tualatin Valley Farm Walk<\/a><\/li>\n<\/ul>\n<hr>\n<h2>Upcoming Events<\/h2><ul>\n<li><a href=\"https://luma.com/example-heat-pump-office-hours\">\ud83c\udfe0 Heat Pump Office Hours<\/a>: Aug 18<\/li>\n<li><a href=\"https://luma.com/example-climate-career-coffee\">\ud83c\udf0d Climate Career Coffee<\/a>: Aug 19<\/li>\n<li><a href=\"https://example.org/deconstruction-tour\">\ud83c\udfd7\ufe0f Deconstruction Site Tour: SE Division<\/a>: Aug 21<\/li>\n<li><a href=\"https://www.eventbrite.com/e/example-green-drinks\">\ud83c\udf7b Green Drinks Portland<\/a>: Aug 25<\/li>\n<li><a href=\"https://example.gov/stormwater-tour\">\ud83d\udca7 Stormwater Walking Tour<\/a>: Aug 27<\/li>\n<li><a href=\"https://luma.com/example-investor-night\">\ud83d\udcc8 Northwest Clean Energy Investor Night<\/a>: Sep 2<\/li>\n<li><a href=\"https://example.gov/ev-charging-workshop\">\ud83d\udd0c EV Charging Policy Workshop<\/a>: Sep 2<\/li>\n<li><a href=\"https://example.org/storytelling-night\">\ud83c\udfad Cascadia Climate Storytelling Night<\/a>: Sep 3<\/li>\n<li><a href=\"https://example.edu/soil-carbon-field-day\">\ud83c\udf31 Soil Carbon Field Day<\/a>: Sep 4<\/li>\n<li><a href=\"https://example.org/circular-roundtable\">\u267b\ufe0f Circular Economy Roundtable<\/a>: Sep 8<\/li>\n<li><a href=\"https://example.edu/coastal-resilience\">\ud83c\udf0a Coastal Resilience Symposium<\/a>: Sep 8<\/li>\n<li><a href=\"https://example.org/fall-restoration\">\ud83c\udf42 Fall Ecosystem Restoration Volunteer Day<\/a>: Sep 8<\/li>\n<\/ul>\n<hr>\n<h2>This Week in Detail<\/h2>\n<h3><a href=\"https://luma.com/example-grid-101\">\u26a1 Grid Interconnection 101<\/a><\/h3>\n<p><strong>When:<\/strong> Wednesday, Aug 12<\/p>\n<p><strong>Where:<\/strong> Ecotrust Building, 721 NW 9th Ave, Portland<\/p>\n<blockquote>A plain-language walk through how a solar or storage project gets connected to the grid, hosted by the Oregon Clean Power Cooperative. Evening session in the Pearl District, free, with a Q&amp;A at the end for anyone with a project stuck in the queue.<\/blockquote>\n<h3><a href=\"https://www.eventbrite.com/e/example-mass-timber\">\ud83c\udf7b Mass Timber Happy Hour<\/a><\/h3>\n<p><strong>When:<\/strong> Wednesday, Aug 12<\/p>\n<p><strong>Where:<\/strong> Loyal Legion, 710 SE 6th Ave, Portland<\/p>\n<blockquote>Portland's timber and building-decarbonization crowd meets over a beer once a month, hosted by the Tall Wood Design Institute. Loyal Legion on SE 6th from 6 pm, free to attend, and drinks are your own. No talks and no agenda, just people who work on buildings and the people who want to.<\/blockquote>\n<h3><a href=\"https://example.edu/energy-seminar-load-forecasting\">\ud83e\udd16 AI for Load Forecasting: PSU Energy Seminar<\/a><\/h3>\n<p><strong>When:<\/strong> Wednesday, Aug 12<\/p>\n<p><strong>Where:<\/strong> Engineering Building, 1930 SW 4th Ave, Portland<\/p>\n<blockquote>A research seminar from Portland State's power engineering group on machine learning for short-term demand forecasting, hosted by the university's energy program. Lunchtime on the downtown campus, free and open to the public, with a hybrid link for anyone who cannot make it in person. More technical than most of what is in this issue.<\/blockquote>\n<h3><a href=\"https://example.org/repair-cafe-august\">\u267b\ufe0f Repair Cafe: Small Appliances<\/a><\/h3>\n<p><strong>When:<\/strong> Thursday, Aug 13<\/p>\n<p><strong>Where:<\/strong> St. Johns Community Center, 8427 N Central St, Portland<\/p>\n<blockquote>Bring a broken toaster, lamp, or kettle and fix it alongside a volunteer, run by Repair PDX. Morning session at the St. Johns Community Center, drop-in, and the listing does not state a price. One of the easiest ways to meet people who care about waste without going to a panel about it.<\/blockquote>\n<h3><a href=\"https://luma.com/example-cascadia-data\">\ud83d\udcca Cascadia Climate Data Meetup<\/a><\/h3>\n<p><strong>When:<\/strong> Thursday, Aug 13<\/p>\n<p><strong>Where:<\/strong> WeWork Custom House, 220 NW 8th Ave, Portland<\/p>\n<blockquote>Monthly meetup for people working with climate and energy data, hosted by Cascadia Data Collective. Evening at WeWork Custom House in the Pearl District, free, register for the door list. This month two short talks on wildfire smoke datasets, then open discussion and time to compare notes on whatever you are building.<\/blockquote>\n<h3><a href=\"https://example.org/riverkeeper-work-party\">\ud83c\udf3f Willamette Riverkeeper Work Party<\/a><\/h3>\n<p><strong>When:<\/strong> Saturday, Aug 15<\/p>\n<p><strong>Where:<\/strong> Willamette Park boat ramp, SW Macadam Ave, Portland<\/p>\n<blockquote>Three hours pulling invasive ivy and blackberry off the riverbank with Willamette Riverkeeper. Meet at the Willamette Park boat ramp in South Waterfront at 9 am, free, all ages. Gloves and tools are provided, so bring water and wear shoes you do not mind ruining.<\/blockquote>\n<h3><a href=\"https://example.org/climate-futures-print\">\ud83c\udfa8 Climate Futures Print Studio<\/a><\/h3>\n<p><strong>When:<\/strong> Saturday, Aug 15<\/p>\n<p><strong>Where:<\/strong> Outlet PDX, 4 SE 28th Ave, Portland<\/p>\n<blockquote>A drop-in screen-printing afternoon where you make a poster about the city you want to live in, run by Outlet's studio team. At Outlet PDX in Kerns, sliding-scale ticket, materials included. Kids are welcome with an adult, and finished posters go up in the studio window for the rest of the month.<\/blockquote>\n<h3><a href=\"https://example.org/eastside-greenway-ride\">\ud83d\udeb2 Eastside Greenway Ride<\/a><\/h3>\n<p><strong>When:<\/strong> Sunday, Aug 16<\/p>\n<p><strong>Where:<\/strong> Meet at Laurelhurst Park, SE 39th Ave and Stark St, Portland<\/p>\n<blockquote>A slow ten-mile group ride along the neighborhood greenways, hosted by BikeLoud PDX, with stops at two recently finished bike-infrastructure projects. Meets at Laurelhurst Park at 10 am, free, bring your own bike and a helmet. The ride ends at a food cart pod, so plan on lunch.<\/blockquote>\n<h3><a href=\"https://example.org/farm-walk-august\">\ud83c\udf3e Tualatin Valley Farm Walk<\/a><\/h3>\n<p><strong>When:<\/strong> Sunday, Aug 16<\/p>\n<p><strong>Where:<\/strong> Gales Meadow Farm, Forest Grove<\/p>\n<blockquote>A walking tour of a small organic farm west of the city run by Friends of Family Farmers, covering soil health, water use, and what a hot summer did to the season. Ticketed, carpool from Portland arranged on the registration page.<\/blockquote>\n<hr>\n<h2>Join the Fun!<\/h2>\n<h3>Submit Events<\/h3>\n<p>Running something climate-related in the city? We'd love to spread the word. Tell us about it and it goes into next week's list. <a href=\"https://airtable.com/appunzUZg6b8fe83m/pagmLLAnynXZxEtmL/form\">Submit an event<\/a><\/p>\n<h3>Volunteer<\/h3>\n<p>Climate Tech Cities runs on volunteers. If you want to help with events, the newsletter, or the chapter itself, say hello. <a href=\"https://airtable.com/appJJx88dpQsUuEas/pagA3Zi7dEGeGuxmd/form\">Volunteer with Climate Tech Cities<\/a><\/p>\n<\/div><\/div><\/div>"};var f=window.fetch;window.fetch=function(u){u=String(u);for(var k in P){if(u.slice(-k.length)===k){return Promise.resolve(new Response(P[k],{headers:{"Content-Type":"text/html"}}));}}return f.apply(this,arguments);};})();</script>
+<script>
+"use strict";
+/* CTC Chapter Launch Playbook. One script for every page.
+   Each page sets ROOT before loading this: "" on the home page, "../" one level down. */
+var ROOT = window.ROOT || "";
+
+/* ---------- city: typed once, carried between pages in the URL, never stored ---------- */
+function cityFromUrl() {
+  var m = /[?&]city=([^&#]*)/.exec(window.location.search);
+  return m ? decodeURIComponent(m[1].replace(/\+/g, " ")).trim() : "";
+}
+function cityName() {
+  var el = document.getElementById("city");
+  var v = el ? el.value.trim() : cityFromUrl();
+  return v || "[your city]";
+}
+function carryCity() {
+  var el = document.getElementById("city");
+  var c = el ? el.value.trim() : "";
+  document.querySelectorAll("a[href]").forEach(function (a) {
+    var h = a.getAttribute("href");
+    if (!h || /^(https?:|mailto:|#)/.test(h) || /\.(zip|png|xlsx|docx|html)$/.test(h.split("?")[0].split("#")[0])) return;
+    var base = h.split("?")[0], hash = h.indexOf("#") >= 0 ? h.slice(h.indexOf("#")) : "";
+    base = base.split("#")[0];
+    a.setAttribute("href", base + (c ? "?city=" + encodeURIComponent(c) : "") + hash);
+  });
+}
+
+var LOGO_PROMPT = [
+  'Create a professional vector logo for "Climate Tech {CITY}" that is part of the existing Climate Tech Cities (CTC) brand family. The logo must closely match the visual style, proportions, and design language of the existing Climate Tech Cities, CTC SF, and CTC New York logos.',
+  '',
+  'Layout:',
+  'Square icon on the left',
+  'Three-line wordmark on the right',
+  'Text stacked: Climate Tech {CITY}',
+  '',
+  'Icon requirements:',
+  'Use the same flat geometric construction as the existing CTC logos.',
+  'Maintain the same square format and overall proportions.',
+  'Background should be a soft lavender rectangle.',
+  'Include the same orange landscape/horizon shape across the lower portion of the icon.',
+  'Use the same light green and dark green color planes for the building form.',
+  'No outlines, gradients, shadows, textures, or effects. Pure vector appearance.',
+  '',
+  'City representation:',
+  'Replace the generic building silhouette with a simplified geometric silhouette inspired by iconic buildings in {CITY}. Icons should be abstracted into clean angular shapes rather than a literal illustration. Use only a few flat planes and sharp edges. The landmark should feel immediately recognizable while remaining minimalist.',
+  '',
+  'Typography:',
+  'Match the existing wordmark style. Modern sans-serif font. Thin to medium weight. Dark olive green text. Same spacing and alignment as the existing logos.',
+  '',
+  'Brand personality:',
+  'Climate innovation. Urban sustainability. Professional. Modern. Global city network. Clean and trustworthy.',
+  '',
+  'Avoid:',
+  'Detailed skylines. {CITY} Eye illustrations. Union Jack motifs. Photorealism. 3D effects. Excessive detail. Multiple buildings.',
+  '',
+  'Design the final logo to align seamlessly with the existing CTC, CTC SF, and CTC New York logos, as if all were created by the same designer within the same brand system.',
+  '',
+  'Develop up to 10 concepts using simplified silhouettes of iconic {CITY} architecture and skyline elements. Focus on clean, minimalist forms that are instantly recognizable yet highly abstracted, ensuring the logo remains modern, scalable, and consistent with the existing Climate Tech visual identity.',
+  '',
+  'Use the exact same icon dimensions, color palette, text sizing, spacing, and visual weight as the reference Climate Tech Cities and Climate Tech New York logos. Only the building silhouette should change. Everything else should remain consistent.',
+  '',
+  'Do this for {CITY}.'
+].join("\n");
+
+var PROMPTS = {
+  "p-setup":      function (c) { return "/ctc-chapter-setup I want to start a Climate Tech Cities chapter in " + c + "."; },
+  "p-cycle1":     function (c) { return "run the newsletter for " + c; },
+  "p-cycle2":     function (c) { return "run the newsletter for " + c; },
+  "p-harvest":    function (c) { return "/ctc-harvest Harvest this week's events for " + c + "."; },
+  "p-assemble":   function (c) { return "/ctc-assemble Assemble the " + c + " issue from this sheet. Rows marked PICK are my picks."; },
+  "p-monthly":    function (c) { return "run the monthly opportunities for " + c; },
+  "p-partnermap": function (c) { return "build the partner map for " + c; },
+  "p-logo":       function (c) { return LOGO_PROMPT.split("{CITY}").join(c); }
+};
+function renderPrompt(el, text) {
+  el.textContent = "";
+  if (text.charAt(0) === "/") {
+    var slash = text.slice(0, text.indexOf(" "));
+    var span = document.createElement("span");
+    span.className = "slash";
+    span.textContent = slash;
+    el.appendChild(span);
+    el.appendChild(document.createTextNode(text.slice(slash.length)));
+  } else {
+    el.appendChild(document.createTextNode(text));
+  }
+}
+function buildPrompts() {
+  var c = cityName();
+  Object.keys(PROMPTS).forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) renderPrompt(el, PROMPTS[id](c));
+  });
+}
+function copyPrompt(id, btn) {
+  var text = document.getElementById(id).textContent;
+  function done() {
+    var t = btn.textContent;
+    btn.textContent = "Copied";
+    setTimeout(function () { btn.textContent = t; }, 1500);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
+  } else fallbackCopy(text, done);
+}
+function fallbackCopy(text, done) {
+  var ta = document.createElement("textarea");
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); done(); }
+  catch (e) { alert("Copy failed. Select the prompt text and copy it manually."); }
+  document.body.removeChild(ta);
+}
+
+/* ---------- the file viewer ----------
+   Every sample ships as a real file. Each page shown here is a render of that exact
+   file, so what the viewer shows and what Download hands over are the same document. */
+var FILES = {
+  "chapter-settings": { file: "Chapter_Settings_SAMPLE.docx", kind: "docx",
+    sub: "Word document. Sample Austin chapter.",
+    note: "Every skill in the toolkit reads this file. Add it to your project as a context file." },
+  "chapter-plan": { file: "Chapter_Plan_SAMPLE.docx", kind: "docx",
+    sub: "Word document. Sample Austin chapter.",
+    note: "The plan is the one you read. Your dates will differ; the phases will not." },
+  "registry": { file: "CTC_Source_Registry_SAMPLE.xlsx", kind: "xlsx",
+    sub: "Excel workbook. Fictional Portland chapter.",
+    note: "White rows are verified. Pale yellow rows are unverified; check them yourself. A red cell is a missing field, named in Missing Info." },
+  "events": { file: "CTC_Events_SAMPLE.xlsx", kind: "xlsx",
+    sub: "Excel workbook. Fictional Portland chapter.",
+    note: "A red cell is information the event page did not give, named in the Missing Info column. The time header carries your chapter's timezone." },
+  "opportunities": { file: "Opportunities_SAMPLE.xlsx", kind: "xlsx",
+    sub: "Excel workbook. Fictional Portland chapter.",
+    note: "Pale yellow rows close within three weeks or have a date to confirm. Blue rows have more time. A red cell is missing information. Expired entries move to a Closed sheet." },
+  "city-resources": { file: "CTC_City_Resources_SAMPLE.xlsx", kind: "xlsx",
+    sub: "Excel workbook, the city sheet and City Narratives.",
+    note: "Blue rows are organizations, light teal rows are institutions with their programs beneath, and bright yellow cells in column F are notes for whoever publishes, not part of the list. The city, Alderport, and every organization in it are fictional." },
+  "partner-map": { file: "CTC_Partner_Map_SAMPLE.xlsx", kind: "xlsx",
+    sub: "Excel workbook, Partners and Not approaching.",
+    note: "Light teal rows are tier headers; blue rows are organizations to approach; grey rows on Not approaching were set aside, with the reason. The organizations are real Houston ones, but every line written about them here is illustrative and unverified." },
+  "issue": { file: "Portland_Climate_Tech_Aug_11-Aug_18.docx", kind: "docx",
+    sub: "Word document. Fictional Portland chapter.",
+    note: "The yellow lines are the rewrite markers. They come out when you have written your three blocks." },
+  "issue-html": { file: "Portland_Climate_Tech_Aug_11-Aug_18.html", kind: "html",
+    sub: "The web page version, shown as it renders.",
+    note: "This is the copy you paste from. Opening the HTML file keeps the formatting; the Word file does not." }
+};
+var SAMPLES = "https://joshuakeum9-cell.github.io/chapter-launch-playbook/downloads/samples/";
+var PREVIEWS = SAMPLES + "previews/";
+var viewer, lastFocus = null, zoom = 1, stage = null;
+
+/* the preview is the file's own text and cells, rendered in a shadow root so its styles stay its own */
+function setZoom(z) {
+  zoom = Math.min(3, Math.max(0.3, Math.round(z * 100) / 100));
+  if (stage) stage.style.zoom = zoom;
+  var lbl = document.getElementById("zoom-level");
+  if (lbl) lbl.textContent = Math.round(zoom * 100) + "%";
+}
+function fitWidth() {
+  if (!stage) return;
+  var body = document.getElementById("viewer-body");
+  stage.style.zoom = 1;
+  var w = stage.scrollWidth;
+  setZoom(w ? Math.min(1, (body.clientWidth - 2) / w) : 1);
+}
+function buildTabs(root) {
+  var bar = document.getElementById("viewer-tabs");
+  bar.textContent = "";
+  var sheets = root.querySelectorAll(".sheet");
+  bar.hidden = sheets.length < 1;
+  sheets.forEach(function (s, i) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.textContent = s.getAttribute("data-name");
+    b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+    b.addEventListener("click", function () {
+      sheets.forEach(function (x) { x.classList.remove("on"); });
+      bar.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+      s.classList.add("on");
+      b.setAttribute("aria-pressed", "true");
+      document.getElementById("viewer-body").scrollTo(0, 0);
+    });
+    bar.appendChild(b);
+  });
+}
+function openFile(key) {
+  var f = FILES[key];
+  if (!f || !viewer) return;
+  var body = document.getElementById("viewer-body");
+  body.textContent = "";
+  body.className = "modal-body kind-" + f.kind;
+  document.getElementById("viewer-tabs").hidden = true;
+  document.getElementById("viewer-name").textContent = f.file;
+  document.getElementById("viewer-sub").textContent = f.sub;
+  document.getElementById("viewer-note").textContent = f.note;
+  var dl = document.getElementById("viewer-dl");
+  dl.href = SAMPLES + f.file;
+  dl.setAttribute("download", f.file);
+  var host = document.createElement("div");
+  host.className = "preview-host";
+  body.appendChild(host);
+  var root = host.attachShadow ? host.attachShadow({ mode: "open" }) : host;
+  stage = document.createElement("div");
+  stage.className = "stage";
+  host.textContent = "";
+  var loading = document.createElement("p");
+  loading.className = "preview-wait";
+  loading.textContent = "Opening the file";
+  body.appendChild(loading);
+  fetch(PREVIEWS + key + ".html").then(function (r) {
+    if (!r.ok) throw new Error(r.status);
+    return r.text();
+  }).then(function (markup) {
+    root.innerHTML = markup.replace(/<div class="(xl|paper-wrap|mail-wrap)">/, '<div class="stage-in $1">');
+    var styles = root.querySelectorAll("style");
+    var inner = root.querySelector(".stage-in");
+    stage = inner || root.firstElementChild;
+    loading.remove();
+    if (f.kind === "xlsx") buildTabs(root);
+    if (f.kind === "docx" || f.kind === "html") fitWidth(); else setZoom(1);
+  }).catch(function () {
+    loading.textContent = "The preview could not load. Download the file to open it.";
+  });
+  lastFocus = document.activeElement;
+  viewer.hidden = false;
+  viewer.classList.add("open");
+  document.body.classList.add("locked");
+  document.getElementById("viewer-close").focus();
+}
+function closeFile() {
+  if (!viewer) return;
+  viewer.classList.remove("open");
+  viewer.hidden = true;
+  document.body.classList.remove("locked");
+  document.getElementById("viewer-body").textContent = "";
+  stage = null;
+  if (lastFocus && lastFocus.focus) lastFocus.focus();
+}
+
+/* ---------- old anchors from the single-page version ---------- */
+var LEGACY = {
+  "apply": "two-weeks/", "plan": "two-weeks/", "logo": "logo/", "install": "install/", "setup": "set-up/",
+  "newsletter": "newsletter/", "monthly": "newsletter/#opportunities",
+  "cycle": "weekly-cycle/", "collect": "weekly-cycle/#collect", "cut": "weekly-cycle/#cut",
+  "write": "weekly-cycle/#write", "sample": "weekly-cycle/#sample", "send": "weekly-cycle/#send",
+  "partners": "partners/", "help": "help/", "downloads": "downloads/"
+};
+
+window.addEventListener("DOMContentLoaded", function () {
+  // Delete-only: an earlier version of this site saved a workspace in the browser.
+  try {
+    for (var i = localStorage.length - 1; i >= 0; i--) {
+      var k = localStorage.key(i);
+      if (k && k.indexOf("ctcnw:") === 0) localStorage.removeItem(k);
+    }
+  } catch (e) {}
+
+  if (ROOT === "" && window.location.hash) {
+    var to = LEGACY[window.location.hash.slice(1)];
+    if (to) { window.location.replace(to); return; }
+  }
+
+  var cityEl = document.getElementById("city");
+  if (cityEl) {
+    var fromUrl = cityFromUrl();
+    if (fromUrl) cityEl.value = fromUrl;
+    cityEl.addEventListener("input", function () { buildPrompts(); carryCity(); });
+  }
+  buildPrompts();
+  carryCity();
+
+  viewer = document.getElementById("viewer");
+  if (viewer) {
+    document.querySelectorAll("[data-file]").forEach(function (b) {
+      b.addEventListener("click", function () { openFile(b.getAttribute("data-file")); });
+    });
+    document.getElementById("viewer-close").addEventListener("click", closeFile);
+    document.getElementById("zoom-out").addEventListener("click", function () { setZoom(zoom - 0.1); });
+    document.getElementById("zoom-in").addEventListener("click", function () { setZoom(zoom + 0.1); });
+    document.getElementById("zoom-level").addEventListener("click", function () { setZoom(1); });
+    document.getElementById("zoom-fit").addEventListener("click", fitWidth);
+    document.getElementById("viewer-body").addEventListener("wheel", function (e) {
+      if (!e.ctrlKey) return;
+      e.preventDefault();
+      setZoom(zoom * (e.deltaY < 0 ? 1.1 : 1 / 1.1));
+    }, { passive: false });
+    viewer.addEventListener("click", function (e) { if (e.target === viewer) closeFile(); });
+    document.addEventListener("keydown", function (e) {
+      if (!viewer.classList.contains("open")) return;
+      if (e.key === "Escape") { closeFile(); return; }
+      if ((e.ctrlKey || e.metaKey) && (e.key === "=" || e.key === "+")) { e.preventDefault(); setZoom(zoom + 0.1); return; }
+      if ((e.ctrlKey || e.metaKey) && e.key === "-") { e.preventDefault(); setZoom(zoom - 0.1); return; }
+      if ((e.ctrlKey || e.metaKey) && e.key === "0") { e.preventDefault(); setZoom(1); return; }
+      if (e.key !== "Tab") return;
+      var f = viewer.querySelectorAll("button, a[href], [tabindex]:not([tabindex='-1'])");
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+  }
+
+  var menu = document.getElementById("menu"), side = document.querySelector(".side");
+  if (menu && side) {
+    menu.addEventListener("click", function () {
+      var open = side.classList.toggle("open");
+      menu.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
+  document.querySelectorAll("details.faq > summary").forEach(function (s) {
+    s.setAttribute("role", "button");
+    s.setAttribute("aria-expanded", s.parentElement.open ? "true" : "false");
+    s.parentElement.addEventListener("toggle", function () {
+      s.setAttribute("aria-expanded", s.parentElement.open ? "true" : "false");
+    });
+  });
+
+  document.querySelectorAll(".getback .scroll").forEach(function (s) {
+    function edge() { s.classList.toggle("more", s.scrollWidth - s.clientWidth - s.scrollLeft > 4); }
+    s.addEventListener("scroll", edge, { passive: true });
+    window.addEventListener("resize", edge);
+    edge();
+  });
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var items = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    items.forEach(function (el) { el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+    items.forEach(function (el) { io.observe(el); });
+  }
+});
+
+</script>
+
+</html>
