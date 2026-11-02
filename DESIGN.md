@@ -1,129 +1,59 @@
 ---
-version: 16.0.0
+version: 17.0.0
 name: CTC-Playbook-design
-description: The Chapter Launch Playbook's design system. Structure, type, shape and components follow Clay (DESIGN-clay.md); every colour is climatetechcities.com's own (DESIGN-climate-tech-cities.md). Warm paper canvas, filled olive primary buttons, Inter set at weight 500 with negative tracking for display, a 12/16/24px corner scale, and six saturated CTC colours cycled as feature cards. Flat, no shadows, warm cream footer.
+description: The Chapter Launch Playbook's design system. The material is Hallmark's Editorial theme (square corners, a heavy ink rule over 1px hairlines, one ink band, cream wells, no shadows), set in Inter, and every colour is climatetechcities.com's own. Chosen on 2026-11-02 from three Hallmark samples (polish, restyle, full): the restyle, with Inter kept from the polish.
 
 colors:
-  # Clay role: CTC colour (CTC token name)
-  primary: "#25331a"            # olive ink, CTC's "black"
-  primary-active: "#000000"     # CTC safeDarkAccent
-  on-primary: "#fefefd"         # paper
-  ink: "#000000"                # headlines, as on CTC's white-bold sections
-  body: "#25331a"               # running text in olive
-  muted: "#55554e"              # slate: sub-heads, captions, uppercase labels
-  muted-soft: "#9b9b94"         # stone: decorative numerals only, fails AA as text
-  hairline: "#e4e4dc"
-  canvas: "#fefefd"             # paper, CTC's "white"
-  panel: "#fcfcf9"              # hover wash
-  surface-soft: "#f5f4e9"       # cream: footer, city field
-  surface-card: "#f5f4e9"       # cream: callouts, badges, active nav item
-  surface-strong: "#e4e4dc"
-  surface-dark: "#25331a"       # prompt blocks, the featured card
-  on-dark: "#fefefd"
-  on-dark-muted: "rgba(254, 254, 253, 0.72)"
-  # the six feature-card fills, in Clay's cycle order
-  card-1: "#ef653a"             # coral    (Clay pink)
-  card-2: "#25331a"             # olive    (Clay teal)
-  card-3: "#e2bdff"             # lavender (Clay lavender)
-  card-4: "#afd98f"             # meadow   (Clay peach)
-  card-5: "#cfe3ec"             # water    (Clay ochre)
-  card-6: "#f5f4e9"             # cream    (Clay cream)
-  leaf: "#d1ecbc"               # spare accent (Clay mint)
-  coral-deep: "#c24d1c"         # coral darkened for paper text: the Claude badge
+  paper: "#fefefd"        # CTC paper: the page
+  paper-2: "#f5f4e9"      # CTC cream: wells, callouts, the city field, the footer
+  paper-3: "#e4e4dc"
+  ink: "#25331a"          # CTC olive: heads, body, the ink band, the primary button
+  muted: "#55554e"        # CTC slate: captions, labels, every field edge (3:1 on paper)
+  rule: "#e4e4dc"         # hairlines between rows
+  rule-2: "#9b9b94"       # CTC stone: under table heads; decorative only (2.8:1)
+  accent: "#afd98f"       # CTC meadow: the one green, under 5% of a screen (link hover, current step, progress)
+  lavender: "#e2bdff"     # CTC accent: only on the ink band and prompt blocks (labels, Copy, focus on ink)
+  coral: "#ef653a"        # Claude's work and nothing else
+  coral-deep: "#c24d1c"   # coral under paper text: the Claude badge
+  water: "#cfe3ec"        # spare
+  leaf: "#d1ecbc"         # spare
+  app-excel: "#1d6f42"    # file-type badge and the viewer's sheet tab
+  app-word: "#2b579a"     # file-type badge
+  key-*: "the plugins' own spreadsheet fills, for the colour keys under each sample"
 
 typography:
-  display-xl:  { fontFamily: Inter, fontSize: 72px, fontWeight: 500, lineHeight: 1,    letterSpacing: -2.5px }  # home h1
-  display-lg:  { fontFamily: Inter, fontSize: 56px, fontWeight: 500, lineHeight: 1.05, letterSpacing: -2px }    # home section heads
-  display-md:  { fontFamily: Inter, fontSize: 40px, fontWeight: 500, lineHeight: 1.1,  letterSpacing: -1px }    # page h1
-  display-sm:  { fontFamily: Inter, fontSize: 32px, fontWeight: 500, lineHeight: 1.15, letterSpacing: -0.5px }  # page h2
-  title-lg:    { fontFamily: Inter, fontSize: 24px, fontWeight: 600, lineHeight: 1.3,  letterSpacing: -0.3px }  # h3, step titles, feature-card titles
-  title-md:    { fontFamily: Inter, fontSize: 18px, fontWeight: 600, lineHeight: 1.4,  letterSpacing: 0 }       # card titles, pager
-  body-md:     { fontFamily: Inter, fontSize: 16px, fontWeight: 400, lineHeight: 1.55, letterSpacing: 0 }
-  body-sm:     { fontFamily: Inter, fontSize: 14px, fontWeight: 400, lineHeight: 1.55, letterSpacing: 0 }
-  caption:     { fontFamily: Inter, fontSize: 13px, fontWeight: 500, lineHeight: 1.4,  letterSpacing: 0 }       # badges
-  caption-uppercase: { fontFamily: Inter, fontSize: 12px, fontWeight: 600, lineHeight: 1.4, letterSpacing: 1.5px }  # eyebrows, sidebar groups, table heads
-  button:      { fontFamily: Inter, fontSize: 14px, fontWeight: 600, lineHeight: 1,    letterSpacing: 0 }
-  nav-link:    { fontFamily: Inter, fontSize: 14px, fontWeight: 500, lineHeight: 1.4,  letterSpacing: 0 }
-  mono:        { fontFamily: Geist Mono, fontSize: 13.5px, fontWeight: 400 }                                   # prompts, filenames
+  family: Inter for everything; Geist Mono for prompts and filenames only
+  hero: { size: "clamp(2.25rem, 5.4vw, 4.5rem)", weight: 500, tracking: -0.035em, leading: 1 }
+  home-section: { size: "clamp(2rem, 4vw, 3.5rem)", weight: 500, tracking: -0.035em }
+  page-title: { size: "clamp(2rem, 3.4vw, 2.5rem)", weight: 500, tracking: -0.03em }
+  section: { size: "clamp(1.75rem, 1.6vw + 1rem, 2.25rem)", weight: 500, tracking: -0.03em }
+  title: { size: "1.25rem to 1.5rem", weight: 600, tracking: -0.01em }
+  body: { size: 16px, weight: 400, leading: 1.55 }
+  lead: { size: "1.0625rem to 1.25rem", weight: 400 }
+  label: { size: 15px, weight: 500, case: sentence, tracking: 0 }
 
-rounded: { xs: 6px, sm: 8px, md: 12px, lg: 16px, xl: 24px, pill: 9999px, full: 50% }
-spacing: { xxs: 4px, xs: 8px, sm: 12px, md: 16px, lg: 24px, xl: 32px, xxl: 48px, section: 96px }
-
-components:
-  top-nav:            { backgroundColor: "{colors.canvas}", height: 64px, typography: "{typography.nav-link}", link: pill, active: "{colors.surface-card}" }
-  button-primary:     { backgroundColor: "{colors.primary}", textColor: "{colors.on-primary}", rounded: "{rounded.md}", height: 44px, padding: 12px 20px }
-  button-secondary:   { class: .btn.outline, backgroundColor: "{colors.canvas}", textColor: "{colors.ink}", border: "1px {colors.hairline}", rounded: "{rounded.md}" }
-  button-small:       { class: .btn.sm, height: 34px, rounded: "{rounded.sm}" }
-  button-on-color:    { class: .btn.lav, backgroundColor: "{colors.canvas}", textColor: "{colors.ink}", use: on the featured olive card }
-  hero-band:          { backgroundColor: "{colors.canvas}", grid: 7/5, padding: 96px }
-  hero-artifact:      { backgroundColor: "{colors.card-3}", rounded: "{rounded.xl}", holds: the sample-issue card on canvas, rounded lg }
-  feature-card:       { class: .tiles a, backgroundColor: "card-1 .. card-6 by position", rounded: "{rounded.xl}", padding: 32px, title: "{typography.title-lg}" }
-  featured-card:      { class: .band-wrap, backgroundColor: "{colors.surface-dark}", textColor: "{colors.on-dark}", rounded: "{rounded.xl}", padding: 64px, accent: "{colors.card-3}" }
-  content-card:       { class: .card, backgroundColor: "{colors.canvas}", border: "1px {colors.hairline}", rounded: "{rounded.lg}", padding: 24px }
-  callout:            { class: .note, backgroundColor: "{colors.surface-card}", rounded: "{rounded.lg}", padding: 16px 20px }
-  prompt-block:       { class: .prompt-card, backgroundColor: "{colors.surface-dark}", rounded: "{rounded.lg}", copy: lavender fill, olive text }
-  sidebar-item:       { rounded: "{rounded.md}", typography: "{typography.nav-link}", active: "{colors.surface-card} fill, ink, 600" }
-  text-input:         { backgroundColor: "{colors.canvas}", border: "1px {colors.hairline}", rounded: "{rounded.md}", height: 44px, focused: ink border }
-  badge-pill:         { class: .tag, backgroundColor: "{colors.surface-card}", typography: "{typography.caption}", rounded: "{rounded.pill}", padding: 4px 12px }
-  footer:             { backgroundColor: "{colors.surface-soft}", textColor: "{colors.muted}", padding: 64px }
+shape:
+  radius: 0 everywhere
+  rules: { heavy: "4px ink, opens a section, a table, the header, the pager", hair: "1px rule between rows" }
+  shadows: none
+  motion: state only (a link underline turns meadow, a block darkens); no scroll reveals
 ---
 
-## Overview
+## How it came about
 
-Two sources, one rule each. **Clay decides how things are built**: type scale and weights, corner radii, spacing, button and card anatomy, the long-scroll rhythm of saturated feature cards, flat depth, a warm footer. **Climate Tech Cities decides every colour**: no Clay hex appears anywhere. Each Clay colour role is filled with the CTC colour that plays the same part on climatetechcities.com.
+On 2026-11-02 the site was put through Hallmark (github.com/nutlope/hallmark), a design skill that checks a page against habits that read as machine-made. Three samples were built from the home and Install pages: **polish** (the Clay + CTC system kept, only the flagged habits fixed), **restyle** (layouts kept, Hallmark's Editorial theme in CTC colours) and **full** (pages recomposed in Editorial). The restyle was chosen, with Inter kept from the polish in place of Editorial's condensed Bricolage and serif Source Serif. The samples stay on the `hallmark-samples` branch.
 
-CTC's palette was extracted from the site's own stylesheets on 2026-09-26 and is recorded in `DESIGN-climate-tech-cities.md`. Clay's system is `DESIGN-clay.md`.
+`DESIGN-clay.md` (the previous structure) and `DESIGN-climate-tech-cities.md` (the palette's source, extracted from climatetechcities.com on 2026-09-26) remain as references.
 
-## How Clay's roles map to CTC's colours
+## Rules
 
-| Clay role | Clay hex | CTC colour used | Why |
-|---|---|---|---|
-| primary (buttons) | `#0a0a0a` | olive `#25331a` | CTC's declared "black" |
-| primary-active | `#1f1f1f` | true black `#000000` | CTC's safeDarkAccent |
-| ink (headlines) | `#0a0a0a` | `#000000` | CTC's white-bold sections set headings in pure black |
-| body | `#3a3a3a` | olive `#25331a` | CTC sets prose in its ink |
-| muted | `#6a6a6a` | slate `#55554e` | CTC's secondary text |
-| canvas | `#fffaf0` | paper `#fefefd` | CTC's warm white; long reading pages |
-| surface-soft / surface-card | `#faf5e8` / `#f5f0e0` | cream `#f5f4e9` | CTC's site background, almost exactly Clay's card cream |
-| brand-pink | `#ff4d8b` | coral `#ef653a` | CTC's hot accent |
-| brand-teal (featured) | `#1a3a3a` | olive `#25331a` | CTC's dark surface |
-| brand-lavender | `#b8a4ed` | lavender `#e2bdff` | CTC's theme accent |
-| brand-peach | `#ffb084` | meadow `#afd98f` | CTC's map green |
-| brand-ochre | `#e8b94a` | water `#cfe3ec` | CTC's map water |
-| brand-mint | `#a4d4c5` | leaf `#d1ecbc` | CTC's glyph green (spare) |
+- **Colour:** CTC's palette only, through the tokens at the top of `assets/site.css`. Olive is the ink; cream is the only second paper; meadow is the one green and stays small; lavender lives only on olive; coral means Claude.
+- **Attribution:** coral for Claude's work, olive for the lead's, a cream ground where the lead finishes. Badges, swatches and the sample issue all follow it.
+- **Type:** Inter. Heads are weight 500 with negative tracking, titles 600, body 400 at 16px. Labels, nav, buttons, captions and table heads are a step smaller in sentence case with no letter-spacing. No uppercase labels and no eyebrows above headings: a page's place in the steps ("Step 02 of 05, once", with the progress segments) sits directly under its title.
+- **Surfaces:** square corners, no shadows. A 4px olive rule opens the header, each home section, tables and the pager; 1px hairlines part rows. Cream wells hold callouts and the city field. One olive band per page at most (the home loop), plus the olive prompt blocks.
+- **Controls:** an olive block for the primary action beside a 1px olive outline for the secondary, 48px tall. Inputs are square with a slate edge that turns olive on focus. Links carry a hairline underline that turns meadow on hover.
+- **Pictures:** the product's own: claude.ai screenshots, the sample files, the sample issue. No stock photos, no emoji as icons (the full sample issue on the Weekly cycle page keeps the emoji the newsletter itself writes).
 
-Contrast, checked: black on coral 6.6:1 (so coral cards take black text, never white); paper on olive 13.3:1; olive on lavender 8.3:1, on meadow 8.4:1, on water 10.1:1, on cream 12.1:1; slate on paper 7.4:1. Stone `#9b9b94` is 2.8:1 on paper, so it is kept for decorative step numerals only.
+## Hallmark check
 
-## Typography
-
-Inter throughout. Clay's display face, Plain Black, is licensed to Clay; its own documentation names Inter at weight 500 with negative tracking as the substitute, and that is what is used. Display sizes are always weight 500, never bolder, with Clay's negative letter-spacing. Titles are 600, body 400, letter-spacing 0. Uppercase is used only for 12px captions at 1.5px tracking. Geist Mono stays for prompts and filenames.
-
-The previous skin's Catamaran and Gantari files are still in `assets/fonts/` but no longer loaded.
-
-## Shape and depth
-
-Corners: 12px buttons, inputs and nav items; 16px content cards, prompt blocks, figures, callouts; 24px feature cards, the hero artifact, the featured card and the viewer; pills for badges, tags and top-nav links; circles for step markers. No shadows: depth comes from a saturated or cream fill against the paper canvas, or a 1px hairline.
-
-## Components
-
-- **Home hero.** Paper band, 7/5 grid, 96px padding. Display-xl headline left; right, a lavender 24px card holding the sample-issue card (the product fragment, standing in for Clay's illustration).
-- **Feature cards.** The overview and five steps are six saturated cards, coloured by position in Clay's cycle: coral, olive, lavender, meadow, water, cream. No colour repeats next to itself in the 3-column, 2-column or 1-column layout. Icon top left, step number and title-lg title, short description.
-- **Optional step.** A hairline card in the same 24px shape, deliberately not coloured, so Partners reads as outside the required six.
-- **Featured card.** The "Claude does the lists" loop is an olive 24px card inside the page margin, Clay's featured surface, with lavender role labels and counts and a canvas button.
-- **Docs pages.** Paper canvas, sticky sidebar with Clay's tab treatment (cream fill on the current page), display-md page titles, display-sm section heads. Callouts are cream cards; content cards are hairline cards; prompts are olive cards with a lavender Copy button.
-- **Attribution colours are unchanged.** Coral marks Claude's work, olive marks the lead's, in badges, swatches and the sample issue. Spreadsheet colour keys keep the files' own fills.
-- **Footer.** Cream, never dark, 64px padding.
-
-## Do and don't
-
-- Do take every colour from the table above. A new surface picks a CTC token, never a Clay hex.
-- Do keep display type at weight 500 with negative tracking.
-- Do cycle feature cards in order; never put two of the same colour side by side.
-- Don't put white text on coral; use black.
-- Don't add shadows, or a seventh card colour.
-- Don't use a dark footer.
-
-## Known gaps
-
-- Clay's 3D claymation illustrations are commissioned assets; there are none here. The hero uses a real product fragment (the sample issue) inside a saturated card, as Clay's feature cards do.
-- climatetechcities.com could not be re-fetched on 2026-11-02 (outside this session's network allowlist), so the palette is the 2026-09-26 extraction.
+`node <hallmark>/skills/hallmark/scripts/sloplint.mjs index.html */index.html assets/site.css --genre editorial` reports 0 Floor findings apart from the eight emoji the Weekly cycle sample issue keeps on purpose. Inter as the display face is waived in the stylesheet's stamp (chosen by the owner).

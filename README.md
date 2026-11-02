@@ -52,27 +52,20 @@ retired `/apply/` address land on the Two-week overview.
 
 ## Design
 
-Two sources, one rule each, written up in `DESIGN.md`. The structure is
-Clay's (`DESIGN-clay.md`): filled primary buttons 44px tall with 12px
-corners, display type at weight 500 with negative tracking, a 12/16/24px
-corner scale, saturated single-colour feature cards cycled down the page,
-flat depth with no shadows, a warm cream footer. Every colour is
-climatetechcities.com's own (`DESIGN-climate-tech-cities.md`, extracted from
-that site's stylesheets on 2026-09-26): each Clay colour role is filled with
-the CTC colour that plays the same part, and no Clay hex is used.
+Written up in `DESIGN.md`. The material is Hallmark's Editorial theme
+(github.com/nutlope/hallmark): square corners, a heavy olive rule over 1px
+hairlines, cream wells, one olive band, no shadows. Type is Inter throughout
+(heads 500 with negative tracking, titles 600, body 400 at 16px), with Geist
+Mono for prompts and filenames. Every colour is climatetechcities.com's own:
+olive `#25331a` ink, paper `#fefefd`, cream `#f5f4e9`, meadow `#afd98f` as the
+one small green, lavender `#e2bdff` only on olive, coral `#ef653a` only for
+Claude's work. Labels are sentence case and untracked; a page's step position
+sits under its title rather than above it. No middle dots and no em dashes
+anywhere.
 
-Paper `#fefefd` canvas, cream `#f5f4e9` for callouts, the city field, the
-active nav item and the footer. Headings pure black, prose olive `#25331a`,
-primary buttons olive. The overview and five steps are six feature cards in
-coral, olive, lavender, meadow, water and cream; the weekly loop is an olive
-featured card. Coral still marks Claude's work (darkened to `#c24d1c` under
-paper text); lavender is the accent on dark surfaces.
-
-Type is Inter (Clay's documented substitute for its licensed Plain Black),
-from Google Fonts like Geist Mono, which stays for prompts and filenames.
-Display 500, titles 600, body 400 at 16px, letter-spacing 0 except the
-display sizes and the 12px uppercase captions. No middle dots and no em
-dashes anywhere.
+Chosen on 2026-11-02 from three Hallmark samples kept on the
+`hallmark-samples` branch. `DESIGN-clay.md` (the previous structure) and
+`DESIGN-climate-tech-cities.md` (the palette's source) remain as references.
 
 ## Standing rules
 
@@ -105,9 +98,10 @@ dashes anywhere.
   framework, no build step: the shell (top bar, sidebar, footer, viewer) is
   written into each file, so a change to the navigation is a change to all
   ten
-- `DESIGN.md`, the design system the skin follows: Clay's structure with
-  CTC's colours. `DESIGN-clay.md` and `DESIGN-climate-tech-cities.md`
-  (extracted from climatetechcities.com on 2026-09-26) are its two sources
+- `DESIGN.md`, the design system the skin follows: Hallmark's Editorial
+  material in Inter, in CTC's colours. `DESIGN-clay.md` and
+  `DESIGN-climate-tech-cities.md` (extracted from climatetechcities.com on
+  2026-09-26) are kept as references
 - `assets/site.css`, `assets/site.js`, shared by every page. Each page sets
   `window.ROOT` (`""` at the root, `"../"` one level down) before loading the
   script so asset paths resolve

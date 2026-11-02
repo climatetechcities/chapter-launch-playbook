@@ -2,6 +2,18 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 17.0.0
+
+New skin from a Hallmark pass (github.com/nutlope/hallmark). Three samples were built (polish, restyle, full; kept on the `hallmark-samples` branch); this is the restyle, in Inter. Layouts, content and links are unchanged.
+
+- **Material.** Hallmark's Editorial theme: square corners everywhere, a 4px olive rule opening the header, sections, tables and the pager, 1px hairlines between rows, cream wells, no shadows. The home page's coloured cards become ruled tiles; the sample issue is a ruled cream page; the weekly loop stays as the one olive band.
+- **Colour.** Still only CTC's: olive ink for heads and body (no more pure black), meadow as the one small green (link hover, current step, progress), lavender only on olive, coral only for Claude.
+- **Type.** Inter kept: heads 500 with negative tracking, titles 600, body 16px. Labels, nav, buttons and table heads are sentence case with no letter-spacing (they were 12px uppercase).
+- **Step position.** "Step 02 of 05, once" and the other page labels now sit under each page title instead of above it.
+- **Controls.** Olive block for the primary action, 1px outline for the secondary; square inputs with a slate edge.
+- **Fixes Hallmark asked for.** Content is visible before scripts run (no fade-in), sideways overflow is clipped rather than hidden, every colour goes through a token (the spreadsheet colour keys use classes now, same fills), pressed and disabled states exist.
+- **Wording.** The four event lines on the home page's sample issue card lose their leading emoji. The full sample issue on the Weekly cycle page keeps its emoji, since that is what the newsletter writes.
+
 ## 16.0.0
 
 New skin: Clay's design system, in Climate Tech Cities' colours. Content, pages and links are unchanged.
