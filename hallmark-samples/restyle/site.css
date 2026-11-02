@@ -9,6 +9,9 @@
 @import url("./tokens.css");
 @import url("./base.css");
 
+/* ---------- reset, as the live stylesheet had it ---------- */
+* { margin: 0; padding: 0; }
+
 /* ---------- type ---------- */
 body { font-size: var(--text-body); line-height: 1.55; color: var(--color-ink-2); background: var(--color-paper); font-optical-sizing: auto; font-variant-numeric: oldstyle-nums; }
 h1, h2, h3, h2.sub {
@@ -62,7 +65,7 @@ details.more summary, .legend-row span, .filerow .thumb, .issue .tag2 {
 .shell { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); display: grid; grid-template-columns: var(--side-w) minmax(0, 1fr); gap: var(--space-2xl); }
 .side { position: sticky; top: calc(var(--top-h) + var(--rule-heavy)); align-self: start; height: calc(100dvh - var(--top-h) - var(--rule-heavy)); overflow-y: auto; padding: var(--space-xl) 0; scrollbar-width: none; }
 .side::-webkit-scrollbar { display: none; }
-.side .group { font-size: var(--text-sm); color: var(--color-muted); margin: var(--space-lg) 0 0; padding: var(--space-xs) 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.side .group { font-size: var(--text-sm); color: var(--color-muted); margin: var(--space-lg) 0 0; padding: var(--space-xs) var(--space-sm); border-top: var(--rule-hair) solid var(--color-rule); }
 .side a { display: flex; align-items: baseline; gap: var(--space-sm); padding: var(--space-xs) var(--space-sm); font-size: var(--text-label); line-height: 1.35; color: var(--color-ink); text-decoration: none; transition: background-color var(--dur-short) var(--ease-out); }
 .side a:hover { background: var(--color-paper-2); }
 .side a.here { background: var(--color-ink); color: var(--color-on-ink); font-weight: 600; }
@@ -316,7 +319,7 @@ ul.dl-list a { color: var(--color-ink); font-weight: 600; }
 .tiles li:first-child a { background: var(--color-paper-2); }
 .tiles .art { display: none; }
 .tiles .n { grid-area: n; min-height: 1lh; font-size: var(--text-label); color: var(--color-muted); }
-.tiles .t { grid-area: t; justify-self: start; margin-top: var(--space-xl); font-family: var(--font-display); font-weight: var(--display-weight); font-variation-settings: var(--fvs-display); font-size: var(--text-title-l); line-height: 1.05; letter-spacing: var(--tracking-display); color: var(--color-ink); }
+.tiles .t { grid-area: t; justify-self: start; margin-top: var(--space-lg); font-family: var(--font-display); font-weight: var(--display-weight); font-variation-settings: var(--fvs-display); font-size: var(--text-title-l); line-height: 1.05; letter-spacing: var(--tracking-display); color: var(--color-ink); }
 .tiles .d { grid-area: d; font-size: var(--text-md); line-height: 1.45; color: var(--color-muted); margin-top: var(--space-xs); max-width: 28ch; }
 /* the optional step: one contents row, set apart under the six */
 .optional { margin-top: var(--space-xl); padding: var(--space-md) var(--space-lg); display: flex; align-items: baseline; gap: var(--space-xs) var(--space-lg); flex-wrap: wrap; border-top: var(--rule-hair) solid var(--color-ink); border-bottom: var(--rule-hair) solid var(--color-rule); text-decoration: none; color: var(--color-ink-2); }
@@ -459,7 +462,8 @@ button:disabled { cursor: not-allowed; }
   .tiles .t { margin-top: var(--space-xs); }
   .optional { padding: var(--space-md); }
   .loop { grid-template-columns: minmax(0, 1fr); }
-  .counts > span { padding: 0 var(--space-md); }
+  .counts { gap: var(--space-lg) var(--space-xl); }
+  .counts > span, .counts > span:first-child { padding: 0; border-left: 0; }
   .steps > li { padding-left: 48px; }
   .steps > li::before { font-size: var(--text-2xl); }
   .dl .name { flex-basis: 100%; }
