@@ -72,7 +72,9 @@ Type is Inter (Clay's documented substitute for its licensed Plain Black),
 from Google Fonts like Geist Mono, which stays for prompts and filenames.
 Display 500, titles 600, body 400 at 16px, letter-spacing 0 except the
 display sizes. Headings are olive, and labels are sentence case with no
-letter-spacing (a Hallmark polish, 16.1.0). No middle dots and no em
+letter-spacing (a Hallmark polish, 16.1.0). Every icon is from Regen Icons
+(github.com/kazdenc/regen-icons, MIT), kept in `assets/icons/` with its
+licence (16.2.0). No middle dots and no em
 dashes anywhere.
 
 ## Standing rules

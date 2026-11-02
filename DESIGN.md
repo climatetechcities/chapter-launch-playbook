@@ -1,5 +1,5 @@
 ---
-version: 16.1.0
+version: 16.2.0
 name: CTC-Playbook-design
 description: The Chapter Launch Playbook's design system. Structure, type, shape and components follow Clay (DESIGN-clay.md); every colour is climatetechcities.com's own (DESIGN-climate-tech-cities.md). Warm paper canvas, filled olive primary buttons, Inter set at weight 500 with negative tracking for display, a 12/16/24px corner scale, and six saturated CTC colours cycled as feature cards. Flat, no shadows, warm cream footer.
 
@@ -126,6 +126,22 @@ Corners: 12px buttons, inputs and nav items; 16px content cards, prompt blocks, 
 ## Hallmark polish (16.1.0)
 
 On 2026-11-02 the site was checked with Hallmark (github.com/nutlope/hallmark) and polished: the system and layouts stayed, and only what its checker flags changed. Headings went from pure black to olive; uppercase tracked labels became sentence case; every colour, including the spreadsheet colour keys, goes through a token; content is visible before the script runs; sideways overflow is clipped rather than hidden; pressed and disabled states exist; the home sample-issue card lost its emoji. Still open by choice: Inter as the display face (this system's face) and the emoji in the Weekly cycle sample issue (what the newsletter writes). The restyle and full-redesign samples it was compared with are on the `hallmark-samples` branch.
+
+## Iconography (16.2.0)
+
+Every icon comes from Regen Icons (github.com/kazdenc/regen-icons, MIT), the outline set: a 24px grid, round caps, stroke 2 at control size and Regen's 1.5 weight at the 44px tile size. The SVGs used live in `assets/icons/` with Regen's licence. Small marks are drawn as CSS masks from tokens (`--i-<name>`) so they take the text colour; larger drawings are inline SVG.
+
+| Where | Icon |
+|---|---|
+| Home tiles | calendar (overview), pencil (logo), cube (install), clipboard-check (set up), mail (newsletter), refresh (weekly cycle) |
+| Arrows on links, pager, the weekly flow | arrow-right |
+| Done lists | check, on the lavender disc |
+| Help accordion | chevron-down, turning over when open |
+| Expanders | plus and minus |
+| Copy, Preview, Download, mobile Steps | copy, eye, download, menu |
+| File viewer | minus and plus (zoom), x (close) |
+
+Adding one: copy its SVG from Regen's `svg/outline/` into `assets/icons/`, then either add a `--i-<name>` mask token or inline it. Do not draw icons by hand or mix in another set; emoji are not icons.
 
 ## Known gaps
 

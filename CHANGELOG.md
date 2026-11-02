@@ -2,6 +2,16 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 16.2.0
+
+Iconography from Regen Icons (github.com/kazdenc/regen-icons, MIT), one outline set on a 24px grid in place of the hand-drawn marks and text glyphs.
+
+- Home tiles: calendar, pencil, cube, clipboard-check, mail and refresh replace the six custom drawings.
+- The link and pager arrows, the done-list check, the Help accordion chevron and the expander plus and minus are Regen's, drawn from tokens so they take the text colour.
+- Copy, Preview, Download and the mobile Steps button carry copy, eye, download and menu icons.
+- The file viewer's zoom and close buttons use Regen's minus, plus and x instead of text characters.
+- The SVGs used are in `assets/icons/` with Regen's MIT licence.
+
 ## 16.1.0
 
 A Hallmark polish (github.com/nutlope/hallmark): the Clay + CTC look and every layout stay; only what Hallmark's checker flags changed. Chosen over a restyle and a full redesign, which stay on the `hallmark-samples` branch.
