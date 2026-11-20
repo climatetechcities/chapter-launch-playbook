@@ -15,7 +15,7 @@ plugins, nine skills, covering a new chapter lead's launch.
 
 | Package | Kind | Contains |
 |---|---|---|
-| `ctc-newsletter` v3.2.0 | Plugin, 6 skills | `ctc-newsletter-cycle`, `ctc-chapter-setup`, `ctc-source-map`, `ctc-opportunities`, `ctc-harvest`, `ctc-assemble` |
+| `ctc-newsletter` v3.2.5 | Plugin, 6 skills | `ctc-newsletter-cycle`, `ctc-chapter-setup`, `ctc-source-map`, `ctc-opportunities`, `ctc-harvest`, `ctc-assemble` |
 | `ctc-partner-map` v2.2.0 | Plugin, 3 skills | `ctc-city-resources`, `ctc-partner-list`, `ctc-partner-outreach` |
 
 The logo phase runs in ChatGPT rather than Claude, and the site carries the
@@ -44,7 +44,7 @@ one page, First run. `/set-up/` and `/newsletter/` forward to it.
 | 4 Every week | `/weekly-cycle/` | Collect, review, build, send (`#collect` `#review` `#build` `#sample` `#send`), what takes care of itself |
 | Partners | `/partners/` | Installing ctc-partner-map (`#install`), city resources, partner map, outreach. Optional |
 | Help | `/help/` | Troubleshooting |
-| Downloads | `/downloads/` | Plugins and the fourteen samples |
+| Downloads | `/downloads/` | Plugins and the fifteen samples |
 
 Every anchor from the old single page (`/#setup`, `/#cycle`, and so on) is
 redirected by the home page to the matching new page; `/#apply` and the
@@ -120,7 +120,7 @@ dashes anywhere.
   2026-09-11; Claude's settings screens move, so re-take these when a step
   stops matching what a lead sees
 - `downloads/`, the two plugin zips, the five brand PNGs, and `samples/`
-  with the fourteen sample files plus `samples/previews/`, one interactive preview
+  with the fifteen sample files plus `samples/previews/`, one interactive preview
   per sample (`<key>.html`): spreadsheets as Excel-style grids with sheet tabs,
   Word files as Word's own HTML export, the chapter text files (`.md`) set on a page. The file viewer loads them into a
   shadow root and zooms them. Rebuild with `python tools/build_previews.py`

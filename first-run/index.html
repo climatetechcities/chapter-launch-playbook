@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/site.css?v=17.2.0" />
+<link rel="stylesheet" href="../assets/site.css?v=17.3.0" />
 </head>
 <body>
 <header class="top">
@@ -107,7 +107,7 @@
       </li>
       <li>
         <h2 class="sub" id="sources">Read your source list before it is saved</h2>
-        <p class="desc dim">Claude builds the source list, then the opportunities list, without stopping between them. Then it stops once and hands you both as spreadsheets.</p>
+        <p class="desc dim">Claude builds the source list, then the opportunities list, without stopping between them. Then it stops once and hands you both as spreadsheets, with a calendar of when everything runs from here.</p>
         <figure class="shot">
           <img src="../downloads/guide/first-run-files.png" alt="" loading="lazy" />
           <figcaption>The one stop, from a real first run for Austin. The two spreadsheets at the bottom are yours to read. The text files above them are the copies Claude keeps.</figcaption>
@@ -159,6 +159,21 @@
             </div>
           </div>
         </div>
+        <h3 id="calendar">Your calendar</h3>
+        <p class="desc dim">One page showing the day Claude collects events each week, your send day, and the weeks your opportunities and source list come up for a refresh. Say "show my calendar" to get it again. Claude sends a new one if your send day changes.</p>
+        <div class="card getback">
+          <p class="eyebrow">What you get back</p>
+          <div class="rail">
+                <div class="filerow">
+                  <span class="thumb html" aria-hidden="true">HTML</span>
+                  <span class="meta"><b>CTC_Calendar_SAMPLE.html</b><span>Web page, opens in your browser</span></span>
+                  <span class="acts">
+                    <button class="btn sm outline" type="button" data-file="calendar">Preview</button>
+                    <a class="btn sm" href="../downloads/samples/CTC_Calendar_SAMPLE.html" download>Download</a>
+                  </span>
+                </div>
+          </div>
+        </div>
         <h3 id="opportunities">Your opportunities list</h3>
         <p class="desc dim">Grants, fellowships, accelerators and open calls, saved as soon as its checks pass. Each issue features two to four.</p>
         <ul class="checks">
@@ -206,8 +221,8 @@
       </li>
       <li>
         <h2 class="sub" id="schedule">If you said yes to the schedule</h2>
-        <p class="desc dim">After your first issue is built, Claude creates one scheduled task on your account, named CTC newsletter: [your city]. It runs the day before your send day: it collects the events and leaves the review message waiting for you. It never builds or sends anything by itself.</p>
-        <div class="note"><strong>Your computer has to be on with Claude open when it runs.</strong> The event calendars are read through your browser. If it cannot reach one, it collects nothing and tells you in one short message. Say "run the newsletter" when you are back.</div>
+        <p class="desc dim">After your first issue is built, Claude creates one scheduled task on your account, named CTC newsletter: [your city]. It runs once a week, the day before your send day: it collects the events and leaves the review message waiting for you. It never builds or sends anything by itself.</p>
+        <div class="note"><strong>Your computer has to be on with Claude open when it runs.</strong> The event calendars are read through your browser. If it cannot reach one, it collects nothing and tells you in one short message. When you are back, press Run now on the task or say "run the newsletter".</div>
         <figure class="shot">
           <img src="../downloads/guide/scheduled-task.png" alt="" loading="lazy" />
           <figcaption>The task Claude created, under Scheduled in Claude. <b>1</b> It needs this computer. <b>2</b> Run it now, or switch it off. <b>3</b> Auto means it runs without stopping to ask you.</figcaption>
@@ -287,6 +302,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=17.2.0"></script>
+<script src="../assets/site.js?v=17.3.0"></script>
 </body>
 </html>

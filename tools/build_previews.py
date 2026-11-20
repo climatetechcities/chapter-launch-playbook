@@ -35,6 +35,7 @@ FILES = {
     "opportunities": "Opportunities_SAMPLE.xlsx",
     "voice": "CTC_Voice_SAMPLE.md",
     "chapter-log": "CTC_Chapter_Log_SAMPLE.md",
+    "calendar": "CTC_Calendar_SAMPLE.html",
     "review": "CTC_Review_Message_SAMPLE.md",
     "events": "CTC_Events_SAMPLE.xlsx",
     "city-resources": "CTC_City_Resources_SAMPLE.xlsx",
@@ -357,6 +358,7 @@ def html_preview(path):
     text = path.read_text(encoding="utf-8")
     styles = "\n".join(re.findall(r"<style[^>]*>(.*?)</style>", text, re.S | re.I))
     styles = re.sub(r"(?<![\w-])body\s*\{", ".mail {", styles)
+    styles = styles.replace(":root", ".mail-wrap")  # a shadow root has no :root, so the page's variables hang on the wrapper
     body = re.search(r"<body[^>]*>(.*)</body>", text, re.S | re.I).group(1)
     return f"<style>:host {{ all: initial; }} .mail-wrap {{ background:#fff; min-width: max-content; }}\n{styles}</style><div class=\"mail-wrap\"><div class=\"mail\">{body}</div></div>"
 

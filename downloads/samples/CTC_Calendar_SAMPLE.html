@@ -1,0 +1,325 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portland newsletter calendar</title><style>
+:root{--bg:#fff;--fg:#1c1c1a;--mut:#6b6b66;--line:#dedcd3;--cell:#fafaf7;
+--collect:#1f5fa8;--send:#1c7a45;--opps:#a35a00;--sources:#6a3fa0;--built:#5f5f5a}
+@media(prefers-color-scheme:dark){:root{--bg:#1a1a18;--fg:#eceae3;--mut:#a3a199;--line:#3a3a36;--cell:#222220;
+--collect:#7db4f0;--send:#6fd09a;--opps:#f0b060;--sources:#c3a1f0;--built:#a3a199}}
+*{box-sizing:border-box}body{margin:0;padding:24px;background:var(--bg);color:var(--fg);
+font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:980px;margin:0 auto}h1{font-size:22px;margin:0 0 4px}h2{font-size:16px;margin:0 0 8px}
+p{margin:0 0 12px}.mut{color:var(--mut)}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px 20px;margin:16px 0 24px;padding:0;list-style:none}
+.legend li{display:flex;gap:10px;align-items:baseline}
+.chip{display:inline-block;font-size:11px;font-weight:600;line-height:1;padding:4px 6px;border-radius:4px;
+border:1.5px solid var(--c);background:var(--c);color:var(--bg);white-space:nowrap}
+.collect{--c:var(--collect)}.send{--c:var(--send)}.opps{--c:var(--opps)}.sources{--c:var(--sources)}
+.opps-built{--c:var(--opps)}.sources-built{--c:var(--sources)}
+.opps-built,.sources-built{background:transparent;color:var(--c);border-style:dashed}
+.months{display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:28px}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+th{font-size:12px;font-weight:600;color:var(--mut);padding:4px 0;text-align:left}
+td{height:68px;vertical-align:top;border:1px solid var(--line);padding:4px;background:var(--cell)}
+td.out{background:transparent;border-color:transparent}td.today{outline:2px solid var(--fg);outline-offset:-2px}
+.n{display:block;font-size:12px;color:var(--mut);margin-bottom:3px}td .chip{margin:0 2px 2px 0}
+.next{margin-top:28px}.next td,.next th{height:auto;padding:6px 8px;border:0;border-bottom:1px solid var(--line);background:transparent;font-size:14px}
+@media(max-width:520px){body{padding:12px}.months{grid-template-columns:1fr}td{height:60px}.chip{font-size:10px;padding:2px 4px}}
+@media print{body{padding:0}.months{grid-template-columns:1fr 1fr}}
+</style></head><body><main>
+<h1>Climate Tech Portland: when everything runs</h1>
+<p class="mut">Sends every week on Tuesday. Made Wed Aug 12 2026. If you change your send day, ask Claude to "show my calendar" for a new one.</p>
+<ul class="legend">
+<li><span class="chip collect">Collect</span><span>Claude collects the events and sends you the list to review (about 1:40 pm, your computer on with Claude open)</span></li>
+<li><span class="chip send">Send</span><span>You send the issue</span></li>
+<li><span class="chip opps">Opps</span><span>Opportunities list refreshed, inside that day&#x27;s run</span></li>
+<li><span class="chip sources">Sources</span><span>Claude offers to refresh your source list</span></li>
+<li><span class="chip opps-built">Opps</span> <span class="chip sources-built">Sources</span><span>Dashed outline: the day that list was last built</span></li>
+</ul><div class="months">
+<section><h2>August 2026</h2><table><thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead><tbody>
+<tr>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td><span class="n">1</span></td>
+<td><span class="n">2</span></td>
+</tr>
+<tr>
+<td><span class="n">3</span><span class="chip sources-built" title="Source list last built">Sources</span></td>
+<td><span class="n">4</span></td>
+<td><span class="n">5</span><span class="chip opps-built" title="Opportunities list last built">Opps</span></td>
+<td><span class="n">6</span></td>
+<td><span class="n">7</span></td>
+<td><span class="n">8</span></td>
+<td><span class="n">9</span></td>
+</tr>
+<tr>
+<td><span class="n">10</span></td>
+<td><span class="n">11</span></td>
+<td class="today"><span class="n">12 today</span></td>
+<td><span class="n">13</span></td>
+<td><span class="n">14</span></td>
+<td><span class="n">15</span></td>
+<td><span class="n">16</span></td>
+</tr>
+<tr>
+<td><span class="n">17</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span></td>
+<td><span class="n">18</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">19</span></td>
+<td><span class="n">20</span></td>
+<td><span class="n">21</span></td>
+<td><span class="n">22</span></td>
+<td><span class="n">23</span></td>
+</tr>
+<tr>
+<td><span class="n">24</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span></td>
+<td><span class="n">25</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">26</span></td>
+<td><span class="n">27</span></td>
+<td><span class="n">28</span></td>
+<td><span class="n">29</span></td>
+<td><span class="n">30</span></td>
+</tr>
+<tr>
+<td><span class="n">31</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+</tr>
+</tbody></table></section>
+<section><h2>September 2026</h2><table><thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead><tbody>
+<tr>
+<td class="out"></td>
+<td><span class="n">1</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">2</span></td>
+<td><span class="n">3</span></td>
+<td><span class="n">4</span></td>
+<td><span class="n">5</span></td>
+<td><span class="n">6</span></td>
+</tr>
+<tr>
+<td><span class="n">7</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span><span class="chip opps" title="Opportunities list refreshed, inside that day&#x27;s run">Opps</span></td>
+<td><span class="n">8</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">9</span></td>
+<td><span class="n">10</span></td>
+<td><span class="n">11</span></td>
+<td><span class="n">12</span></td>
+<td><span class="n">13</span></td>
+</tr>
+<tr>
+<td><span class="n">14</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span></td>
+<td><span class="n">15</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">16</span></td>
+<td><span class="n">17</span></td>
+<td><span class="n">18</span></td>
+<td><span class="n">19</span></td>
+<td><span class="n">20</span></td>
+</tr>
+<tr>
+<td><span class="n">21</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span></td>
+<td><span class="n">22</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">23</span></td>
+<td><span class="n">24</span></td>
+<td><span class="n">25</span></td>
+<td><span class="n">26</span></td>
+<td><span class="n">27</span></td>
+</tr>
+<tr>
+<td><span class="n">28</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span></td>
+<td><span class="n">29</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">30</span></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+</tr>
+</tbody></table></section>
+<section><h2>October 2026</h2><table><thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead><tbody>
+<tr>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td><span class="n">1</span></td>
+<td><span class="n">2</span></td>
+<td><span class="n">3</span></td>
+<td><span class="n">4</span></td>
+</tr>
+<tr>
+<td><span class="n">5</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span></td>
+<td><span class="n">6</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">7</span></td>
+<td><span class="n">8</span></td>
+<td><span class="n">9</span></td>
+<td><span class="n">10</span></td>
+<td><span class="n">11</span></td>
+</tr>
+<tr>
+<td><span class="n">12</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span><span class="chip opps" title="Opportunities list refreshed, inside that day&#x27;s run">Opps</span></td>
+<td><span class="n">13</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">14</span></td>
+<td><span class="n">15</span></td>
+<td><span class="n">16</span></td>
+<td><span class="n">17</span></td>
+<td><span class="n">18</span></td>
+</tr>
+<tr>
+<td><span class="n">19</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span></td>
+<td><span class="n">20</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">21</span></td>
+<td><span class="n">22</span></td>
+<td><span class="n">23</span></td>
+<td><span class="n">24</span></td>
+<td><span class="n">25</span></td>
+</tr>
+<tr>
+<td><span class="n">26</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span></td>
+<td><span class="n">27</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">28</span></td>
+<td><span class="n">29</span></td>
+<td><span class="n">30</span></td>
+<td><span class="n">31</span></td>
+<td class="out"></td>
+</tr>
+</tbody></table></section>
+<section><h2>November 2026</h2><table><thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead><tbody>
+<tr>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td><span class="n">1</span></td>
+</tr>
+<tr>
+<td><span class="n">2</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span><span class="chip sources" title="Claude offers to refresh your source list">Sources</span></td>
+<td><span class="n">3</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">4</span></td>
+<td><span class="n">5</span></td>
+<td><span class="n">6</span></td>
+<td><span class="n">7</span></td>
+<td><span class="n">8</span></td>
+</tr>
+<tr>
+<td><span class="n">9</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span></td>
+<td><span class="n">10</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">11</span></td>
+<td><span class="n">12</span></td>
+<td><span class="n">13</span></td>
+<td><span class="n">14</span></td>
+<td><span class="n">15</span></td>
+</tr>
+<tr>
+<td><span class="n">16</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span><span class="chip opps" title="Opportunities list refreshed, inside that day&#x27;s run">Opps</span></td>
+<td><span class="n">17</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">18</span></td>
+<td><span class="n">19</span></td>
+<td><span class="n">20</span></td>
+<td><span class="n">21</span></td>
+<td><span class="n">22</span></td>
+</tr>
+<tr>
+<td><span class="n">23</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span></td>
+<td><span class="n">24</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">25</span></td>
+<td><span class="n">26</span></td>
+<td><span class="n">27</span></td>
+<td><span class="n">28</span></td>
+<td><span class="n">29</span></td>
+</tr>
+<tr>
+<td><span class="n">30</span><span class="chip collect" title="Claude collects the events and sends you the list to review">Collect</span></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+</tr>
+</tbody></table></section>
+<section><h2>December 2026</h2><table><thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead><tbody>
+<tr>
+<td class="out"></td>
+<td><span class="n">1</span><span class="chip send" title="You send the issue">Send</span></td>
+<td><span class="n">2</span></td>
+<td><span class="n">3</span></td>
+<td><span class="n">4</span></td>
+<td><span class="n">5</span></td>
+<td><span class="n">6</span></td>
+</tr>
+<tr>
+<td><span class="n">7</span></td>
+<td><span class="n">8</span></td>
+<td><span class="n">9</span></td>
+<td><span class="n">10</span></td>
+<td><span class="n">11</span></td>
+<td><span class="n">12</span></td>
+<td><span class="n">13</span></td>
+</tr>
+<tr>
+<td><span class="n">14</span></td>
+<td><span class="n">15</span></td>
+<td><span class="n">16</span></td>
+<td><span class="n">17</span></td>
+<td><span class="n">18</span></td>
+<td><span class="n">19</span></td>
+<td><span class="n">20</span></td>
+</tr>
+<tr>
+<td><span class="n">21</span></td>
+<td><span class="n">22</span></td>
+<td><span class="n">23</span></td>
+<td><span class="n">24</span></td>
+<td><span class="n">25</span></td>
+<td><span class="n">26</span></td>
+<td><span class="n">27</span></td>
+</tr>
+<tr>
+<td><span class="n">28</span></td>
+<td><span class="n">29</span></td>
+<td><span class="n">30</span></td>
+<td><span class="n">31</span></td>
+<td class="out"></td>
+<td class="out"></td>
+<td class="out"></td>
+</tr>
+</tbody></table></section>
+</div><section class="next"><h2>The same dates as a list</h2><table><tbody>
+<tr><th scope="row">Mon Aug 17</th><td>Claude collects the events and sends you the list to review</td></tr>
+<tr><th scope="row">Tue Aug 18</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Aug 24</th><td>Claude collects the events and sends you the list to review</td></tr>
+<tr><th scope="row">Tue Aug 25</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Aug 31</th><td>Claude collects the events and sends you the list to review</td></tr>
+<tr><th scope="row">Tue Sep 1</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Sep 7</th><td>Claude collects the events and sends you the list to review; Opportunities list refreshed, inside that day&#x27;s run</td></tr>
+<tr><th scope="row">Tue Sep 8</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Sep 14</th><td>Claude collects the events and sends you the list to review</td></tr>
+<tr><th scope="row">Tue Sep 15</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Sep 21</th><td>Claude collects the events and sends you the list to review</td></tr>
+<tr><th scope="row">Tue Sep 22</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Sep 28</th><td>Claude collects the events and sends you the list to review</td></tr>
+<tr><th scope="row">Tue Sep 29</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Oct 5</th><td>Claude collects the events and sends you the list to review</td></tr>
+<tr><th scope="row">Tue Oct 6</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Oct 12</th><td>Claude collects the events and sends you the list to review; Opportunities list refreshed, inside that day&#x27;s run</td></tr>
+<tr><th scope="row">Tue Oct 13</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Oct 19</th><td>Claude collects the events and sends you the list to review</td></tr>
+<tr><th scope="row">Tue Oct 20</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Oct 26</th><td>Claude collects the events and sends you the list to review</td></tr>
+<tr><th scope="row">Tue Oct 27</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Nov 2</th><td>Claude collects the events and sends you the list to review; Claude offers to refresh your source list</td></tr>
+<tr><th scope="row">Tue Nov 3</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Nov 9</th><td>Claude collects the events and sends you the list to review</td></tr>
+<tr><th scope="row">Tue Nov 10</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Nov 16</th><td>Claude collects the events and sends you the list to review; Opportunities list refreshed, inside that day&#x27;s run</td></tr>
+<tr><th scope="row">Tue Nov 17</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Nov 23</th><td>Claude collects the events and sends you the list to review</td></tr>
+<tr><th scope="row">Tue Nov 24</th><td>You send the issue</td></tr>
+<tr><th scope="row">Mon Nov 30</th><td>Claude collects the events and sends you the list to review</td></tr>
+<tr><th scope="row">Tue Dec 1</th><td>You send the issue</td></tr>
+</tbody></table></section>
+<p class="mut" style="margin-top:20px">Opportunities refresh in the first weekly run more than 30 days after the last one, and the source list check comes up in the first run more than 90 days after the list was built. Both happen inside the normal weekly run, never as a separate task. If a run is late, these move with it.</p></main></body></html>

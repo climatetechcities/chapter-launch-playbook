@@ -2,6 +2,15 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 17.3.0
+
+The site moves from `ctc-newsletter` 3.2.0 to 3.2.5. The hosted zip is the 3.2.5 build as supplied, unmodified.
+
+- **Calendar (3.2.5).** First run says the calendar arrives with the two spreadsheets at the one stop, and a fifteenth sample, `CTC_Calendar_SAMPLE.html`, was built with the plugin's own script from the Portland settings and log samples. Every week mentions "show my calendar".
+- **One scheduled run a week (3.2.3).** First run, Every week and Help say the task runs once and does not retry; a missed run is restarted with Run now or "run the newsletter".
+- **Playbook address (3.2.2).** The plugin links to the official address itself, so the hosted zip no longer needs patching.
+- 3.2.4 moved instructions between the plugin's own files and changes nothing a lead sees. 3.2.1's six-tries schedule was removed by 3.2.3 and was never described here.
+
 ## 17.2.0
 
 Six screenshots from a real first run of 3.2.0 (Austin, 2026-11-20), each placed where a lead most often goes wrong.

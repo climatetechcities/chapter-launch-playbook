@@ -1,17 +1,9 @@
 # Open items
 
-Toolkit on the site as of 2026-11-20: `ctc-newsletter` v3.2.0 (six skills,
+Toolkit on the site as of 2026-11-20: `ctc-newsletter` v3.2.5 (six skills,
 chapter setup included) and `ctc-partner-map` v2.2.0.
 
-## The hosted zip differs from the uploaded plugin by one address
-
-`ctc-newsletter` 3.2.0 as uploaded still has the old personal playbook address
-in `skills/ctc-chapter-setup/scripts/build_chapter_docs.js` (`PLAYBOOK_URL`) and
-in that skill's `SKILL.md`. The zip in `downloads/` and the Chapter Plan sample
-were built with it changed to https://climatetechcities.github.io/chapter-launch-playbook/.
-Fix it in the plugin source so the next upload matches.
-
-## 3.2.0 says what it has not tested
+## The plugin says what it has not tested
 
 The plugin's own changelog lists as not tested live: a scheduled run end to
 end, creating the scheduled task on a volunteer's account, saving to a project
