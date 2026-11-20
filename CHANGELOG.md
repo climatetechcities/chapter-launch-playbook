@@ -2,6 +2,10 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 17.3.1
+
+Install and Help link straight to the Claude extension's Chrome Web Store page, one click from Add to Chrome.
+
 ## 17.3.0
 
 The site moves from `ctc-newsletter` 3.2.0 to 3.2.5. The hosted zip is the 3.2.5 build as supplied, unmodified.

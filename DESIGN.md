@@ -1,5 +1,5 @@
 ---
-version: 17.3.0
+version: 17.3.1
 name: CTC-Playbook-design
 description: The Chapter Launch Playbook's design system. Structure, type, shape and components follow Clay (DESIGN-clay.md); every colour is climatetechcities.com's own (DESIGN-climate-tech-cities.md). Warm paper canvas, filled olive primary buttons, Inter set at weight 500 with negative tracking for display, a 12/16/24px corner scale, and six saturated CTC colours cycled as feature cards. Flat, no shadows, warm cream footer.
 
