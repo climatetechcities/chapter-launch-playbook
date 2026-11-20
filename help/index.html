@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/site.css?v=17.1.2" />
+<link rel="stylesheet" href="../assets/site.css?v=17.2.0" />
 </head>
 <body>
 <header class="top">
@@ -50,13 +50,18 @@
       <details class="faq"><summary>Claude does not know my chapter, or asks the setup questions again</summary>
         <div class="body">The chat is not inside your project. Open the project and start a new chat there. Claude keeps your settings, source list and log in the project and reads them at the start of every run.</div></details>
       <details class="faq"><summary>Claude said it could not save a file to my project</summary>
-        <div class="body">It hands you the file instead. Open your project. In the Context panel on the right, press the plus sign and add the file. If an older copy is there, remove it. Do not attach it to a chat: a file attached to one chat is not there in the next.
+        <div class="body">It hands you the file instead. Open your project and click Context on the right, then Add, and choose the file. If an older copy is there, remove it. Do not attach it to a chat: a file attached to one chat is not there in the next.
         <figure class="shot">
           <img src="../downloads/guide/project-files.png" alt="" loading="lazy" />
-          <figcaption><b>1</b> The plus sign on Context adds a file to the project.</figcaption>
+          <figcaption>The Context panel of a project. <b>1</b> Add puts a file in the project.</figcaption>
         </figure></div></details>
       <details class="faq"><summary>The scheduled run did not collect anything</summary>
-        <div class="body">Your computer was off, Claude was closed, or the browser could not be reached. The run says so in one short message and stops. Open Claude and say "run the newsletter". If the run is waiting for your approval, open the task in the Scheduled list in Claude and switch it to approve automatically.</div></details>
+        <div class="body">Your computer was off, Claude was closed, or the browser could not be reached. The run says so in one short message and stops. Open Claude and say "run the newsletter". If the run is waiting for your approval, open the task under Scheduled in Claude and set Permissions to Auto.
+        <figure class="shot">
+          <img src="../downloads/guide/scheduled-task.png" alt="" loading="lazy" />
+          <figcaption><b>1</b> The task needs this computer on. <b>2</b> Run now starts it by hand. <b>3</b> Auto runs without asking.</figcaption>
+        </figure>
+        </div></details>
       <details class="faq"><summary>The week's list came back almost empty</summary>
         <div class="body">A source broke. Sites change. Ask Claude which sources returned nothing and look at those by hand. Do not assume the city went quiet.</div></details>
       <details class="faq"><summary>Events came back with names but no dates</summary>
@@ -124,6 +129,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=17.1.2"></script>
+<script src="../assets/site.js?v=17.2.0"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/site.css?v=17.1.2" />
+<link rel="stylesheet" href="../assets/site.css?v=17.2.0" />
 </head>
 <body>
 <header class="top">
@@ -83,17 +83,21 @@
         <p class="desc dim">Open <a class="go" href="https://claude.ai/projects" target="_blank" rel="noopener">claude.ai/projects</a>, then <strong>New project</strong>. Name it Climate Tech [your city]. Start every chapter chat inside it: Claude keeps your chapter's files there.</p>
         <figure class="shot">
           <img src="../downloads/guide/project-new.png" alt="" loading="lazy" />
-          <figcaption><b>1</b> The name. <b>2</b> Create. The second box can stay empty.</figcaption>
+          <figcaption><b>1</b> The name. <b>2</b> Create project. The other two boxes can stay empty.</figcaption>
         </figure>
       </li>
       <li>
         <h2 class="sub">Check it worked</h2>
-        <p class="desc dim">Start a new chat inside the project and ask:</p>
+        <p class="desc dim">Open the project and type in its own box. That starts a chat inside the project, which is where everything for your chapter happens. Ask:</p>
         <div class="prompt-card">
           <div class="head"><span class="label">Verify install</span><button class="copy-btn" onclick="copyPrompt('p-verify', this)">Copy</button></div>
           <pre class="prompt" id="p-verify">Which Climate Tech Cities skills do you have available?</pre>
         </div>
         <div class="note">Claude should name six: ctc-newsletter-cycle, ctc-chapter-setup, ctc-source-map, ctc-opportunities, ctc-harvest and ctc-assemble. If not: check step 1, upload again, and start a fresh chat. Skills do not appear in a chat that was already open.</div>
+        <figure class="shot">
+          <img src="../downloads/guide/project-empty.png" alt="" loading="lazy" />
+          <figcaption>Your new project. <b>1</b> The box to type in. A chat started anywhere else cannot see your chapter's files.</figcaption>
+        </figure>
       </li>
     </ol>
     <nav class="pager" aria-label="Previous and next step">
@@ -133,6 +137,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=17.1.2"></script>
+<script src="../assets/site.js?v=17.2.0"></script>
 </body>
 </html>

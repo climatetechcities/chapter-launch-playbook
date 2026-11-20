@@ -115,8 +115,8 @@ dashes anywhere.
 - `assets/site.css`, `assets/site.js`, shared by every page. Each page sets
   `window.ROOT` (`""` at the root, `"../"` one level down) before loading the
   script so asset paths resolve
-- `downloads/guide/`, five screenshots of claude.ai used on the Install and
-  Help pages, cropped to the panel and marked with what to click. Taken
+- `downloads/guide/`, ten screenshots of Claude used on the Install, First run,
+  Every week and Help pages, cropped to the panel and marked with what to click. Taken
   2026-09-11; Claude's settings screens move, so re-take these when a step
   stops matching what a lead sees
 - `downloads/`, the two plugin zips, the five brand PNGs, and `samples/`

@@ -18,10 +18,14 @@ end, creating the scheduled task on a volunteer's account, saving to a project
 on a second account, and the desktop app's built-in browser. The site describes
 these as the plugin does. Revisit First run and Help once they have been run.
 
-## The install screenshots predate 3.2.0
+## Screenshots come from two dates
 
-`plugins-add.png` is still right (one upload instead of three). There is no
-screenshot of the Scheduled list or of a project holding the chapter files.
+`code-exec.png`, `plugins-add.png` and `chrome.png` are from 2026-09-11. The
+project, Context, scheduled task and first-run file screenshots are from a real
+Austin run on 2026-11-20. Still missing: the finished issue pasted into a
+Substack draft, the step most likely to go wrong. `tools/` has no script for
+the crops and marks; they were made with Pillow (coral outline, numbered
+badge) and should be redone the same way.
 
 ## The verification script lives outside the repo
 

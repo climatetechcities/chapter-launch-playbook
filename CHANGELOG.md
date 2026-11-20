@@ -2,6 +2,16 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 17.2.0
+
+Six screenshots from a real first run of 3.2.0 (Austin, 2026-11-20), each placed where a lead most often goes wrong.
+
+- **Install:** the current Create a project dialog, and the empty project with the box to type in.
+- **First run:** the files handed over at the one stop, the scheduled task Claude created (needs this computer, Run now, Auto), and the project's Context panel with the chapter files in it.
+- **Every week:** the project a week in, with the box to type in and the scheduled run under Recents.
+- **Help:** the Context panel's Add button for a failed save (replacing the September screenshot of the older panel), and the scheduled task for a run that waited for approval.
+- First run says Claude asks seven questions, not eight, when the city is already in the prompt, which is what the site's own copy button produces.
+
 ## 17.1.2
 
 Install covers the newsletter only. ctc-partner-map is gone from that page; its download and upload steps are on Partners (`#install`), and Downloads points there.
