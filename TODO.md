@@ -14,8 +14,7 @@ these as the plugin does. Revisit First run and Help once they have been run.
 
 `code-exec.png`, `plugins-add.png` and `chrome.png` are from 2026-09-11. The
 project, Context, scheduled task and first-run file screenshots are from a real
-Austin run on 2026-11-20. Still missing: the finished issue pasted into a
-Substack draft, the step most likely to go wrong. `tools/` has no script for
+Austin run on 2026-11-20, as is `substack-draft.png`. `tools/` has no script for
 the crops and marks; they were made with Pillow (coral outline, numbered
 badge) and should be redone the same way.
 

@@ -2,6 +2,10 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 17.3.3
+
+Every week shows a real first issue pasted into a Substack draft, with the one square bracket still in it marked. The deploy workflow's actions moved to their Node 24 releases.
+
 ## 17.3.2
 
 In the sidebar, Partners sits in its own dashed box under "Not a step", with an Optional label and one line saying the newsletter works without it.
