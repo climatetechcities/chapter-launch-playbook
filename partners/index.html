@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/site.css?v=17.1.1" />
+<link rel="stylesheet" href="../assets/site.css?v=17.1.2" />
 </head>
 <body>
 <header class="top">
@@ -48,6 +48,18 @@
     <p class="lede">Venues, audiences and speakers come from partners. None of it is needed to send the newsletter.</p>
     <div class="note"><strong>Skip this for as long as you like.</strong> The weekly run does not read the partner map, and your issues send without it. Come back when you want to host an event, find a speaker, or grow past the list you have. If you do build one, the monthly opportunities refresh reads it for local programs instead of researching the city again.</div>
 
+    <h2 id="install">Install the partner map plugin</h2>
+    <p class="desc dim">Partners has its own plugin, separate from the newsletter. It goes in the same way.</p>
+    <div class="card" style="margin-top:16px;">
+      <div class="dl"><a class="name" href="../downloads/ctc-partner-map-v2.2.0.zip" download>ctc-partner-map</a><span class="what">Researches your city, says who to approach, drafts the emails.</span><span class="tag">Plugin, 3 skills</span></div>
+    </div>
+    <ol class="plain">
+      <li>Download the zip above</li>
+      <li>Open <a class="go" href="https://claude.ai/customize/plugins" target="_blank" rel="noopener">claude.ai/customize/plugins</a>. <strong>Add</strong>, then <strong>Upload plugin</strong>, then choose the zip</li>
+      <li>Start a new chat inside your chapter's project. Skills do not appear in a chat that was already open</li>
+    </ol>
+
+    <h2 id="map">Build your partner map</h2>
     <div class="prompt-card">
       <div class="head"><span class="label">Partner map <span class="hint">once</span></span><button class="copy-btn" onclick="copyPrompt('p-partnermap', this)">Copy</button></div>
       <pre class="prompt" id="p-partnermap"></pre>
@@ -163,6 +175,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=17.1.1"></script>
+<script src="../assets/site.js?v=17.1.2"></script>
 </body>
 </html>

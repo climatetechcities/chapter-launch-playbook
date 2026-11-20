@@ -2,6 +2,10 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 17.1.2
+
+Install covers the newsletter only. ctc-partner-map is gone from that page; its download and upload steps are on Partners (`#install`), and Downloads points there.
+
 ## 17.1.1
 
 On Install and Downloads, ctc-partner-map sits in its own dashed card with an Optional label, apart from the one plugin a lead has to install.

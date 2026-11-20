@@ -42,7 +42,7 @@ one page, First run. `/set-up/` and `/newsletter/` forward to it.
 | 2 Install | `/install/` | The plugin, the extension, the project, the verify prompt |
 | 3 First run | `/first-run/` | Eight questions, one more message, the source list approval (`#sources`), opportunities (`#opportunities`), the schedule, the files Claude keeps (`#files`) |
 | 4 Every week | `/weekly-cycle/` | Collect, review, build, send (`#collect` `#review` `#build` `#sample` `#send`), what takes care of itself |
-| Partners | `/partners/` | City resources, partner map, outreach. Optional |
+| Partners | `/partners/` | Installing ctc-partner-map (`#install`), city resources, partner map, outreach. Optional |
 | Help | `/help/` | Troubleshooting |
 | Downloads | `/downloads/` | Plugins and the fourteen samples |
 
