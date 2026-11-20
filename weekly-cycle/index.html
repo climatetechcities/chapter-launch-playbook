@@ -8,8 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/site.css?v=17.0.0" />
-<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+<link rel="stylesheet" href="../assets/site.css?v=17.1.0" />
 </head>
 <body>
 <header class="top">
@@ -49,7 +48,7 @@
     <p class="lede">Claude does the lists. You make the calls and write the words.</p>
     <p class="desc">Your week is three actions: start the run, reply once to the review, then rewrite three short blocks and send. With the weekly schedule on, the first is done for you.</p>
 
-    <div class="prompt-card reveal">
+    <div class="prompt-card">
       <div class="head"><span class="label">In a chat inside your project <span class="hint">weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-run', this)">Copy</button></div>
       <pre class="prompt" id="p-run"></pre>
     </div>
@@ -68,7 +67,7 @@
 
     <h2 id="review">Review <span class="who you">You</span></h2>
     <p class="desc">Claude sends one message: every event, numbered, with the ones it proposes to cut and four to six proposed picks, then your open opportunities with three proposed for this issue. The same events are attached as a spreadsheet.</p>
-    <div class="card getback reveal">
+    <div class="card getback">
       <p class="eyebrow">The message you answer</p>
       <div class="scroll">
       <table class="excerpt">
@@ -103,7 +102,7 @@
     </div>
 
     <div class="grid grid-2" style="margin-top:20px;">
-      <div class="card reveal">
+      <div class="card">
         <p class="card-title">Reply once</p>
         <ul class="plain">
           <li><code>looks good</code> takes the proposal as it stands</li>
@@ -112,7 +111,7 @@
           <li>Answer part of it and Claude uses its proposal for the rest</li>
         </ul>
       </div>
-      <div class="card reveal">
+      <div class="card">
         <p class="card-title">Say what the calendars cannot know</p>
         <ul class="plain">
           <li>Your own event, a postponement, something happening in the city</li>
@@ -127,14 +126,14 @@
 
     <h2 id="build">Build <span class="who claude">Claude</span></h2>
     <p class="desc">From your reply, Claude opens every surviving link again, builds the issue and hands you one HTML file. Seven blocks are finished. Three are drafted for you to rewrite.</p>
-    <div class="tablewrap reveal">
+    <div class="tablewrap">
       <table class="plan" style="min-width:520px;">
         <thead><tr><td style="width:auto;font-weight:500;">Block</td><td style="font-weight:500;">Who finishes it</td></tr></thead>
         <tbody>
           <tr><td>1. Title and subtitle</td><td>Claude</td></tr>
-          <tr><td>2. Opening note</td><td>Claude drafts, you rewrite</td></tr>
-          <tr><td>3. Picks of the week</td><td>Claude drafts from your picks, you rewrite</td></tr>
-          <tr><td>4. Housekeeping and sign-off</td><td>Claude drafts from what you told it, you rewrite</td></tr>
+          <tr class="yours"><td>2. Opening note</td><td>Claude drafts, you rewrite</td></tr>
+          <tr class="yours"><td>3. Picks of the week</td><td>Claude drafts from your picks, you rewrite</td></tr>
+          <tr class="yours"><td>4. Housekeeping and sign-off</td><td>Claude drafts from what you told it, you rewrite</td></tr>
           <tr><td>5. Climate Tech Cities and Streetlife Ventures platforms block</td><td>Fixed, never changes</td></tr>
           <tr><td>6. Opportunities</td><td>Claude, from the ones you chose</td></tr>
           <tr><td>7. This Week's Events</td><td>Claude, complete</td></tr>
@@ -144,7 +143,7 @@
         </tbody>
       </table>
     </div>
-    <p class="desc">Blocks 2, 3 and 4 each sit under a yellow line: <code>[REWRITE IN YOUR OWN WORDS, then delete this line]</code>. If you shared writing samples, the drafts already sound like you, and the yellow lines stay anyway. Claude can match how you write. It cannot know what you think of this week's events.</p>
+    <p class="desc">Blocks 2, 3 and 4 each sit under a yellow line: <span class="rewrite">[REWRITE IN YOUR OWN WORDS, then delete this line]</span> If you shared writing samples, the drafts already sound like you, and the yellow lines stay anyway. Claude can match how you write. It cannot know what you think of this week's events.</p>
     <p class="desc dim">The build stops by itself on an event in the past, a lapsed deadline, a weekday that does not match its date, or an issue that does not match the events you kept. A Word copy is built only if you ask for one.</p>
 
     <h3 id="sample">A finished issue</h3>
@@ -154,7 +153,7 @@
       <span><span class="swatch both" aria-hidden="true"></span> You choose, Claude writes around it</span>
       <span><span class="swatch human" aria-hidden="true"></span> You</span>
     </div>
-    <div class="issue reveal">
+    <div class="issue">
       <div class="blk auto">
         <span class="tag2">Automated: title and subtitle</span>
         <div class="title">NY Climate Tech: July 21 - July 28</div>
@@ -246,7 +245,7 @@
 
     <p class="desc dim">The sign-off sits in the middle, not the end. Platforms, opportunities and listings follow it; Join the fun is last. Claude drafts all ten blocks. The three you rewrite are the words that are truly yours.</p>
 
-    <div class="card getback reveal">
+    <div class="card getback">
       <p class="eyebrow">What you get back</p>
       <p class="cap">A complete launch-scale issue exactly as Claude returns it, yellow rewrite lines still in. Fictional Portland chapter.</p>
       <div class="rail">
@@ -271,7 +270,7 @@
 
     <h2 id="send">Write and send <span class="who you">You</span></h2>
     <div class="grid grid-2" style="margin-top:20px;">
-      <div class="card reveal">
+      <div class="card">
         <p class="card-title">Paste</p>
         <ol class="plain">
           <li><strong>Open the HTML file</strong> in your browser</li>
@@ -279,7 +278,7 @@
           <li>Copy, then paste into a new Substack post</li>
         </ol>
       </div>
-      <div class="card reveal">
+      <div class="card">
         <p class="card-title">Write, check, send</p>
         <ol class="plain">
           <li>Rewrite the three marked blocks in your own words and delete each yellow line</li>
@@ -292,7 +291,7 @@
     <p class="desc dim">Claude never sends, publishes or posts anything. After the build it records the issue in your chapter log, which is how next week knows which opportunities already ran.</p>
 
     <h2 id="itself">What takes care of itself</h2>
-    <div class="tablewrap reveal">
+    <div class="tablewrap">
       <table class="plan">
         <tbody>
           <tr><td>Every week</td><td>With the schedule on, the run starts the day before your send day and the review is waiting for you. Your computer has to be on with Claude open</td></tr>
@@ -343,6 +342,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=17.0.0"></script>
+<script src="../assets/site.js?v=17.1.0"></script>
 </body>
 </html>

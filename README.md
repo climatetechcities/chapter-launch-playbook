@@ -63,9 +63,10 @@ the CTC colour that plays the same part, and no Clay hex is used.
 
 Paper `#fefefd` canvas, cream `#f5f4e9` for callouts, the city field, the
 active nav item and the footer. Headings pure black, prose olive `#25331a`,
-primary buttons olive. The overview and four steps are five feature cards in
-coral, olive, lavender, meadow and water; the weekly loop is an olive
-featured card. Coral still marks Claude's work (darkened to `#c24d1c` under
+primary buttons olive. The overview and four steps are cream cards (one
+surface since 17.1.0, no longer five colours); the lavender frame around the
+sample issue is the one bright element and the weekly loop is an olive
+featured card. The issue's yellow rewrite line marks what the lead writes. Coral still marks Claude's work (darkened to `#c24d1c` under
 paper text); lavender is the accent on dark surfaces.
 
 Type is Inter (Clay's documented substitute for its licensed Plain Black),

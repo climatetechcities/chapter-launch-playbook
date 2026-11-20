@@ -8,8 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/site.css?v=17.0.0" />
-<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+<link rel="stylesheet" href="../assets/site.css?v=17.1.0" />
 </head>
 <body>
 <header class="top">
@@ -48,7 +47,7 @@
     <h1>Your first run</h1>
     <p class="lede">One sitting. Claude asks its questions, builds your two lists, and stops once for you to read the source list.</p>
 
-    <div class="prompt-card reveal">
+    <div class="prompt-card">
       <div class="head"><span class="label">In a chat inside your project <span class="hint">once</span></span><button class="copy-btn" onclick="copyPrompt('p-run', this)">Copy</button></div>
       <pre class="prompt" id="p-run"></pre>
     </div>
@@ -58,7 +57,7 @@
       <li>
         <h2 class="sub" id="questions">Answer eight questions in one reply</h2>
         <p class="desc dim">All eight arrive together, each with its default. Skip any and Claude takes the default and tells you which. Every chapter starts weekly, so how often is not asked.</p>
-        <div class="card qcard reveal">
+        <div class="card qcard">
           <ol class="qlist">
             <li><strong>Which city?</strong><span>Becomes your chapter name, Climate Tech [City].</span></li>
             <li><strong>Your name?</strong><span>Goes on every issue as the sender. Email from a person gets opened.</span></li>
@@ -71,7 +70,7 @@
           </ol>
         </div>
         <p class="desc">Claude saves your settings to the project and hands you a launch plan with your dates in it. You do not move either file anywhere.</p>
-        <div class="card getback reveal">
+        <div class="card getback">
           <p class="eyebrow">What you get back</p>
           <p class="cap">The settings are what Claude reads. The plan is what you read. Fictional Portland chapter.</p>
           <div class="rail">
@@ -97,7 +96,7 @@
       <li>
         <h2 class="sub" id="lists">Answer one more message</h2>
         <p class="desc dim">Straight after the settings, Claude asks for everything else it needs in a single message. Nothing here is asked again.</p>
-        <div class="card qcard reveal">
+        <div class="card qcard">
           <ol class="qlist optlist">
             <li><strong>Your calendars and programs</strong><span>Paste any event calendars you already check and any grants or programs you already know. Or say "go" and Claude researches both from scratch.</span></li>
             <li><strong>Your writing, optional</strong><span>Paste three to five things you wrote: past notes, LinkedIn posts, emails to a group. Claude learns how you write and drafts the personal parts of each issue to match.</span></li>
@@ -116,7 +115,7 @@
           <li>A source that failed a check is named, not dropped quietly</li>
           <li>One row is in every chapter's list: the Climate Tech Cities event submission form, which readers use to send you events</li>
         </ul>
-        <div class="card getback reveal">
+        <div class="card getback">
           <p class="eyebrow">What you get back</p>
           <div class="scroll">
           <table class="excerpt">
@@ -163,7 +162,7 @@
           <li>Rolling programs count and are listed as Rolling. A deadline is never guessed</li>
           <li>Anything past its deadline moves to Closed</li>
         </ul>
-        <div class="card getback reveal">
+        <div class="card getback">
           <p class="eyebrow">What you get back</p>
           <div class="legend-row key" data-key="opportunities">
             <span><span class="swatch key-yellow" aria-hidden="true"></span> Pale yellow row: closes within three weeks, or the date still needs confirming</span>
@@ -276,6 +275,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=17.0.0"></script>
+<script src="../assets/site.js?v=17.1.0"></script>
 </body>
 </html>

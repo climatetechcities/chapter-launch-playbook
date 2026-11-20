@@ -2,6 +2,16 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 17.1.0
+
+A polish pass following unslop (github.com/heydamir/unslop, by Damir Sokolovsky, CC BY 4.0). The audit found light slop, so the palette, type and layout stay and only what it found changes.
+
+- **Home.** The five feature cards were five different colours, so none led. They are one cream surface now: the overview as a wide row, the four steps in a row beneath it, step numbers in the lavender marker the step pages already use. The lavender frame around the sample issue is the one bright element.
+- **Motion.** Cards no longer fade in on scroll (content sat blank until they did) and tiles no longer lift on hover. Hover is a colour step; press is unchanged.
+- **Spacing.** 79 padding, margin and gap values moved onto the 4px grid.
+- **Type.** Nothing heavier than 600; no tight tracking on text under 20px. The hero headline is sentence case with no full stop.
+- **One signature.** The issue's yellow rewrite line marks what the lead writes: the three rewrite blocks in the ten-block table, the lead's blocks in the sample issue, and the marker text itself.
+
 ## 17.0.0
 
 The site now describes `ctc-newsletter` 3.2.0, the way a lead actually onboards it.
