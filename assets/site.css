@@ -600,3 +600,10 @@ table.plan tr.yours td:first-child { box-shadow: inset 3px 0 0 var(--rewrite-lin
 .card.opt { margin-top: 12px; background: transparent; border: 1px dashed var(--stone); }
 .tag.opt { background: var(--lavender); font-weight: 600; }
 .optline { flex: 0 0 100%; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 15px; font-weight: 500; color: var(--ink); }
+
+/* ---------- the sidebar's optional item: boxed off from the numbered steps ---------- */
+.side-opt { margin: 24px 0 0; padding: 12px 8px; border: 1px dashed var(--stone); border-radius: var(--r-lg); }
+.side .side-opt .group { margin: 0 0 4px 12px; }
+.side .side-opt a { align-items: center; }
+.side .side-opt a .tag.opt { margin-left: auto; font-size: 12px; padding: 2px 8px; }
+.side .side-opt .hint { font-size: 13px; line-height: 1.45; color: var(--muted); margin: 8px 12px 0; }

@@ -2,6 +2,10 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 17.3.2
+
+In the sidebar, Partners sits in its own dashed box under "Not a step", with an Optional label and one line saying the newsletter works without it.
+
 ## 17.3.1
 
 Install and Help link straight to the Claude extension's Chrome Web Store page, one click from Add to Chrome.
