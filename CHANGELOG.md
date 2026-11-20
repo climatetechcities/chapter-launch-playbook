@@ -2,6 +2,10 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 17.1.1
+
+On Install and Downloads, ctc-partner-map sits in its own dashed card with an Optional label, apart from the one plugin a lead has to install.
+
 ## 17.1.0
 
 A polish pass following unslop (github.com/heydamir/unslop, by Damir Sokolovsky, CC BY 4.0). The audit found light slop, so the palette, type and layout stay and only what it found changes.

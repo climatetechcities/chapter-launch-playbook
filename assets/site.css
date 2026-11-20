@@ -595,3 +595,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 .rewrite { font-family: var(--mono); font-size: 0.85em; background: var(--rewrite); box-shadow: inset 3px 0 0 var(--rewrite-line); padding: 2px 8px 2px 12px; border-radius: 0 var(--r-xs) var(--r-xs) 0; overflow-wrap: anywhere; }
 table.plan tr.yours td { background: var(--rewrite); }
 table.plan tr.yours td:first-child { box-shadow: inset 3px 0 0 var(--rewrite-line); }
+
+/* ---------- an optional download: set apart from what is required ---------- */
+.card.opt { margin-top: 12px; background: transparent; border: 1px dashed var(--stone); }
+.tag.opt { background: var(--lavender); font-weight: 600; }
+.optline { flex: 0 0 100%; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 15px; font-weight: 500; color: var(--ink); }
