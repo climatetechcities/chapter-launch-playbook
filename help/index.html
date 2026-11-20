@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/site.css?v=16.3.0" />
+<link rel="stylesheet" href="../assets/site.css?v=17.0.0" />
 <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -34,9 +34,8 @@
     <p class="group">Steps</p>
     <a href="../logo/"><span class="n">1</span>Logo</a>
     <a href="../install/"><span class="n">2</span>Install</a>
-    <a href="../set-up/"><span class="n">3</span>Set up</a>
-    <a href="../newsletter/"><span class="n">4</span>Newsletter</a>
-    <a href="../weekly-cycle/"><span class="n">5</span>Weekly cycle</a>
+    <a href="../first-run/"><span class="n">3</span>First run</a>
+    <a href="../weekly-cycle/"><span class="n">4</span>Every week</a>
     <p class="group">Optional</p>
     <a href="../partners/"><span class="n"></span>Partners</a>
     <p class="group">Reference</p>
@@ -47,27 +46,51 @@
     <div class="body">
     <h1>When something breaks</h1>
     <p class="eyebrow under"><b>Reference</b></p>
+
     <div class="faq-stack reveal">
-      <details class="faq"><summary>Harvest returned almost nothing</summary><div class="body">A source broke; sites change. Ask Claude which sources returned zero and check those by hand. Do not assume the city went quiet.</div></details>
-      <details class="faq"><summary>A calendar stopped working</summary><div class="body">Mark it manual in your source registry and check it yourself each week.</div></details>
-      <details class="faq"><summary>Claude keeps asking to use my browser</summary><div class="body">Normal on Luma and Eventbrite, and on the submission form if no Airtable connector is on. The monthly opportunities run also asks, every time, before reading LinkedIn. Yes or no are both fine. It reads pages; it does not click.</div></details>
-      <details class="faq"><summary>A page is asking me to prove I am human</summary><div class="body">Claude stops and tells you. Open the page yourself and paste what you see. Claude will not solve these.</div></details>
-      <details class="faq"><summary>The finished issue sounds like a robot</summary><div class="body">The yellow rewrite lines were deleted without rewriting the blocks above them. Those three blocks are the only part readers remember.</div></details>
-      <details class="faq"><summary>A reader emailed me an event</summary><div class="body">Send them the submission form link at the bottom of any issue. It shows up in the next harvest, marked submitted.</div></details>
-      <details class="faq"><summary>Assembly stopped and said the fixed links are not ready</summary><div class="body">The plugin refuses to build an issue with a placeholder in the platforms block or the Join the fun block. Remove those two blocks from the JSON and the standard text is inserted with the real links. You never type them.</div></details>
-      <details class="faq"><summary>Formatting broke when I pasted into Substack</summary><div class="body">Almost always the Word document, or a copy button. Instead:
+      <details class="faq"><summary>Claude does not know my chapter, or asks the setup questions again</summary>
+        <div class="body">The chat is not inside your project. Open the project and start a new chat there. Claude keeps your settings, source list and log in the project and reads them at the start of every run.</div></details>
+      <details class="faq"><summary>Claude said it could not save a file to my project</summary>
+        <div class="body">It hands you the file instead. Open your project. In the Context panel on the right, press the plus sign and add the file. If an older copy is there, remove it. Do not attach it to a chat: a file attached to one chat is not there in the next.
+        <figure class="shot">
+          <img src="../downloads/guide/project-files.png" alt="" loading="lazy" />
+          <figcaption><b>1</b> The plus sign on Context adds a file to the project.</figcaption>
+        </figure></div></details>
+      <details class="faq"><summary>The scheduled run did not collect anything</summary>
+        <div class="body">Your computer was off, Claude was closed, or the browser could not be reached. The run says so in one short message and stops. Open Claude and say "run the newsletter". If the run is waiting for your approval, open the task in the Scheduled list in Claude and switch it to approve automatically.</div></details>
+      <details class="faq"><summary>The week's list came back almost empty</summary>
+        <div class="body">A source broke. Sites change. Ask Claude which sources returned nothing and look at those by hand. Do not assume the city went quiet.</div></details>
+      <details class="faq"><summary>Events came back with names but no dates</summary>
+        <div class="body">Claude could not reach a browser, so Luma gave it only titles. Check the Claude in Chrome extension is installed and signed in to the same account, then say "run the newsletter" again.</div></details>
+      <details class="faq"><summary>A page is asking me to prove I am human</summary>
+        <div class="body">Claude stops and names the source in the review message. Open the page yourself and tell Claude what you see. Claude will not solve these.</div></details>
+      <details class="faq"><summary>I got the review yesterday and the chat is gone</summary>
+        <div class="body">Reply in a new chat inside the project. The week's events are kept there while a review is waiting. If Claude cannot find them, it shows the list again.</div></details>
+      <details class="faq"><summary>I want to change my send day, sign-off or what counts as local</summary>
+        <div class="body">Tell Claude what to change, in your project. It updates your settings, and the weekly schedule if you have one.</div></details>
+      <details class="faq"><summary>I do not want the spreadsheets, or the schedule</summary>
+        <div class="body">Say so. Claude records the answer in your chapter log and stops sending them, or pauses the scheduled task. Change your mind the same way.</div></details>
+      <details class="faq"><summary>The drafts do not sound like me</summary>
+        <div class="body">Say "learn my writing style" and paste three to five things you wrote. Pasting an issue as you actually sent it sharpens it further. The three yellow lines stay either way: rewrite those blocks before you send.</div></details>
+      <details class="faq"><summary>A reader emailed me an event</summary>
+        <div class="body">Name it in your reply to the review and Claude adds it. Or send them the submission form link at the bottom of any issue: it shows up in next week's list, marked as sent in by a reader.</div></details>
+      <details class="faq"><summary>Formatting broke when I pasted into Substack</summary>
+        <div class="body">Almost always a copy button, or the Word copy. Instead:
         <ol class="plain">
           <li>Open the <strong>HTML file</strong> in your browser</li>
           <li>Click just before the first word at the top</li>
           <li>Hold the mouse down and drag to the bottom, past the last line</li>
           <li>Copy. Ctrl+C on Windows, Cmd+C on a Mac</li>
           <li>Open a new Substack post and paste</li>
-        </ol>
-        Dragging is what carries the formatting and links. A copy button does not.</div></details>
-      <details class="faq"><summary>Claude does not know my chapter settings</summary><div class="body">Check the settings file is on the project, not a chat. Start a fresh conversation.</div></details>
-      <details class="faq"><summary>I do not have a paid Claude account</summary><div class="body">The skills need one. Every step can be done by hand: the source list, the weekly sweep, the cut, the write-up. Chapters did it that way before the toolkit. Longer, not worse.</div></details>
-      <details class="faq"><summary>I missed a week</summary><div class="body">Send the next one. No apology, no explanation. The target is weeks covered over a quarter.</div></details>
-      <details class="faq"><summary>My chapter has a co-lead</summary><div class="body">Everything works the same. Decide who owns the send.</div></details>
+        </ol></div></details>
+      <details class="faq"><summary>My chapter was set up on an earlier version</summary>
+        <div class="body">It keeps working. Install the new plugin and say "run the newsletter". Your Word settings file and your two spreadsheets are still read, and each is replaced by its text file the next time Claude rebuilds it.</div></details>
+      <details class="faq"><summary>I do not have a paid Claude account</summary>
+        <div class="body">The skills need one. Every step can be done by hand: the source list, the weekly sweep, the cut, the write-up. Chapters did it that way before the toolkit. Longer, not worse.</div></details>
+      <details class="faq"><summary>I missed a week</summary>
+        <div class="body">Send the next one. No apology, no explanation. The target is weeks covered over a quarter.</div></details>
+      <details class="faq"><summary>My chapter has a co-lead</summary>
+        <div class="body">Everything works the same. Decide who owns the send.</div></details>
     </div>
     </div>
   </main>
@@ -102,6 +125,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=16.3.0"></script>
+<script src="../assets/site.js?v=17.0.0"></script>
 </body>
 </html>

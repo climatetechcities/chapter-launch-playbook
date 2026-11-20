@@ -6,6 +6,7 @@ real text and real cells, not a picture, so it stays sharp at any zoom.
   .xlsx  ->  an Excel-style grid per sheet: column letters, row numbers, the file's own
              column widths, row heights, fills, fonts, borders, merges, links and frozen panes.
   .docx  ->  Word's own filtered-HTML export (needs Windows with Word installed), set on a page.
+  .md    ->  the chapter text file set on a page: headings, tables, lists. Nothing is reworded.
   .html  ->  the issue itself, its own styles kept.
 
 Run after any sample changes:   python tools/build_previews.py
@@ -26,11 +27,16 @@ SAMPLES = ROOT / "downloads" / "samples"
 OUT = SAMPLES / "previews"
 
 FILES = {
-    "chapter-settings": "Chapter_Settings_SAMPLE.docx",
+    "settings": "CTC_Settings_SAMPLE.md",
     "chapter-plan": "Chapter_Plan_SAMPLE.docx",
+    "source-list": "CTC_Source_List_SAMPLE.md",
     "registry": "CTC_Source_Registry_SAMPLE.xlsx",
-    "events": "CTC_Events_SAMPLE.xlsx",
+    "opportunities-list": "CTC_Opportunities_SAMPLE.md",
     "opportunities": "Opportunities_SAMPLE.xlsx",
+    "voice": "CTC_Voice_SAMPLE.md",
+    "chapter-log": "CTC_Chapter_Log_SAMPLE.md",
+    "review": "CTC_Review_Message_SAMPLE.md",
+    "events": "CTC_Events_SAMPLE.xlsx",
     "city-resources": "CTC_City_Resources_SAMPLE.xlsx",
     "partner-map": "CTC_Partner_Map_SAMPLE.xlsx",
     "issue": "Portland_Climate_Tech_Aug_11-Aug_18.docx",
@@ -262,6 +268,90 @@ def docx_preview(path):
     return f"<style>{PAGE_CSS}\n{styles}</style><div class=\"paper-wrap\"><div class=\"paper\">{body}</div></div>"
 
 
+# ---------------------------------------------------------------- md
+MD_CSS = """
+:host { all: initial; }
+.paper-wrap { padding: 28px 0 40px; display: flex; justify-content: center; min-width: max-content; }
+.paper { background: #fff; width: 9.5in; box-sizing: border-box; padding: 0.7in 0.8in; box-shadow: 0 1px 4px rgba(0,0,0,.18);
+         color: #1f1f1f; font: 400 11pt/1.5 "Segoe UI", system-ui, Arial, sans-serif; }
+.paper.wide { width: 16in; }
+h1 { font-size: 17pt; font-weight: 600; margin: 0 0 12pt; }
+h2 { font-size: 13pt; font-weight: 600; margin: 20pt 0 8pt; }
+p { margin: 0 0 9pt; }
+ul, ol { margin: 0 0 9pt; padding-left: 22pt; }
+li { margin: 0 0 3pt; }
+blockquote { margin: 0 0 9pt; padding: 2pt 0 2pt 12pt; border-left: 3px solid #d0d0d0; color: #444; }
+table { border-collapse: collapse; margin: 0 0 12pt; font-size: 9.5pt; }
+th, td { border: 1px solid #d4d4d4; padding: 4pt 6pt; text-align: left; vertical-align: top; }
+th { background: #f3f3f3; font-weight: 600; }
+a { color: #0563c1; overflow-wrap: anywhere; }
+code { font: 10pt Consolas, monospace; background: #f3f3f3; padding: 0 3px; }
+"""
+
+MD_BLOCK = re.compile(r"(#|\||- |>|\d+\. )")
+
+
+def md_inline(t):
+    t = html.escape(t, quote=False)
+    t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
+    t = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r'<a href="\2">\1</a>', t)
+    t = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", t)
+    t = re.sub(r"(?<![\w*])\*([^*]+)\*(?![\w*])", r"<i>\1</i>", t)
+    return t
+
+
+def md_preview(path):
+    """A plain render of a chapter text file: headings, tables, lists, quotes. Nothing is reworded."""
+    text = re.sub(r"<!--.*?-->\n?", "", path.read_text(encoding="utf-8").replace("\r\n", "\n"), flags=re.S)
+    lines = text.split("\n")
+    out, i, widest = [], 0, 0
+    while i < len(lines):
+        ln = lines[i]
+        if not ln.strip():
+            i += 1
+        elif ln.startswith("#"):
+            n = len(ln) - len(ln.lstrip("#"))
+            out.append(f"<h{min(n, 2)}>{md_inline(ln[n:].strip())}</h{min(n, 2)}>")
+            i += 1
+        elif ln.startswith("|"):
+            rows = []
+            while i < len(lines) and lines[i].startswith("|"):
+                rows.append([c.strip() for c in lines[i].strip().strip("|").split("|")])
+                i += 1
+            widest = max(widest, len(rows[0]))
+            body = [r for r in rows[1:] if not all(re.fullmatch(r":?-+:?", c) for c in r)]
+            out.append("<table><thead><tr>" + "".join(f"<th>{md_inline(c)}</th>" for c in rows[0]) + "</tr></thead><tbody>"
+                       + "".join("<tr>" + "".join(f"<td>{md_inline(c)}</td>" for c in r) + "</tr>" for r in body)
+                       + "</tbody></table>")
+        elif re.match(r"\d+\. ", ln):
+            items = []
+            while i < len(lines) and re.match(r"\d+\. ", lines[i]):
+                n, rest = lines[i].split(". ", 1)
+                items.append(f'<li value="{n}">{md_inline(rest)}</li>')
+                i += 1
+            out.append("<ol>" + "".join(items) + "</ol>")
+        elif ln.startswith("- "):
+            items = []
+            while i < len(lines) and lines[i].startswith("- "):
+                items.append(f"<li>{md_inline(lines[i][2:])}</li>")
+                i += 1
+            out.append("<ul>" + "".join(items) + "</ul>")
+        elif ln.startswith(">"):
+            quote = []
+            while i < len(lines) and lines[i].startswith(">"):
+                quote.append(md_inline(lines[i].lstrip("> ")))
+                i += 1
+            out.append("<blockquote>" + "<br>".join(quote) + "</blockquote>")
+        else:
+            para = []
+            while i < len(lines) and lines[i].strip() and not MD_BLOCK.match(lines[i]):
+                para.append(md_inline(lines[i]))
+                i += 1
+            out.append("<p>" + " ".join(para) + "</p>")
+    wide = " wide" if widest > 6 else ""
+    return f'<style>{MD_CSS}</style><div class="paper-wrap"><div class="paper{wide}">{"".join(out)}</div></div>'
+
+
 # ---------------------------------------------------------------- html
 def html_preview(path):
     text = path.read_text(encoding="utf-8")
@@ -281,6 +371,8 @@ def main():
             out = xlsx_preview(src)
         elif src.suffix == ".docx":
             out = docx_preview(src)
+        elif src.suffix == ".md":
+            out = md_preview(src)
         else:
             out = html_preview(src)
         (OUT / f"{key}.html").write_text(out, encoding="utf-8")

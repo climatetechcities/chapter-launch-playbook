@@ -10,13 +10,12 @@ Pages publishes from `.github/workflows/pages.yml` rather than the classic
 branch builder, which removes the Jekyll build step this static site never
 needed.
 
-A static companion site for the Climate Tech Cities chapter toolkit: three
-packages, nine skills, covering a new chapter lead's launch.
+A static companion site for the Climate Tech Cities chapter toolkit: two
+plugins, nine skills, covering a new chapter lead's launch.
 
 | Package | Kind | Contains |
 |---|---|---|
-| `ctc-chapter-setup` v1.6.0 | Plugin, 1 skill | Eight questions in one message, writes the settings file and launch plan |
-| `ctc-newsletter` v2.5.1 | Plugin, 5 skills | `ctc-newsletter-cycle`, `ctc-source-map`, `ctc-harvest`, `ctc-opportunities`, `ctc-assemble` |
+| `ctc-newsletter` v3.2.0 | Plugin, 6 skills | `ctc-newsletter-cycle`, `ctc-chapter-setup`, `ctc-source-map`, `ctc-opportunities`, `ctc-harvest`, `ctc-assemble` |
 | `ctc-partner-map` v2.2.0 | Plugin, 3 skills | `ctc-city-resources`, `ctc-partner-list`, `ctc-partner-outreach` |
 
 The logo phase runs in ChatGPT rather than Claude, and the site carries the
@@ -27,24 +26,25 @@ no backend, no account connection, and stores nothing.
 
 ## Pages
 
-Ten static pages. The six steps are numbered in the order a lead works
+Nine static pages. The four steps are numbered in the order a lead works
 through them and carry a previous and next pair. Partners and the two
 reference pages are not numbered: the newsletter does not depend on the
-partner map. The former step 1, Is this you?, was recruitment framing and
-was cut in v13; its definition of done lives on the Two-week overview page.
+partner map. Since 17.0.0 the flow follows `ctc-newsletter` 3: the lead says
+"run the newsletter" once, and setup, the source list and the opportunities
+list all happen in that first run, so the old Set up and Newsletter steps are
+one page, First run. `/set-up/` and `/newsletter/` forward to it.
 
 | Page | Path | Holds |
 |---|---|---|
 | Home | `/` | The numbered map, the counts, one statement |
 | Overview | `/two-weeks/` | The plan table and what done looks like |
 | 1 Logo | `/logo/` | The ChatGPT prompt, the five reference files, the sign-off |
-| 2 Install | `/install/` | The three packages, the extension, the verify prompt |
-| 3 Set up | `/set-up/` | The eight questions, the two documents |
-| 4 Newsletter | `/newsletter/` | Source list (`#sources`), opportunities queue (`#opportunities`) |
-| 5 Weekly cycle | `/weekly-cycle/` | Collect, cut, write, send (`#collect` `#cut` `#write` `#sample` `#send`) |
+| 2 Install | `/install/` | The plugin, the extension, the project, the verify prompt |
+| 3 First run | `/first-run/` | Eight questions, one more message, the source list approval (`#sources`), opportunities (`#opportunities`), the schedule, the files Claude keeps (`#files`) |
+| 4 Every week | `/weekly-cycle/` | Collect, review, build, send (`#collect` `#review` `#build` `#sample` `#send`), what takes care of itself |
 | Partners | `/partners/` | City resources, partner map, outreach. Optional |
 | Help | `/help/` | Troubleshooting |
-| Downloads | `/downloads/` | Packages and the nine samples |
+| Downloads | `/downloads/` | Plugins and the fourteen samples |
 
 Every anchor from the old single page (`/#setup`, `/#cycle`, and so on) is
 redirected by the home page to the matching new page; `/#apply` and the
@@ -63,8 +63,8 @@ the CTC colour that plays the same part, and no Clay hex is used.
 
 Paper `#fefefd` canvas, cream `#f5f4e9` for callouts, the city field, the
 active nav item and the footer. Headings pure black, prose olive `#25331a`,
-primary buttons olive. The overview and five steps are six feature cards in
-coral, olive, lavender, meadow, water and cream; the weekly loop is an olive
+primary buttons olive. The overview and four steps are five feature cards in
+coral, olive, lavender, meadow and water; the weekly loop is an olive
 featured card. Coral still marks Claude's work (darkened to `#c24d1c` under
 paper text); lavender is the accent on dark surfaces.
 
@@ -99,8 +99,8 @@ dashes anywhere.
 - Less: say it once. Verified facts stay; restatement, reassurance and hedging
   do not. Longer reasoning goes in a collapsed details block, not in the way.
 - US English, no em dashes, no time estimates, no day names in the weekly
-  cycle. The one allowed framing is "two weeks of setup, then about one
-  sitting a week".
+  cycle. The one allowed framing is "two weeks of setup, then one reply a
+  week".
 
 ## Contents
 
@@ -115,13 +115,13 @@ dashes anywhere.
   `window.ROOT` (`""` at the root, `"../"` one level down) before loading the
   script so asset paths resolve
 - `downloads/guide/`, five screenshots of claude.ai used on the Install and
-  Set up pages, cropped to the panel and marked with what to click. Taken
+  Help pages, cropped to the panel and marked with what to click. Taken
   2026-09-11; Claude's settings screens move, so re-take these when a step
   stops matching what a lead sees
-- `downloads/`, the three package zips, the five brand PNGs, and `samples/`
-  with the nine sample files plus `samples/previews/`, one interactive preview
+- `downloads/`, the two plugin zips, the five brand PNGs, and `samples/`
+  with the fourteen sample files plus `samples/previews/`, one interactive preview
   per sample (`<key>.html`): spreadsheets as Excel-style grids with sheet tabs,
-  Word files as Word's own HTML export. The file viewer loads them into a
+  Word files as Word's own HTML export, the chapter text files (`.md`) set on a page. The file viewer loads them into a
   shadow root and zooms them. Rebuild with `python tools/build_previews.py`
   whenever a sample changes (Windows with Word for the .docx files)
 - `version.json`, version and date

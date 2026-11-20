@@ -2,6 +2,18 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 17.0.0
+
+The site now describes `ctc-newsletter` 3.2.0, the way a lead actually onboards it.
+
+- **One plugin.** Chapter setup is a skill inside `ctc-newsletter`, so Install uploads one zip (plus `ctc-partner-map` if wanted) and checks for six skills. The separate `ctc-chapter-setup` package and its zip are gone. Hosted: `ctc-newsletter-v3.2.0.zip`.
+- **Four steps, not five.** Logo, Install, First run, Every week. Set up and Newsletter were two things to run on two pages; in version 3 the lead says "run the newsletter" once and Claude asks the eight questions, asks one more message (calendars and programs, optional writing samples, three yes or no questions), builds the source list and the opportunities list, and stops once so the lead can read the source list before it is saved. That is the new First run page. `/set-up/` and `/newsletter/` forward to it.
+- **Claude keeps the files.** Every instruction to add a file to the project as a context file, replace last month's file or upload a spreadsheet back is removed. First run lists the files Claude keeps in the project; Help covers the one case where a save fails.
+- **Every week is one reply.** The page follows the real run: collect, the review message (numbered events, proposed cuts with reasons, proposed picks, proposed opportunities), one reply, the build, then rewrite three blocks and send. The spreadsheet cut and the three assembly questions are gone; marking up the spreadsheet is the alternative, not the route. Added: the writing-style file, the build's own date and link checks, the Word copy on request, the weekly schedule and what it needs, and what refreshes itself monthly and quarterly.
+- **Samples.** Fourteen, all from the 3.2.0 plugin: the settings, source list, opportunities, chapter log and writing-style text files, the weekly review message, the three spreadsheets, the issue, and a Chapter Plan built by 3.2.0 for the same fictional Portland chapter as everything else (the Austin setup samples are retired). `tools/build_previews.py` renders the text files.
+- **Help** rewritten around what goes wrong in version 3: a chat outside the project, a failed save, a scheduled run that could not collect, names with no dates, replying in a new chat, an older chapter's files.
+- Prompts on the site are down to the one a lead needs: "run the newsletter for [city]".
+
 ## 16.3.0
 
 Step numbers lose their leading zeros everywhere: the sidebar, the home tiles and the Previous and Next boxes read 1 to 5, the page labels read "Step 2 of 5, once", the overview reads "before step 1", and Downloads points to "2 Install". The site's own links (README, the Chapter Plan sample, the ctc-chapter-setup plugin) point at https://climatetechcities.github.io/chapter-launch-playbook/.

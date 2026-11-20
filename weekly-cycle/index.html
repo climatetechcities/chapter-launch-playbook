@@ -4,11 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script>document.documentElement.classList.add("js");</script>
-<title>Weekly cycle - CTC Chapter Launch Playbook</title>
+<title>Every week - CTC Chapter Launch Playbook</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/site.css?v=16.3.0" />
+<link rel="stylesheet" href="../assets/site.css?v=17.0.0" />
 <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -34,9 +34,8 @@
     <p class="group">Steps</p>
     <a href="../logo/"><span class="n">1</span>Logo</a>
     <a href="../install/"><span class="n">2</span>Install</a>
-    <a href="../set-up/"><span class="n">3</span>Set up</a>
-    <a href="../newsletter/"><span class="n">4</span>Newsletter</a>
-    <a class="here" href="../weekly-cycle/"><span class="n">5</span>Weekly cycle</a>
+    <a href="../first-run/"><span class="n">3</span>First run</a>
+    <a class="here" href="../weekly-cycle/"><span class="n">4</span>Every week</a>
     <p class="group">Optional</p>
     <a href="../partners/"><span class="n"></span>Partners</a>
     <p class="group">Reference</p>
@@ -45,59 +44,56 @@
   </aside>
   <main class="main">
     <div class="body">
-    <p class="eyebrow"><span class="progress" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><b>Step 5 of 5</b>, every week</p>
-    <h1>The weekly cycle</h1>
-    <p class="lede">Claude does the lists. You write the words.</p>
+    <p class="eyebrow"><span class="progress" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><b>Step 4 of 4</b>, every week</p>
+    <h1>Every week</h1>
+    <p class="lede">Claude does the lists. You make the calls and write the words.</p>
+    <p class="desc">Your week is three actions: start the run, reply once to the review, then rewrite three short blocks and send. With the weekly schedule on, the first is done for you.</p>
 
-    <p class="desc">The tools collect, verify, format and draft. You choose what makes the issue and rewrite the note, the picks and the housekeeping in your own words. Every Claude stage checks its own output before handing you the file.</p>
-    <details class="more"><summary>What the second-pass check covers</summary><div class="body">Links re-opened, claims checked against their pages, prose checked against the voice file.</div></details>
     <div class="prompt-card reveal">
-      <div class="head"><span class="label">The whole week, one prompt <span class="hint">weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-cycle2', this)">Copy</button></div>
-      <pre class="prompt" id="p-cycle2"></pre>
+      <div class="head"><span class="label">In a chat inside your project <span class="hint">weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-run', this)">Copy</button></div>
+      <pre class="prompt" id="p-run"></pre>
     </div>
-
-    <p class="desc dim">The same prompt every week. It works out where you are, runs the right skill, and stops when it needs you. The step prompts below work too, if you would rather drive.</p>
+    <p class="desc dim">Claude reads your settings and chapter log, says which send date it is building for, and starts. It asks nothing it already knows.</p>
 
     <ol class="flow">
-      <li><a href="#collect"><span class="who claude">Claude</span><b>Collect</b><span class="d">Every source in your registry, into one spreadsheet.</span></a></li>
-      <li><a href="#cut"><span class="who you">You</span><b>Cut</b><span class="d">Delete rows, flag picks, upload it back.</span></a></li>
-      <li><a href="#write"><span class="who both">Both</span><b>Assemble and write</b><span class="d">Claude lays out the issue. You fill the gaps it leaves.</span></a></li>
-      <li><a href="#send"><span class="who you">You</span><b>Send</b><span class="d">Check, paste into Substack, read once, send.</span></a></li>
+      <li><a href="#collect"><span class="who claude">Claude</span><b>Collect</b><span class="d">Every source on your list, and the reader submission form.</span></a></li>
+      <li><a href="#review"><span class="who you">You</span><b>Review</b><span class="d">One message, one reply.</span></a></li>
+      <li><a href="#build"><span class="who claude">Claude</span><b>Build</b><span class="d">The ten-block issue, every date and link checked.</span></a></li>
+      <li><a href="#send"><span class="who you">You</span><b>Write and send</b><span class="d">Rewrite three blocks, paste into Substack, send.</span></a></li>
     </ol>
 
     <h2 id="collect">Collect <span class="who claude">Claude</span></h2>
-    <p class="desc">Claude sweeps every source in your registry and hands back a spreadsheet. Everything, unfiltered, on purpose: collecting and judging are separate jobs.</p>
-    <div class="prompt-card reveal">
-      <div class="head"><span class="label">Harvest <span class="hint">weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-harvest', this)">Copy</button></div>
-      <pre class="prompt" id="p-harvest"></pre>
-    </div>
+    <p class="desc">Claude reads every source on your list and the Climate Tech Cities submission form for your city. It collects everything and judges nothing yet. Luma and Eventbrite are read through your browser, which is why the Chrome extension is installed.</p>
+    <p class="desc dim">If the count comes back far below your normal week, Claude checks which sources returned nothing before going on. A thin list usually means a source broke.</p>
 
-    <p class="desc">It also reads the CTC event submission form for your city, and asks first whether you know of anything not on a calendar. Every row says where it came from: <code>registry</code>, <code>submitted</code>, or <code>lead</code>. Every link is opened and checked. Incomplete rows are shaded red and named in a Missing Info column.</p>
-    <div class="note"><strong>If Claude asks to use your Chrome browser, say yes.</strong> Some sites hide listings from simple requests. It reads; it does not click. Save the spreadsheet when it finishes. A small .json file comes back beside it: optional, drop it into next week's chat and unchanged events keep their write-ups.</div>
+    <h2 id="review">Review <span class="who you">You</span></h2>
+    <p class="desc">Claude sends one message: every event, numbered, with the ones it proposes to cut and four to six proposed picks, then your open opportunities with three proposed for this issue. The same events are attached as a spreadsheet.</p>
     <div class="card getback reveal">
-      <p class="eyebrow">What you get back</p>
+      <p class="eyebrow">The message you answer</p>
       <div class="scroll">
       <table class="excerpt">
-        <thead><tr>
-          <th>Event Name</th><th>Date</th><th>Start Time (PDT)</th><th>Registration Link</th>
-          <th>Event Type</th><th>Access</th><th>Location</th><th>Block</th><th>Source</th>
-        </tr></thead>
+        <thead><tr><th>No.</th><th>Proposed</th><th>Event</th><th>Host</th><th>Where</th><th>Access</th></tr></thead>
         <tbody>
-          <tr><td>Grid Interconnection 101</td><td class="mono">2026-08-12</td><td class="mono">17:30</td><td class="mono">luma.com/&hellip;</td><td>In-person</td><td>Free</td><td>Ecotrust Building, 721 NW 9th Ave, Portland</td><td class="mono">this_week</td><td class="mono">registry</td></tr>
-          <tr><td>Repair Cafe: Small Appliances</td><td class="mono">2026-08-13</td><td class="mono">10:00</td><td class="mono">example.org/&hellip;</td><td>In-person</td><td>Not stated</td><td>St. Johns Community Center, 8427 N Central St</td><td class="mono">this_week</td><td class="mono">submitted</td></tr>
-          <tr><td>Cascadia Climate Data Meetup</td><td class="mono">2026-08-13</td><td class="mono">18:30</td><td class="mono">luma.com/&hellip;</td><td>In-person</td><td>Free</td><td>WeWork Custom House, 220 NW 8th Ave, Portland</td><td class="mono">this_week</td><td class="mono">registry</td></tr>
+          <tr><td class="mono">1</td><td>Cut: a general data science seminar</td><td>AI for Load Forecasting: PSU Energy Seminar</td><td>Portland State University</td><td>Downtown</td><td>Free</td></tr>
+          <tr><td class="mono">2</td><td>Pick</td><td>Grid Interconnection 101</td><td>Oregon Clean Power Cooperative</td><td>Pearl District</td><td>Free</td></tr>
+          <tr><td class="mono">3</td><td></td><td>Mass Timber Happy Hour</td><td>Tall Wood Design Institute</td><td>Southeast</td><td>Free</td></tr>
+          <tr><td class="mono">4</td><td>Pick</td><td>Repair Cafe: Small Appliances, sent in by a reader</td><td>Repair PDX</td><td>St. Johns</td><td>Not stated</td></tr>
         </tbody>
       </table>
       </div>
-      <p class="cap">The time header carries your chapter's timezone. Fictional Portland chapter.</p>
-      <div class="legend-row key" data-key="events">
-        <span><span class="swatch key-white" aria-hidden="true"></span> White row: complete</span>
-        <span><span class="swatch key-red" aria-hidden="true"></span> Red cell: information the page did not give, named in the Missing Info column. Fill it in or cut the row</span>
-      </div>
+      <p class="cap">The first four of 21 events, set as a table here. The message itself is a numbered list. Fictional Portland chapter.</p>
       <div class="rail">
         <div class="filerow">
+          <span class="thumb md" aria-hidden="true">TXT</span>
+          <span class="meta"><b>CTC_Review_Message_SAMPLE.md</b><span>The whole message, as Claude sends it</span></span>
+          <span class="acts">
+            <button class="btn sm outline" type="button" data-file="review">Preview</button>
+            <a class="btn sm" href="../downloads/samples/CTC_Review_Message_SAMPLE.md" download>Download</a>
+          </span>
+        </div>
+        <div class="filerow">
           <span class="thumb xlsx" aria-hidden="true">XLSX</span>
-          <span class="meta"><b>CTC_Events_SAMPLE.xlsx</b><span>Excel workbook, 1 sheet</span></span>
+          <span class="meta"><b>CTC_Events_SAMPLE.xlsx</b><span>The same week as a spreadsheet</span></span>
           <span class="acts">
             <button class="btn sm outline" type="button" data-file="events">Preview</button>
             <a class="btn sm" href="../downloads/samples/CTC_Events_SAMPLE.xlsx" download>Download</a>
@@ -106,58 +102,41 @@
       </div>
     </div>
 
-    <h2 id="cut">Cut <span class="who you">You</span></h2>
-    <p class="desc">Open the spreadsheet and delete rows. No prompt: this is judgment. There is no target number. A good week is however many good events your city has.</p>
     <div class="grid grid-2" style="margin-top:20px;">
       <div class="card reveal">
-        <p class="card-title">Delete</p>
+        <p class="card-title">Reply once</p>
         <ul class="plain">
-          <li>Outside your scope rule, which sits in your settings file for exactly this</li>
-          <li>Not really climate</li>
-          <li>Dead link, or no date</li>
-          <li>Duplicates. Keep the better registration link</li>
-          <li>Rows marked <code>submitted</code> came from a reader. Treat them like any other; if you cut one, a reply is kind</li>
+          <li><code>looks good</code> takes the proposal as it stands</li>
+          <li><code>cut 7 and 12, keep 18, pick 5 instead of 2, opportunities 1 and 4</code> changes it by number</li>
+          <li>Name an event that is not on the list and Claude adds it</li>
+          <li>Answer part of it and Claude uses its proposal for the rest</li>
         </ul>
       </div>
       <div class="card reveal">
-        <p class="card-title">Flag</p>
+        <p class="card-title">Say what the calendars cannot know</p>
         <ul class="plain">
-          <li><strong>Four to six</strong> events worth featuring, about one per day that has events</li>
-          <li>Type <strong>PICK</strong> in a spare column beside each</li>
-          <li>Favour free, newcomer-friendly, in person, hard to find elsewhere</li>
-          <li>Claude reads the PICK column at the next step</li>
+          <li>Your own event, a postponement, something happening in the city</li>
+          <li>One line is plenty. The opening note is built from it</li>
+          <li>Nothing to add? Say so. The note is drafted from the week itself</li>
         </ul>
       </div>
     </div>
-    <div class="note"><strong>Upload the edited spreadsheet back.</strong> The issue is built from that file, not the one Claude gave you.</div>
+    <p class="desc dim">Prefer a spreadsheet? Delete the rows you do not want, type PICK beside your picks, and send the file back in place of a reply.</p>
+    <div class="note"><strong>Nothing is built until you reply.</strong> Claude proposes, you decide. You can answer the next day or in a new chat: the week's events are kept in your project while the review is waiting.</div>
+    <details class="more"><summary>How Claude decides what to propose</summary><div class="body">The test is whether a reader could go and would be glad it reached them. Outside your local rule, not really climate, no date, a dead link or a duplicate: proposed cut, each with its reason. Arts, volunteering and anything a newcomer could walk into are kept. Picks are roughly one per day that has events: your own and partner events first, then free and open to newcomers, then things a reader could not easily have found alone. An event you added is never proposed for cutting. There is no target number.</div></details>
 
-    <h2 id="write">Assemble and write <span class="who both">Both</span></h2>
-    <p class="desc">Paste the prompt, attach your edited spreadsheet. Claude checks your source list and opportunities file are in the project, asks three questions, and builds the issue.</p>
-    <div class="prompt-card reveal">
-      <div class="head"><span class="label">Assemble <span class="hint">weekly</span></span><button class="copy-btn" onclick="copyPrompt('p-assemble', this)">Copy</button></div>
-      <pre class="prompt" id="p-assemble"></pre>
-    </div>
-
-    <p class="desc">Two files come back, Word and HTML. <strong>Send from the HTML file.</strong> It holds its formatting in Substack.</p>
-    <div class="card qcard reveal">
-      <h3>Three questions first</h3>
-      <ol class="qlist">
-        <li><strong>Which events are the picks?</strong><span>Reads your PICK column and confirms. Otherwise lists this week's events and suggests four to six.</span></li>
-        <li><strong>Any opportunities this week?</strong><span>Shows your <a href="../newsletter/#opportunities">opportunities file</a> and suggests two to four, nearest deadlines and most local first. No file, no issue: assembly stops until you have run the monthly opportunities.</span></li>
-        <li><strong>Anything the sheet cannot know?</strong><span>Your own event, a postponement, city news. The opening note and housekeeping are built from this. Nothing? Say so. The note is drafted from the week and the season, still marked, and housekeeping shrinks to the sign-off.</span></li>
-      </ol>
-    </div>
-    <h3>The ten blocks, in order</h3>
+    <h2 id="build">Build <span class="who claude">Claude</span></h2>
+    <p class="desc">From your reply, Claude opens every surviving link again, builds the issue and hands you one HTML file. Seven blocks are finished. Three are drafted for you to rewrite.</p>
     <div class="tablewrap reveal">
       <table class="plan" style="min-width:520px;">
         <thead><tr><td style="width:auto;font-weight:500;">Block</td><td style="font-weight:500;">Who finishes it</td></tr></thead>
         <tbody>
           <tr><td>1. Title and subtitle</td><td>Claude</td></tr>
           <tr><td>2. Opening note</td><td>Claude drafts, you rewrite</td></tr>
-          <tr><td>3. Picks of the week</td><td>Claude drafts from your picks, you add the asides</td></tr>
-          <tr><td>4. Housekeeping and sign-off</td><td>Claude drafts from what you tell it, you rewrite</td></tr>
+          <tr><td>3. Picks of the week</td><td>Claude drafts from your picks, you rewrite</td></tr>
+          <tr><td>4. Housekeeping and sign-off</td><td>Claude drafts from what you told it, you rewrite</td></tr>
           <tr><td>5. Climate Tech Cities and Streetlife Ventures platforms block</td><td>Fixed, never changes</td></tr>
-          <tr><td>6. Opportunities</td><td>Claude drafts from your queue, you confirm</td></tr>
+          <tr><td>6. Opportunities</td><td>Claude, from the ones you chose</td></tr>
           <tr><td>7. This Week's Events</td><td>Claude, complete</td></tr>
           <tr><td>8. Upcoming Events</td><td>Claude, complete</td></tr>
           <tr><td>9. This Week in Detail</td><td>Claude, complete, one entry for every event in This Week's Events</td></tr>
@@ -165,12 +144,13 @@
         </tbody>
       </table>
     </div>
-    <p class="desc">Blocks 2, 3 and 4 come back drafted, each under a yellow line: <code>[REWRITE IN YOUR OWN WORDS, then delete this line]</code>. Rewrite the block, delete the line. Nothing in square brackets ships. Claude drafts from what you told it and never invents news, weather, or a verdict on an event nobody went to.</p>
+    <p class="desc">Blocks 2, 3 and 4 each sit under a yellow line: <code>[REWRITE IN YOUR OWN WORDS, then delete this line]</code>. If you shared writing samples, the drafts already sound like you, and the yellow lines stay anyway. Claude can match how you write. It cannot know what you think of this week's events.</p>
+    <p class="desc dim">The build stops by itself on an event in the past, a lapsed deadline, a weekday that does not match its date, or an issue that does not match the events you kept. A Word copy is built only if you ask for one.</p>
 
     <h3 id="sample">A finished issue</h3>
     <p class="desc dim">A real New York issue, shortened. Shading shows who wrote what.</p>
     <div class="legend-row">
-      <span><span class="swatch auto" aria-hidden="true"></span> Claude, from your spreadsheet</span>
+      <span><span class="swatch auto" aria-hidden="true"></span> Claude, from the events you kept</span>
       <span><span class="swatch both" aria-hidden="true"></span> You choose, Claude writes around it</span>
       <span><span class="swatch human" aria-hidden="true"></span> You</span>
     </div>
@@ -215,7 +195,7 @@
       </div>
 
       <div class="blk both">
-        <span class="tag2">Both: opportunities <span class="who2">you give the name, link, deadline</span></span>
+        <span class="tag2">Both: opportunities <span class="who2">you choose from your list</span></span>
         <p><strong>💡 New York Climate Exchange Climate Tech Fellowship</strong><br/>A six-month hybrid program combining expert-led curriculum, mentorship, and non-dilutive funding. <strong>Applications due August 1.</strong></p>
       </div>
 
@@ -265,6 +245,7 @@
     </div>
 
     <p class="desc dim">The sign-off sits in the middle, not the end. Platforms, opportunities and listings follow it; Join the fun is last. Claude drafts all ten blocks. The three you rewrite are the words that are truly yours.</p>
+
     <div class="card getback reveal">
       <p class="eyebrow">What you get back</p>
       <p class="cap">A complete launch-scale issue exactly as Claude returns it, yellow rewrite lines still in. Fictional Portland chapter.</p>
@@ -279,7 +260,7 @@
         </div>
         <div class="filerow">
           <span class="thumb docx" aria-hidden="true">DOCX</span>
-          <span class="meta"><b>Portland_Climate_Tech_Aug_11-Aug_18.docx</b><span>Word document, 6 pages</span></span>
+          <span class="meta"><b>Portland_Climate_Tech_Aug_11-Aug_18.docx</b><span>Word copy, only when you ask for it</span></span>
           <span class="acts">
             <button class="btn sm outline" type="button" data-file="issue">Preview</button>
             <a class="btn sm" href="../downloads/samples/Portland_Climate_Tech_Aug_11-Aug_18.docx" download>Download</a>
@@ -288,32 +269,45 @@
       </div>
     </div>
 
-    <h2 id="send">Send <span class="who you">You</span></h2>
+    <h2 id="send">Write and send <span class="who you">You</span></h2>
     <div class="grid grid-2" style="margin-top:20px;">
       <div class="card reveal">
-        <p class="card-title">Check</p>
-        <ul class="plain">
-          <li>Search for a square bracket. Nothing in brackets ships</li>
-          <li>Scan the dates. Nothing in the past</li>
-          <li>Click a couple of links from Upcoming. One dead means check its neighbours from the same source</li>
-          <li>Same event listed twice?</li>
-          <li>This Week in Detail has an entry for every event in This Week's Events</li>
-          <li>Platforms block after your sign-off; Join the fun last</li>
-        </ul>
+        <p class="card-title">Paste</p>
+        <ol class="plain">
+          <li><strong>Open the HTML file</strong> in your browser</li>
+          <li><strong>Click before the first word and drag to the bottom.</strong> Dragging carries the formatting and the links. A copy button does not</li>
+          <li>Copy, then paste into a new Substack post</li>
+        </ol>
       </div>
       <div class="card reveal">
-        <p class="card-title">Send</p>
+        <p class="card-title">Write, check, send</p>
         <ol class="plain">
-          <li><strong>Open the HTML file</strong>, not the Word document</li>
-          <li><strong>Select by clicking and dragging</strong>, top to bottom. Dragging carries the formatting and the links; a copy button does not</li>
-          <li>Copy, then paste into a new Substack post</li>
-          <li>Read it once, top to bottom, for voice and picks</li>
+          <li>Rewrite the three marked blocks in your own words and delete each yellow line</li>
+          <li>Search for a square bracket. Nothing in brackets ships</li>
+          <li>Read it once top to bottom the way a subscriber would, clicking two or three links</li>
           <li>Send</li>
         </ol>
       </div>
     </div>
+    <p class="desc dim">Claude never sends, publishes or posts anything. After the build it records the issue in your chapter log, which is how next week knows which opportunities already ran.</p>
+
+    <h2 id="itself">What takes care of itself</h2>
+    <div class="tablewrap reveal">
+      <table class="plan">
+        <tbody>
+          <tr><td>Every week</td><td>With the schedule on, the run starts the day before your send day and the review is waiting for you. Your computer has to be on with Claude open</td></tr>
+          <tr><td>Every month</td><td>When your opportunities list is a month old, the weekly run refreshes it before it collects events</td></tr>
+          <tr><td>Every three months</td><td>The review message offers a source list refresh. Say "refresh sources" and it runs after that issue</td></tr>
+          <tr><td>Now and then</td><td>Claude asks once whether last week's issue went out, with your subscriber count and open rate, and keeps them in the log</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="desc dim">No schedule yet? Say "schedule the newsletter" in your project at any time. If three issues in a row carry fewer than about five events each, Claude offers every two weeks, once. Weekly stays the default.</p>
+
+    <div class="note"><strong>Missed a week? Send the next one.</strong> No apology and no explanation. A missed week is never a reason to change how often you send.</div>
+
     <nav class="pager" aria-label="Previous and next step">
-      <a class="prev" href="../newsletter/"><span class="k">Previous</span><span class="t"><span class="n">4</span>Newsletter</span></a>
+      <a class="prev" href="../first-run/"><span class="k">Previous</span><span class="t"><span class="n">3</span>First run</span></a>
       <a class="next" href="../partners/"><span class="k">Optional, later</span><span class="t">Partners</span></a>
     </nav>
     </div>
@@ -349,6 +343,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=16.3.0"></script>
+<script src="../assets/site.js?v=17.0.0"></script>
 </body>
 </html>

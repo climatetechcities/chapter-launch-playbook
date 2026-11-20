@@ -63,12 +63,7 @@ var LOGO_PROMPT = [
 ].join("\n");
 
 var PROMPTS = {
-  "p-setup":      function (c) { return "/ctc-chapter-setup I want to start a Climate Tech Cities chapter in " + c + "."; },
-  "p-cycle1":     function (c) { return "run the newsletter for " + c; },
-  "p-cycle2":     function (c) { return "run the newsletter for " + c; },
-  "p-harvest":    function (c) { return "/ctc-harvest Harvest this week's events for " + c + "."; },
-  "p-assemble":   function (c) { return "/ctc-assemble Assemble the " + c + " issue from this sheet. Rows marked PICK are my picks."; },
-  "p-monthly":    function (c) { return "run the monthly opportunities for " + c; },
+  "p-run":        function (c) { return "run the newsletter for " + c; },
   "p-partnermap": function (c) { return "build the partner map for " + c; },
   "p-logo":       function (c) { return LOGO_PROMPT.split("{CITY}").join(c); }
 };
@@ -115,21 +110,36 @@ function fallbackCopy(text, done) {
    Every sample ships as a real file. Each page shown here is a render of that exact
    file, so what the viewer shows and what Download hands over are the same document. */
 var FILES = {
-  "chapter-settings": { file: "Chapter_Settings_SAMPLE.docx", kind: "docx",
-    sub: "Word document. Sample Austin chapter.",
-    note: "Every skill in the toolkit reads this file. Add it to your project as a context file." },
+  "settings": { file: "CTC_Settings_SAMPLE.md", kind: "md",
+    sub: "Text file. Fictional Portland chapter.",
+    note: "Claude saves this to your project and reads it at the start of every run. To change anything, tell Claude what to change." },
   "chapter-plan": { file: "Chapter_Plan_SAMPLE.docx", kind: "docx",
-    sub: "Word document. Sample Austin chapter.",
+    sub: "Word document. Fictional Portland chapter.",
     note: "The plan is the one you read. Your dates will differ; the phases will not." },
+  "source-list": { file: "CTC_Source_List_SAMPLE.md", kind: "md",
+    sub: "Text file. Fictional Portland chapter.",
+    note: "The copy Claude keeps in your project and reads every week. You approve the list before it is saved." },
   "registry": { file: "CTC_Source_Registry_SAMPLE.xlsx", kind: "xlsx",
     sub: "Excel workbook. Fictional Portland chapter.",
     note: "White rows are verified. Pale yellow rows are unverified; check them yourself. A red cell is a missing field, named in Missing Info." },
-  "events": { file: "CTC_Events_SAMPLE.xlsx", kind: "xlsx",
-    sub: "Excel workbook. Fictional Portland chapter.",
-    note: "A red cell is information the event page did not give, named in the Missing Info column. The time header carries your chapter's timezone." },
+  "opportunities-list": { file: "CTC_Opportunities_SAMPLE.md", kind: "md",
+    sub: "Text file. Fictional Portland chapter.",
+    note: "The copy Claude keeps in your project. Refreshed once a month; anything past its deadline moves to Closed." },
   "opportunities": { file: "Opportunities_SAMPLE.xlsx", kind: "xlsx",
     sub: "Excel workbook. Fictional Portland chapter.",
     note: "Pale yellow rows close within three weeks or have a date to confirm. Blue rows have more time. A red cell is missing information. Expired entries move to a Closed sheet." },
+  "voice": { file: "CTC_Voice_SAMPLE.md", kind: "md",
+    sub: "Text file. Fictional Portland chapter.",
+    note: "Built from writing samples the lead shared. It holds patterns and short excerpts, not the samples themselves." },
+  "chapter-log": { file: "CTC_Chapter_Log_SAMPLE.md", kind: "md",
+    sub: "Text file. Fictional Portland chapter.",
+    note: "Claude keeps this. It is how the weekly run knows what is due and what you have already answered." },
+  "review": { file: "CTC_Review_Message_SAMPLE.md", kind: "md",
+    sub: "The weekly review message. Fictional Portland chapter.",
+    note: "Stars mark the proposed picks and scissors the proposed cuts, each with its reason. You reply once, by number." },
+  "events": { file: "CTC_Events_SAMPLE.xlsx", kind: "xlsx",
+    sub: "Excel workbook. Fictional Portland chapter.",
+    note: "A red cell is information the event page did not give, named in the Missing Info column. The time header carries your chapter's timezone." },
   "city-resources": { file: "CTC_City_Resources_SAMPLE.xlsx", kind: "xlsx",
     sub: "Excel workbook, the city sheet and City Narratives.",
     note: "Blue rows are organizations, light teal rows are institutions with their programs beneath, and bright yellow cells in column F are notes for whoever publishes, not part of the list. The city, Alderport, and every organization in it are fictional." },
@@ -138,10 +148,10 @@ var FILES = {
     note: "Light teal rows are tier headers; blue rows are organizations to approach; grey rows on Not approaching were set aside, with the reason. The organizations are real Houston ones, but every line written about them here is illustrative and unverified." },
   "issue": { file: "Portland_Climate_Tech_Aug_11-Aug_18.docx", kind: "docx",
     sub: "Word document. Fictional Portland chapter.",
-    note: "The yellow lines are the rewrite markers. They come out when you have written your three blocks." },
+    note: "The Word copy, built only when you ask for it. The yellow lines are the rewrite markers." },
   "issue-html": { file: "Portland_Climate_Tech_Aug_11-Aug_18.html", kind: "html",
     sub: "The web page version, shown as it renders.",
-    note: "This is the copy you paste from. Opening the HTML file keeps the formatting; the Word file does not." }
+    note: "This is the copy you paste from. The yellow lines are the rewrite markers; they come out when you have written your three blocks." }
 };
 var SAMPLES = ROOT + "downloads/samples/";
 var PREVIEWS = SAMPLES + "previews/";
@@ -215,7 +225,7 @@ function openFile(key) {
     stage = inner || root.firstElementChild;
     loading.remove();
     if (f.kind === "xlsx") buildTabs(root);
-    if (f.kind === "docx" || f.kind === "html") fitWidth(); else setZoom(1);
+    if (f.kind === "docx" || f.kind === "html" || f.kind === "md") fitWidth(); else setZoom(1);
   }).catch(function () {
     loading.textContent = "The preview could not load. Download the file to open it.";
   });
@@ -237,10 +247,10 @@ function closeFile() {
 
 /* ---------- old anchors from the single-page version ---------- */
 var LEGACY = {
-  "apply": "two-weeks/", "plan": "two-weeks/", "logo": "logo/", "install": "install/", "setup": "set-up/",
-  "newsletter": "newsletter/", "monthly": "newsletter/#opportunities",
-  "cycle": "weekly-cycle/", "collect": "weekly-cycle/#collect", "cut": "weekly-cycle/#cut",
-  "write": "weekly-cycle/#write", "sample": "weekly-cycle/#sample", "send": "weekly-cycle/#send",
+  "apply": "two-weeks/", "plan": "two-weeks/", "logo": "logo/", "install": "install/", "setup": "first-run/",
+  "newsletter": "first-run/#sources", "monthly": "first-run/#opportunities",
+  "cycle": "weekly-cycle/", "collect": "weekly-cycle/#collect", "cut": "weekly-cycle/#review",
+  "write": "weekly-cycle/#build", "sample": "weekly-cycle/#sample", "send": "weekly-cycle/#send",
   "partners": "partners/", "help": "help/", "downloads": "downloads/"
 };
 

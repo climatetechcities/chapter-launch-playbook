@@ -1,18 +1,17 @@
 {
-  "version": "16.3.0",
-  "date": "2026-11-02",
+  "version": "17.0.0",
+  "date": "2026-11-20",
   "toolkit": {
     "packages": {
-      "ctc-chapter-setup": "1.6.0",
-      "ctc-newsletter": "2.5.1",
+      "ctc-newsletter": "3.2.0",
       "ctc-partner-map": "2.2.0"
     },
     "skills": [
-      "ctc-chapter-setup",
       "ctc-newsletter-cycle",
+      "ctc-chapter-setup",
       "ctc-source-map",
-      "ctc-harvest",
       "ctc-opportunities",
+      "ctc-harvest",
       "ctc-assemble",
       "ctc-city-resources",
       "ctc-partner-list",

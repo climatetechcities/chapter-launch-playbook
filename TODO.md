@@ -1,8 +1,27 @@
 # Open items
 
-Toolkit on the site as of 2026-10-01: `ctc-chapter-setup` v1.6.0 (now a
-plugin, eight questions in one message), `ctc-newsletter` v2.5.1,
-`ctc-partner-map` v2.2.0.
+Toolkit on the site as of 2026-11-20: `ctc-newsletter` v3.2.0 (six skills,
+chapter setup included) and `ctc-partner-map` v2.2.0.
+
+## The hosted zip differs from the uploaded plugin by one address
+
+`ctc-newsletter` 3.2.0 as uploaded still has the old personal playbook address
+in `skills/ctc-chapter-setup/scripts/build_chapter_docs.js` (`PLAYBOOK_URL`) and
+in that skill's `SKILL.md`. The zip in `downloads/` and the Chapter Plan sample
+were built with it changed to https://climatetechcities.github.io/chapter-launch-playbook/.
+Fix it in the plugin source so the next upload matches.
+
+## 3.2.0 says what it has not tested
+
+The plugin's own changelog lists as not tested live: a scheduled run end to
+end, creating the scheduled task on a volunteer's account, saving to a project
+on a second account, and the desktop app's built-in browser. The site describes
+these as the plugin does. Revisit First run and Help once they have been run.
+
+## The install screenshots predate 3.2.0
+
+`plugins-add.png` is still right (one upload instead of three). There is no
+screenshot of the Scheduled list or of a project holding the chapter files.
 
 ## The verification script lives outside the repo
 
@@ -17,7 +36,7 @@ Every page links `assets/site.css?v=X` and `assets/site.js?v=X`. When either
 file changes, bump X on all ten pages in the same commit, or returning
 visitors keep the old copy for up to ten minutes.
 
-## The navigation shell is repeated in eleven files
+## The navigation shell is repeated in nine files
 
 By design, to keep the site free of a build step. A change to the sidebar or
 footer has to be made in every page. An assertion-guarded script is the safe
