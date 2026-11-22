@@ -1,6 +1,6 @@
 # Open items
 
-Toolkit on the site as of 2026-11-20: `ctc-newsletter` v3.2.5 (six skills,
+Toolkit on the site as of 2026-11-22: `ctc-newsletter` v3.3.2 (six skills,
 chapter setup included) and `ctc-partner-map` v2.2.0.
 
 ## The plugin says what it has not tested

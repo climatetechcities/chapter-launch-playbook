@@ -1,9 +1,9 @@
 {
-  "version": "17.3.3",
-  "date": "2026-11-20",
+  "version": "17.4.0",
+  "date": "2026-11-22",
   "toolkit": {
     "packages": {
-      "ctc-newsletter": "3.2.5",
+      "ctc-newsletter": "3.3.2",
       "ctc-partner-map": "2.2.0"
     },
     "skills": [

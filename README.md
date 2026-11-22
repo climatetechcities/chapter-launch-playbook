@@ -15,7 +15,7 @@ plugins, nine skills, covering a new chapter lead's launch.
 
 | Package | Kind | Contains |
 |---|---|---|
-| `ctc-newsletter` v3.2.5 | Plugin, 6 skills | `ctc-newsletter-cycle`, `ctc-chapter-setup`, `ctc-source-map`, `ctc-opportunities`, `ctc-harvest`, `ctc-assemble` |
+| `ctc-newsletter` v3.3.2 | Plugin, 6 skills | `ctc-newsletter-cycle`, `ctc-chapter-setup`, `ctc-source-map`, `ctc-opportunities`, `ctc-harvest`, `ctc-assemble` |
 | `ctc-partner-map` v2.2.0 | Plugin, 3 skills | `ctc-city-resources`, `ctc-partner-list`, `ctc-partner-outreach` |
 
 The logo phase runs in ChatGPT rather than Claude, and the site carries the

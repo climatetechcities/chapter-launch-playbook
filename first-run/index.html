@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/site.css?v=17.3.3" />
+<link rel="stylesheet" href="../assets/site.css?v=17.4.0" />
 </head>
 <body>
 <header class="top">
@@ -100,13 +100,13 @@
         <h2 class="sub" id="lists">Answer one more message</h2>
         <p class="desc dim">Straight after the settings, Claude asks for everything else it needs in a single message. Nothing here is asked again.</p>
         <div class="card qcard">
-          <ol class="qlist optlist">
+          <ol class="qlist">
             <li><strong>Your calendars and programs</strong><span>Paste any event calendars you already check and any grants or programs you already know. Or say "go" and Claude researches both from scratch.</span></li>
             <li><strong>Your writing, optional</strong><span>Paste three to five things you wrote: past notes, LinkedIn posts, emails to a group. Claude learns how you write and drafts the personal parts of each issue to match.</span></li>
-            <li><strong>Three yes or no questions</strong><span>May Claude use your browser to read Luma and Eventbrite each week? May it read your LinkedIn feed once a month for programs your network is posting about? Should the newsletter start by itself each week?</span></li>
+            <li><strong>Three questions</strong><span>How Claude reads Luma and Eventbrite: <b>A, through your browser</b>, the most complete read, or <b>B, without it</b>, for accounts where browser access is switched off. May it read your LinkedIn feed once a month for programs your network is posting about? That one needs the browser, so it is skipped with B. Should the newsletter start by itself each week?</span></li>
           </ol>
         </div>
-        <p class="desc dim">No to any of the three is fine. Skipped the writing samples? Say "learn my writing style" whenever you like.</p>
+        <p class="desc dim">With B, a few sites that load their events by script, or refuse automated reads, will not come through, and each week's review names them. One sentence changes your choice later: "collect without my browser" or "use my browser from now on". No to the other two is fine. Skipped the writing samples? Say "learn my writing style" whenever you like.</p>
       </li>
       <li>
         <h2 class="sub" id="sources">Read your source list before it is saved</h2>
@@ -225,10 +225,10 @@
       <li>
         <h2 class="sub" id="schedule">If you said yes to the schedule</h2>
         <p class="desc dim">After your first issue is built, Claude creates one scheduled task on your account, named CTC newsletter: [your city]. It runs once a week, the day before your send day: it collects the events and leaves the review message waiting for you. It never builds or sends anything by itself.</p>
-        <div class="note"><strong>Your computer has to be on with Claude open when it runs.</strong> The event calendars are read through your browser. If it cannot reach one, it collects nothing and tells you in one short message. When you are back, press Run now on the task or say "run the newsletter".</div>
+        <div class="note"><strong>If you chose A, leave your computer on with Claude open when it runs.</strong> The event calendars are read through your browser. If it cannot reach one, it collects without the browser that week and says so at the top of the review. If you chose B, the run does not need your computer. A missed run is restarted with Run now on the task, or by saying "run the newsletter".</div>
         <figure class="shot">
           <img src="../downloads/guide/scheduled-task.png" alt="" loading="lazy" />
-          <figcaption>The task Claude created, under Scheduled in Claude. <b>1</b> It needs this computer. <b>2</b> Run it now, or switch it off. <b>3</b> Auto means it runs without stopping to ask you.</figcaption>
+          <figcaption>The task Claude created, under Scheduled in Claude. <b>1</b> It needs this computer, because this chapter reads through the browser. <b>2</b> Run it now, or switch it off. <b>3</b> Auto means it runs without stopping to ask you.</figcaption>
         </figure>
       </li>
     </ol>
@@ -305,6 +305,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=17.3.3"></script>
+<script src="../assets/site.js?v=17.4.0"></script>
 </body>
 </html>

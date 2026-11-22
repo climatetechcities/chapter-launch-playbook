@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/site.css?v=17.3.3" />
+<link rel="stylesheet" href="../assets/site.css?v=17.4.0" />
 </head>
 <body>
 <header class="top">
@@ -59,22 +59,24 @@
           <figcaption>The Context panel of a project. <b>1</b> Add puts a file in the project.</figcaption>
         </figure></div></details>
       <details class="faq"><summary>The scheduled run did not collect anything</summary>
-        <div class="body">Your computer was off, Claude was closed, or the browser could not be reached. The run says so in one short message and stops. It runs once a week and does not try again, so start it yourself: press Run now on the task under Scheduled in Claude, or say "run the newsletter" in your project. Starting it twice does no harm. If the run is waiting for your approval, open the task under Scheduled in Claude and set Permissions to Auto.
+        <div class="body">The chapter files could not be read, or Claude was not open. The run says so in one short message and stops. (If only the browser was out of reach, the run collects without it that week and says so in the review instead.) It runs once a week and does not try again, so start it yourself: press Run now on the task under Scheduled in Claude, or say "run the newsletter" in your project. Starting it twice does no harm. If the run is waiting for your approval, open the task under Scheduled in Claude and set Permissions to Auto.
         <figure class="shot">
           <img src="../downloads/guide/scheduled-task.png" alt="" loading="lazy" />
-          <figcaption><b>1</b> The task needs this computer on. <b>2</b> Run now starts it by hand. <b>3</b> Auto runs without asking.</figcaption>
+          <figcaption><b>1</b> A chapter reading through the browser needs this computer on. <b>2</b> Run now starts it by hand. <b>3</b> Auto runs without asking.</figcaption>
         </figure>
         </div></details>
       <details class="faq"><summary>The week's list came back almost empty</summary>
         <div class="body">A source broke. Sites change. Ask Claude which sources returned nothing and look at those by hand. Do not assume the city went quiet.</div></details>
-      <details class="faq"><summary>Events came back with names but no dates</summary>
-        <div class="body">Claude could not reach a browser, so Luma gave it only titles. Check the <a href="https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn" target="_blank" rel="noopener">Claude in Chrome extension</a> is installed and signed in to the same account, then say "run the newsletter" again.</div></details>
+      <details class="faq"><summary>The review says some sources were not read</summary>
+        <div class="body">Claude names each one and why. If you chose to collect through your browser, that week the browser could not be reached: check the <a href="https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn" target="_blank" rel="noopener">Claude in Chrome extension</a> is installed and signed in to the same account, then say "run the newsletter" again. If you collect without it, a few sites that load events by script or refuse automated reads will not come through; check those by hand, or name the events in your reply.</div></details>
       <details class="faq"><summary>A page is asking me to prove I am human</summary>
         <div class="body">Claude stops and names the source in the review message. Open the page yourself and tell Claude what you see. Claude will not solve these.</div></details>
       <details class="faq"><summary>I got the review yesterday and the chat is gone</summary>
         <div class="body">Reply in a new chat inside the project. The week's events are kept there while a review is waiting. If Claude cannot find them, it shows the list again.</div></details>
       <details class="faq"><summary>I want to change my send day, sign-off or what counts as local</summary>
         <div class="body">Tell Claude what to change, in your project. It updates your settings, and the weekly schedule if you have one.</div></details>
+      <details class="faq"><summary>My organization switched off browser access</summary>
+        <div class="body">Say "collect without my browser" in your project. Claude reads Luma from its calendar feeds and other sites as plain pages, and the weekly schedule no longer needs your computer. Add the Airtable connector so the reader submission form can be read. Each week's review names any site that did not come through.</div></details>
       <details class="faq"><summary>I do not want the spreadsheets, or the schedule</summary>
         <div class="body">Say so. Claude records the answer in your chapter log and stops sending them, or pauses the scheduled task. Change your mind the same way.</div></details>
       <details class="faq"><summary>The drafts do not sound like me</summary>
@@ -132,6 +134,6 @@
 </div>
 
 <script>window.ROOT = "../";</script>
-<script src="../assets/site.js?v=17.3.3"></script>
+<script src="../assets/site.js?v=17.4.0"></script>
 </body>
 </html>

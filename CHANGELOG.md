@@ -2,6 +2,15 @@
 
 All toolkit releases. The site reads `version.json`; this file is the human-readable record.
 
+## 17.4.0
+
+The site moves from `ctc-newsletter` 3.2.5 to 3.3.2. The hosted zip is the 3.3.2 `.plugin` as supplied, unmodified, under a `.zip` name like the others.
+
+- **The browser is a choice now (3.3.0).** Install calls the Chrome extension recommended, not required, and says what to do on an account where browser access is switched off: skip it, choose B at the first run, and add the Airtable connector for the submission form. First run describes the A or B question in place of "may Claude use your browser". Help has a new entry for a switched-off browser and replaces "names but no dates", which 3.3.0 can no longer produce, with "the review says some sources were not read".
+- **Scheduled runs (3.3.0).** A chapter collecting without the browser does not need the computer on. One reading through the browser collects without it that week if the browser cannot be reached, and says so, instead of stopping. First run, Every week and Help say so.
+- **Samples.** The Chapter Plan sample was rebuilt with the 3.3.2 script (its install line changed) and the calendar sample with the 3.3.2 calendar script. The other samples are unchanged in the plugin.
+- 3.3.1 and 3.3.2 change how pages are read without the browser and change nothing a lead does.
+
 ## 17.3.3
 
 Every week shows a real first issue pasted into a Substack draft, with the one square bracket still in it marked. The deploy workflow's actions moved to their Node 24 releases.
